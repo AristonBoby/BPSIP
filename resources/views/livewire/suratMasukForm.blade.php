@@ -1,69 +1,182 @@
-
 <div class=" col-lg-12 col-md-12 col-sm-12">
     <div class="card">
         <div class="card-outline-primary">
             <div class="card-header ">
-                <h5 class="card-title">FORM <b>DOKUMEN</b></h5>
+                <h5 class="card-title">FORM <b>PERMOHONAN ANALISIS</b></h5>
             </div>
-            <div class="card-body">
-                <form wire:submit='simpan' class="form-horizontal">
+            <div class="card-body col-md-12">
+                <form wire:submit='simpan' class="row form-horizontal">
 
-                    <div class="form-group row">
-                        <label class="control-label col-sm-4"> Judul Dokumen <b class='text-red'>*</b></label>
-                        <div class="col-sm-8">
-                            <input type="text" wire:model.defer='varAsal_Surat'class="form-control rounded-0 @error('varAsal_Surat') is-invalid @enderror" placeholder="Judul Dokumen">
+                <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
+                        <label class="control-label col-sm-3"> Nomor SPK <b class='text-red'>*</b></label>
+                        <div class="col-sm-7">
+                            <select class=" form-control" >
+                                <option>Tanah(TH)</option>
+                                <option>Pupuk Organik (PO)</option>
+                            <select>
                             @error('varAsal_Surat') <span class=" text-xs error is-invalid text-red"> {{ $message }} </span> @enderror
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label class=" control-label col-sm-4"> Nomor Dokumen <b class='text-red'>*</b></label>
-                        <div class="col-sm-8">
-                            <input type="text" wire:model.defer='varNomor_Surat' class="form-control rounded-0 form-control-sm @error('varNomor_Surat') is-invalid @enderror" placeholder=" Nomor Dokumen">
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
+                        <label class="control-label col-sm-3"> Jenis Pengujian Sampel <b class='text-red'>*</b></label>
+                        <div class="col-sm-7">
+                            <select class=" form-control" >
+                                <option>Tanah(TH)</option>
+                                <option>Pupuk Organik (PO)</option>
+                            <select>
+                            @error('varAsal_Surat') <span class=" text-xs error is-invalid text-red"> {{ $message }} </span> @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
+                        <label class=" control-label col-sm-3">Nama Pemohon <b class='text-red'>*</b></label>
+                        <div class="col-sm-7">
+                            <input type="text" wire:model.defer='varNomor_Surat' class="form-control rounded-0  @error('varNomor_Surat') is-invalid @enderror" placeholder=" Nama Pemohon">
                             @error('varNomor_Surat') <span class=" text-red error">{{ $message }}</span> @enderror
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="control-label text-sm col-sm-4">Jenis Dokumen <b class='text-red'>*</b></label>
-                        <div class="col-sm-8">
-                            <select wire:model.defer='varJenis_Surat'class="form-control rounded-0 form-control-sm @error('varJenis_Surat') is-invalid @enderror">
-                                <option value="" selected>--Pilih Salah Satu--</option>
-                                <option value="rahasia">Rahasia</option>
-                                <option value='segera'>Segera</option>
-                                <option value="biasa">Biasa</option>
-                            </select>
-                            @error('varJenis_Surat')<span class="error is_invalid text-sm text-red"> {{ $message }} </span>@enderror
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
+                        <label class="control-label col-sm-3">No. Telp (HP) <b class='text-red'>*</b></label>
+                        <div class="col-sm-7">
+                        <input type="text" wire:model.defer='varNomor_Surat' class="form-control rounded-0  @error('varNomor_Surat') is-invalid @enderror" placeholder=" Nomor Telepon (HP)">
+                            @error('varJenis_Surat')<span class="error is_invalid  text-red"> {{ $message }} </span>@enderror
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label class="control-label text-sm col-sm-4">Tanggal Surat <b class='text-red'>*</b></label>
-                        <div class="col-sm-8">
-                            <input wire:model.defer='varTanggal' type="date" class="form-control form-control-sm rounded-0 @error('varTanggal')is-invalid @enderror">
-                            @error('varTanggal')<span class="error text-red text-sm">{{ $message }}</span>@enderror
+                    <div class="form-group  col-lg-6 col-md-12 col-sm-12 row">
+                        <label class="control-label  col-sm-3">Provinsi<b class='text-red'>*</b></label>
+                        <div class="col-sm-7">
+                        <select class=" form-control" >
+                                <option>Tanah(TH)</option>
+                                <option>Pupuk Organik (PO)</option>
+                            <select>
+                            @error('varTanggal')<span class="error text-red ">{{ $message }}</span>@enderror
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label class="control-label text-sm col-sm-4"> Keterangan <b class='text-red'>*</b></label>
-                        <div class="col-sm-8">
-                            <textarea wire:model='varPerihal' class="form-control form-control-sm rounded-0 @error('varPerihal')is-invalid @enderror"></textarea>
-                            @error('varPerihal')<span class="text-sm text-red">{{ $message }}</span>@enderror
+                    <div class="form-group  col-lg-6 col-md-12 col-sm-12 row">
+                        <label class="control-label  col-sm-3">Kab/Kota<b class='text-red'>*</b></label>
+                        <div class="col-sm-7">
+                        <select class=" form-control" >
+                                <option>Tanah(TH)</option>
+                                <option>Pupuk Organik (PO)</option>
+                            <select>
+                            @error('varTanggal')<span class="error text-red ">{{ $message }}</span>@enderror
                         </div>
                     </div>
 
-
-                    <div class="form-group row">
-                        <label class="control-label text-sm col-sm-4">File Dokumen<b class='text-red'>*</b></label>
-                        <div class="col-sm-8">
-                            <div class="custom-file">
-                                <input type="file" placeholder="File Dokumen" class="custom-file-input @error('varFile')is-invalid @enderror" wire:model="varFile" id="customFile">
-                                <label class="custom-file-label" for="customFile">{{ $namaAsliFile }}</label>
-                            </div>
-                            <span class="text-sm text-default"><i>File yang di upload max 5 MB</i><br></span>
-                            @error('varFile') <span class="text-sm text-red">{{ $message }}</span> @enderror
+                    <div class="form-group  col-lg-6 col-md-12 col-sm-12 row">
+                        <label class="control-label  col-sm-3">Kecamatan<b class='text-red'>*</b></label>
+                        <div class="col-sm-7">
+                        <select class=" form-control" >
+                                <option>Tanah(TH)</option>
+                                <option>Pupuk Organik (PO)</option>
+                            <select>
+                            @error('varTanggal')<span class="error text-red ">{{ $message }}</span>@enderror
                         </div>
                     </div>
+
+                    <div class="form-group  col-lg-6 col-md-12 col-sm-12 row">
+                        <label class="control-label  col-sm-3">Kelurahan Desa<b class='text-red'>*</b></label>
+                        <div class="col-sm-7">
+                        <select class=" form-control" >
+                                <option>Tanah(TH)</option>
+                                <option>Pupuk Organik (PO)</option>
+                            <select>
+                            @error('varTanggal')<span class="error text-red ">{{ $message }}</span>@enderror
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3" >
+                        <h5 class="card-title">Identitas <b>Contoh</b>
+                    </div>
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
+                        <label class="control-label  col-sm-3"> Jumlah Contoh <b class='text-red'>*</b></label>
+                        <div class="col-sm-7">
+                        <input type="text" wire:model.defer='varNomor_Surat' class="form-control rounded-0  @error('varNomor_Surat') is-invalid @enderror" placeholder=" Jumlah Contoh">
+                            @error('varPerihal')<span class=" text-red">{{ $message }}</span>@enderror
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
+                        <label class="control-label  col-sm-3"> Jenis Contoh <b class='text-red'>*</b></label>
+                        <div class="col-sm-7">
+                        <input type="text" wire:model.defer='varNomor_Surat' class="form-control rounded-0  @error('varNomor_Surat') is-invalid @enderror" placeholder=" Jenis Contoh">
+                            @error('varPerihal')<span class=" text-red">{{ $message }}</span>@enderror
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
+                        <label class="control-label  col-sm-3"> Berat Contoh <b class='text-red'>*</b></label>
+                        <div class="col-sm-7">
+                        <input type="text" wire:model.defer='varNomor_Surat' class="form-control rounded-0  @error('varNomor_Surat') is-invalid @enderror" placeholder=" Berat Contoh">
+                            @error('varPerihal')<span class=" text-red">{{ $message }}</span>@enderror
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
+                        <label class="control-label  col-sm-3">Bentuk Contoh<b class='text-red'>*</b></label>
+                        <div class="col-sm-7">
+                          
+                            <input type="text" wire:model.defer='varNomor_Surat' class="form-control rounded-0  @error('varNomor_Surat') is-invalid @enderror" placeholder=" Bentuk Contoh">
+                            @error('varFile') <span class=" text-red">{{ $message }}</span> @enderror
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
+                        <label class="control-label  col-sm-3">Kondisi Contoh<b class='text-red'>*</b></label>
+                        <div class="col-sm-7">
+                          
+                            <input type="text" wire:model.defer='varNomor_Surat' class="form-control rounded-0  @error('varNomor_Surat') is-invalid @enderror" placeholder=" Kondisi Kemasan">
+                            @error('varFile') <span class=" text-red">{{ $message }}</span> @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
+                        <label class="control-label  col-sm-3">Jenis Kemasan<b class='text-red'>*</b></label>
+                        <div class="col-sm-7">
+                            <input type="text" wire:model.defer='varNomor_Surat' class="form-control rounded-0  @error('varNomor_Surat') is-invalid @enderror" placeholder=" Jenis Kemasan  ">
+                            @error('varFile') <span class=" text-red">{{ $message }}</span> @enderror
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
+                        <label class="control-label  col-sm-3">Tanggal Pengujian<b class='text-red'>*</b></label>
+                        <div class="col-sm-7">
+                            <input type="date" wire:model.defer='varNomor_Surat' class="form-control rounded-0  @error('varNomor_Surat') is-invalid @enderror" placeholder=" Jenis Kemasan  ">
+                            @error('varFile') <span class=" text-red">{{ $message }}</span> @enderror
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12 mb-3" >
+                        <h5 class="card-title">Identitas <b>Contoh</b>
+                    </div>       
+
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
+                        <label class="control-label  col-sm-3">Kode Contoh/Sampel (Costomer)<b class='text-red'>*</b></label>
+                        <div class="col-sm-7">
+                        <input type="text" wire:model.defer='varNomor_Surat' class="form-control rounded-0  @error('varNomor_Surat') is-invalid @enderror" placeholder=" Jenis Kemasan  ">
+                            @error('varFile') <span class=" text-red">{{ $message }}</span> @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
+                        <label class="control-label  col-sm-3">Kode Lab<b class='text-red'>*</b></label>
+                        <div class="col-sm-7">
+                        <input type="text" wire:model.defer='varNomor_Surat' class="form-control rounded-0  @error('varNomor_Surat') is-invalid @enderror" placeholder=" Jenis Kemasan  ">
+                            @error('varFile') <span class=" text-red">{{ $message }}</span> @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
+                        <label class="control-label  col-sm-3">Parameter Uji<b class='text-red'>*</b></label>
+                        <div class="col-sm-7">
+                        <input type="text" wire:model.defer='varNomor_Surat' class="form-control rounded-0  @error('varNomor_Surat') is-invalid @enderror" placeholder=" Jenis Kemasan  ">
+                            @error('varFile') <span class=" text-red">{{ $message }}</span> @enderror
+                        </div>
+                    </div>         
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
+                        <label class="control-label  col-sm-3">Keterangan<b class='text-red'>*</b></label>
+                        <div class="col-sm-7">
+                        <input type="text" wire:model.defer='varNomor_Surat' class="form-control rounded-0  @error('varNomor_Surat') is-invalid @enderror" placeholder=" Jenis Kemasan  ">
+                            @error('varFile') <span class=" text-red">{{ $message }}</span> @enderror
+                        </div>
+                    </div>                                 
 
                     <div class="col-md-12 col-lg-12 col-sm-12">
                         <button class=" btn-sm btn btn-primary float-right"><i class="fa fa-save" aria-hidden="true"></i> Simpan</button>

@@ -1,7 +1,7 @@
     @extends('layouts.app')
 
     @section('header')
-    INPUT <b>DOKUMEN</b>
+    PERMOHONAN <b>ANALISIS</b>
     @endsection
 
     @section('navigator')

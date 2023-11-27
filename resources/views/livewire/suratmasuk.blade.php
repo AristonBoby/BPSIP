@@ -1,7 +1,6 @@
 <div class="col-md-12">
         <div class="row">
             <livewire:suratMasukForm>
-            <livewire:tablesuratmasuk>
         </div>
         <div wire:ignore class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
             <div class="modal-dialog">
