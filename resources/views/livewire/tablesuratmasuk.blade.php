@@ -1,4 +1,4 @@
-    <div class="col-md-12 col-sm-12 col-lg-8">
+    <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="card">
             <div class="card-default">
                 <div class="card-header">
@@ -13,7 +13,7 @@
                             </span>
                             <input type="date" class="form-control rounded-0">
                                 <span class="input-group-append">
-                                    <button wire:click='refresh' type="button" class="btn btn-primary"><i class="text-xs fa fa-sync-alt" aria-hidden="true"></i> REFRESH</button>
+                                    <button wire:click='refresh' type="button" class="btn btn-primary"><i class="text-xs fa fa-sync-alt" aria-hidden="true"></i> Refresh</button>
                                 </span>
                         </div>
                     </div>

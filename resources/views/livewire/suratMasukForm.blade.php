@@ -1,15 +1,15 @@
 
-<div class=" col-lg-4 col-md-12 col-sm-12">
+<div class=" col-lg-12 col-md-12 col-sm-12">
     <div class="card">
-        <div class="card-default">
+        <div class="card-outline-primary">
             <div class="card-header ">
-                <h5 class="card-title">FORM DOKUMEN</h5>
+                <h5 class="card-title">FORM <b>DOKUMEN</b></h5>
             </div>
             <div class="card-body">
                 <form wire:submit='simpan' class="form-horizontal">
 
                     <div class="form-group row">
-                        <label class="control-label text-sm col-sm-4"> Judul Dokumen <b class='text-red'>*</b></label>
+                        <label class="control-label col-sm-4"> Judul Dokumen <b class='text-red'>*</b></label>
                         <div class="col-sm-8">
                             <input type="text" wire:model.defer='varAsal_Surat'class="form-control rounded-0 @error('varAsal_Surat') is-invalid @enderror" placeholder="Judul Dokumen">
                             @error('varAsal_Surat') <span class=" text-xs error is-invalid text-red"> {{ $message }} </span> @enderror
@@ -17,13 +17,12 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class=" control-label text-sm col-sm-4"> Nomor Dokumen <b class='text-red'>*</b></label>
+                        <label class=" control-label col-sm-4"> Nomor Dokumen <b class='text-red'>*</b></label>
                         <div class="col-sm-8">
                             <input type="text" wire:model.defer='varNomor_Surat' class="form-control rounded-0 form-control-sm @error('varNomor_Surat') is-invalid @enderror" placeholder=" Nomor Dokumen">
-                            @error('varNomor_Surat') <span class="text-sm text-red error">{{ $message }}</span> @enderror
+                            @error('varNomor_Surat') <span class=" text-red error">{{ $message }}</span> @enderror
                         </div>
                     </div>
-
                     <div class="form-group row">
                         <label class="control-label text-sm col-sm-4">Jenis Dokumen <b class='text-red'>*</b></label>
                         <div class="col-sm-8">
