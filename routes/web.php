@@ -19,9 +19,5 @@ Auth::routes([  'register' => false,
                 ]);
 Route::get('/', [App\Http\Controllers\Auth\LoginController::class,'showLoginForm'])->name('showlogin');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/PermohonanAnalis', [App\Http\Controllers\permohonanAnalis::class, 'index'])->name('suratmasuk');
-Route::get(
-
-Route::get('/viewedokumen/{id}', [App\Livewire\Tablesuratmasuk::class, 'viewedok'])->name('edukumen');
-'/dokumen', [App\Http\Controllers\dokumen::class, 'index'])->name('dokumen');
+Route::get('/PermohonanAnalis', [App\Http\Controllers\permohonanAnalis::class, 'index'])->name('permohonanAnalis');
 

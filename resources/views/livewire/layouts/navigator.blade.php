@@ -7,28 +7,9 @@
           </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('suratmasuk') }}" class="nav-link">
+            <a href="{{ route('permohonanAnalis') }}" class="nav-link">
               <i class="nav-icon fa fa-envelope" aria-hidden="true"></i>
-              <p>Input Dokumen</p>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a href="{{ route('dokumen') }}" class="nav-link">
-              <i class="nav-icon fa fa-envelope" aria-hidden="true"></i>
-              <p>Data Dokumen</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-              <i class="nav-icon fas fa-key" aria-hidden="true"></i>
-              <p>Ubah Password</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-              <i class="nav-icon fas fa-sign-out" aria-hidden="true"></i>
-              <p>Logout</p>
+              <p>Form Permohonan Analis</p>
             </a>
         </li>
 

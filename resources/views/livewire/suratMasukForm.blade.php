@@ -10,10 +10,7 @@
                 <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
                         <label class="control-label col-sm-3"> Nomor SPK <b class='text-red'>*</b></label>
                         <div class="col-sm-7">
-                            <select class=" form-control" >
-                                <option>Tanah(TH)</option>
-                                <option>Pupuk Organik (PO)</option>
-                            <select>
+                           <input type="text" class="form-control" placeholder="Nomor SPK">
                             @error('varAsal_Surat') <span class=" text-xs error is-invalid text-red"> {{ $message }} </span> @enderror
                         </div>
                     </div>

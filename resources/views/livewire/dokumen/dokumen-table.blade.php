@@ -10,7 +10,7 @@
             <table class="table text-sm">
                 <thead>
                     <th>
-                        <td>NO.</td>
+                    <td>NO.</td>
                     <th>NOMOR DOKUMEN</th>
                     <th>JUDUL DOKUMEN</th>
                     <th>JENIS DOKUMEN</th>
