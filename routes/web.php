@@ -19,5 +19,8 @@ Auth::routes([  'register' => false,
                 ]);
 Route::get('/', [App\Http\Controllers\Auth\LoginController::class,'showLoginForm'])->name('showlogin');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/FormJenisPengujian', [App\Http\Controllers\jenisPengujian::class, 'index'])->name('formJenisPengujian');
+Route::get('/FormAnalisaSampel', [App\Http\Controllers\analisaSampel::class, 'index'])->name('FormAnalisaSampel');
+Route::get('/jenisPemeriksaan', [App\Http\Controllers\analisaSampel::class, 'index'])->name('jenisPemeriksaan');
 Route::get('/PermohonanAnalis', [App\Http\Controllers\permohonanAnalis::class, 'index'])->name('permohonanAnalis');
 

@@ -12,6 +12,33 @@
               <p>Form Permohonan Analis</p>
             </a>
         </li>
-
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon far fa-plus-square"></i>
+            <p>Manajemen Data
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview" style="display: none;">
+            <li class="nav-item">
+              <a href="{{ route('formJenisPengujian') }}" class="nav-link">
+                <i class="nav-icon fa fa-envelope" aria-hidden="true"></i>
+                <p>Jenis Pengujian Sampel</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ route('FormAnalisaSampel') }}" class="nav-link">
+                <i class="nav-icon fa fa-envelope" aria-hidden="true"></i>
+                <p>Analisa Sampel</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ route('jenisPemeriksaan') }}" class="nav-link">
+                <i class="nav-icon fa fa-envelope" aria-hidden="true"></i>
+                <p>Jenis Pemeriksaan</p>
+              </a>
+            </li>
+          </ul>
+        </li>
     </ul>
 </div>

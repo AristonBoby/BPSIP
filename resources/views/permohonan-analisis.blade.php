@@ -9,6 +9,6 @@
     @endsection
 
     @section('content')
-            <livewire:suratmasuk>
+            <livewire:permohonan-analisis.form-permintaan-analisis>
     @endsection
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('header')
-INPUT <b>DOKUMEN</b>
+JENIS PENGUJIAN <b>SAMPEL</b>
 @endsection
 
 @section('navigator')
@@ -9,7 +9,6 @@ INPUT <b>DOKUMEN</b>
 @endsection
 
 @section('content')
-        <livewire:dokumen.dokumen_table>
+            <livewire:jenis-pengujian-sampel.jenis-pengujian>
 @endsection
-
 
