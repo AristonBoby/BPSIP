@@ -12,14 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('jenis_pengujian_sampels', function (Blueprint $table) {
-            $table->id();
-            $table->string('jenis_pengujian');
-            $table->integer(status,1);
+            $table->uuid('id')->primary();
+            $table->string('jenis_pengujian',50);
+            $table->char('status',1);
             $table->timestamps();
         });
     }
-
- 
     public function down(): void
     {
         Schema::dropIfExists('jenis_pengujian_sampels');
