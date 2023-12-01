@@ -27,9 +27,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($query as $data)
+                    @foreach($query as $index=>$data)
                         <tr>
-                            <td>1</td>
+                            <td>{{$query->firstItem() + $index}}.</td>
                             <td>{{$data->jenis_pengujian}}</td>
                             <td class="text-center">@if($data->status=='1')<span class="badge bg-success">Aktif</span>@elseif($data->status=='0')<span class="badge bg-danger">Tidak Aktif</span> @endif</td>
                             <td class="text-center" >{{$data->created_at}}</td>
@@ -40,9 +40,13 @@
                         </tr>
                     @endforeach
                 </tbody>
-                    
             </table>
-            {{$query->links('pagination::bootstrap-4')}}
+            <div class="col-md-12 mt-3 float-right">
+                <div class="float-right">
+                    {{$query->links()}}
+                </div>
+            </div>
+           
         </div>
     </div>
 </div>
