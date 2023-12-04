@@ -99,3 +99,10 @@
 
 </body>
 </html>
+@script
+<script>
+     window.addEventListener('success',event =>{
+    
+     });
+</script>
+@endscript

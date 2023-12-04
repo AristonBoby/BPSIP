@@ -34,7 +34,7 @@
                             <td class="text-center">@if($data->status=='1')<span class="badge bg-success">Aktif</span>@elseif($data->status=='0')<span class="badge bg-danger">Tidak Aktif</span> @endif</td>
                             <td class="text-center" >{{$data->created_at}}</td>
                             <td class="text-center" >
-                                <a class="btn btn-sm btn-warning" wire:click="getData('{{$data->id}}')" data-toggle="modal" data-target="#modalEditJaminan"><i class="text-xs fa fa-edit"></i> Edit</a>
+                                <a class="btn btn-sm btn-warning" wire:click="getData('{{$data->id}}')" data-toggle="modal" data-target="#modalEdit"><i class="text-xs fa fa-edit"></i> Edit</a>
                                 <a class="btn btn-sm bg-danger" ><i class="fas fa-light fa-trash-alt text-xs"></i> Hapus</a>
                             </td>
                         </tr>
@@ -51,4 +51,8 @@
     </div>
     @include('livewire.jenis-pengujian-sampel.ModalEdit')
 </div>
-
+<script>
+    window.addEventListener('success',event=>{
+        $('#modalEdit').modal('hide');
+    });
+</script>

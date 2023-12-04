@@ -63,7 +63,7 @@ class TableJenisPengujianSampel extends Component
 
         if($query)
         {
-            $this
+            $this->dispatch('success');
         }
     }
 
