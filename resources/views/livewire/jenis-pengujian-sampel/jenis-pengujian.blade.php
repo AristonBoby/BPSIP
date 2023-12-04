@@ -5,5 +5,5 @@
     <div class="col-sm-12 col-md-12 col-lg-9">
         <livewire:jenis-pengujian-sampel.table-jenis-pengujian-sampel>
     </div>
-    @include('livewire.jenis-pengujian-sampel.ModalEdit')
+ 
 </div>

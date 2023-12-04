@@ -10,34 +10,36 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-<div class="modal-body">
-<form class="form-horizontal" wire:submit.prevent='editKunjungan()' >
+<div class="modal-body" wire:loading.remove>
+<form  class="form-horizontal" wire:submit.prevent='update()' >
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group row">
-                        <label class="col-md-3 col-from-label text-sm">Kode Jaminan</label>
+                        <label class="col-md-3 col-from-label ">ID</label>
                         <div class="col-md-9">
-                            <input type="text" wire:model="jenis" class="form-control"id="recipient-name" disabled>
+                            <input type="text" wire:model="idView" class="form-control" id="recipient-name" disabled>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group row">
-                        <label class="col-md-3 col-from-label text-sm">Nama</label>
+                        <label class="col-md-3 col-from-label">Jenis Pemeriksaan <i class="text-red">*</i></label>
                         <div class="col-md-9">
-                            <input type="text" wire:model="jenis" class="form-control"  id="recipient-name">
+                            <input type="text" wire:model="jenis" class="form-control  @error('jenis') is-invalid @enderror"  id="recipient-name">
+                            @error('jenis') <span class=" text-red">{{ $message }}</span> @enderror
                         </div>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group row">
-                        <label class="col-md-3 col-from-label text-sm">Status</label>
+                        <label class="col-md-3 col-from-label ">Status</label>
                         <div class="col-md-9">
-                        <select class="form-control @error('status')is-invalid @enderror" required>
-                            <option>=== Pilih Salah Satu ===</option>
+                        <select wire:model="status" class="form-control @error('status') is-invalid @enderror">
+                            <option value="">=== Pilih Salah Satu ===</option>
                             <option value=1>Aktif</option>
-                            <option value=2>Tidak Aktif</option>
+                            <option value=0>Tidak Aktif</option>
                         </select>
+                        @error('status') <span class=" text-red">{{ $message }}</span> @enderror
                         </div>
                     </div>
                 </div>

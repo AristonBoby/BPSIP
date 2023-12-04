@@ -10,6 +10,7 @@ class TableJenisPengujianSampel extends Component
 {   
     use WithPagination;
     public $id;
+    public $idView;
     public $jenis;
     public $status;
     public function render()
@@ -18,13 +19,52 @@ class TableJenisPengujianSampel extends Component
         return view('livewire.jenis-pengujian-sampel.table-jenis-pengujian-sampel',['query'=>$data]);
     }
 
+    private function resetVariabel()
+    {
+         $this->id      ='';
+         $this->idView  ='';
+         $this->jenis   ='';
+         $this->status  ='';
+         $this->resetValidation();
+    }
 
     public function getData($id)
-    {
+    {   $this->resetVariabel();
         $this->id = $id;
         $query = jenis_pengujian_sampel::where('id',$this->id)->first();
-        $this->jenis    = $query['jenis_pengujian'];
-        $this->status   = $query['status'];
+        if($query)
+        {   
+            $this->idView   = $query['id'];
+            $this->jenis    = $query['jenis_pengujian'];
+            $this->status   = $query['status'];
+        }
+        
+    }
+    protected $rules =[
+            'jenis'             => 'required',
+            'status'            => 'required',
+    ];
+
+    public function messages()
+    {
+        return [
+            'jenis.required'        =>  'Data Tidak Boleh Kosong',
+            'status.required'       =>  'Pilih Salah Satu',
+        ];
+    }
+
+    public function update()
+    {
+        $this->validate();
+        $query = jenis_pengujian_sampel::find($this->id)->update([
+            'jenis_pengujian'   => $this->jenis,
+            'status'            => $this->status,
+        ]);
+
+        if($query)
+        {
+            $this
+        }
     }
 
 }

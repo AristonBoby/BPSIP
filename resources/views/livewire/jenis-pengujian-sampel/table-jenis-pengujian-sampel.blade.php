@@ -49,5 +49,6 @@
            
         </div>
     </div>
+    @include('livewire.jenis-pengujian-sampel.ModalEdit')
 </div>
 
