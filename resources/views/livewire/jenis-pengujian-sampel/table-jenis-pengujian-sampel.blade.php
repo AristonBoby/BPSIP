@@ -1,7 +1,7 @@
 <div>
     <div class="card card-primary card-outline">
         <div class="card-header">
-            <h5 class="card-title"><b>Tabel</b> Jenis Pengujian Sampel</h5>
+            <h5 class="card-title"><b>Tabel</b> Jenis Pengujian Sampel <span wire:loading class="badge bg-success text-xs"> <i class="text-xs fas fa-3x fa-sync-alt fa-spin"></i> Loading...</span></h5>
         </div>
         <div class="card-body table-responsive">
             <div class="col-lg-12">
