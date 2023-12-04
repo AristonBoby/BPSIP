@@ -3,7 +3,6 @@
         <div class="card-header">
             <h5 class="card-title"><b>Tabel</b> Jenis Pengujian Sampel</h5>
         </div>
-    
         <div class="card-body table-responsive">
             <div class="col-lg-12">
                 <div class="input-group col-md-3 input-group float-right mb-1">
@@ -15,7 +14,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <table class="table text-sm table-sm table-hover table-striped p-0">
                 <thead class="text-uppercase">
                     <tr>
@@ -46,7 +45,6 @@
                     {{$query->links()}}
                 </div>
             </div>
-           
         </div>
     </div>
     @include('livewire.jenis-pengujian-sampel.ModalEdit')
