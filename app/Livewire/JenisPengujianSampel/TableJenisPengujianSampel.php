@@ -13,11 +13,11 @@ class TableJenisPengujianSampel extends Component
     public $idView;
     public $jenis;
     public $status;
-    public $cari = '';
+    public $cari;
 
     public function render()
     {
-        $data = jenis_pengujian_sampel::paginate(5);
+        $data = jenis_pengujian_sampel::where('jenis_pengujian','LIKE', '%'.$this->cari.'%')->paginate(5);
         return view('livewire.jenis-pengujian-sampel.table-jenis-pengujian-sampel',['query'=>$data]);
     }
 

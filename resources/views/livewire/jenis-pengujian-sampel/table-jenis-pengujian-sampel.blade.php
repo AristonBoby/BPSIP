@@ -6,9 +6,9 @@
         <div class="card-body table-responsive">
             <div class="col-lg-12">
                 <div class="input-group col-md-3 input-group float-right mb-1">
-                    <input type="text" name="table_search"  class="form-control float-right" placeholder="Pencarian">
+                    <input type="text" wire:model='cari' class="form-control float-right" placeholder="Pencarian">
                     <div class="input-group-append">
-                        <button type="submit" wire:modal='cari' class="btn btn-primary">
+                        <button type="submit" wire:click='tblRefresh()' class="btn btn-primary">
                             <i class="fas fa-search"></i> Cari
                         </button>
                     </div>
@@ -26,7 +26,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($query as $index=>$data)
+                    @forelse($query as $index=>$data)
                         <tr>
                             <td>{{$query->firstItem() + $index}}.</td>
                             <td>{{$data->jenis_pengujian}}</td>
@@ -37,7 +37,11 @@
                                 <a class="btn btn-sm bg-danger" wire:click="getData('{{$data->id}}')" data-toggle ="modal" data-target="#modalHapus"s><i class="fas fa-light fa-trash-alt text-xs"></i> Hapus</a>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="6" class="text-center">Data Tidak Ditemukan</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
             <div class="col-md-12 mt-3 float-right">
