@@ -6,9 +6,9 @@
         <div class="card-body table-responsive">
             <div class="col-lg-12">
                 <div class="input-group col-md-3 input-group float-right mb-1">
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Pencarian">
+                    <input type="text" name="table_search"  class="form-control float-right" placeholder="Pencarian">
                     <div class="input-group-append">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" wire:modal='cari' class="btn btn-primary">
                             <i class="fas fa-search"></i> Cari
                         </button>
                     </div>
@@ -34,7 +34,7 @@
                             <td class="text-center" >{{$data->created_at}}</td>
                             <td class="text-center" >
                                 <a class="btn btn-sm btn-warning" wire:click="getData('{{$data->id}}')" data-toggle="modal" data-target="#modalEdit"><i class="text-xs fa fa-edit"></i> Edit</a>
-                                <a class="btn btn-sm bg-danger" ><i class="fas fa-light fa-trash-alt text-xs"></i> Hapus</a>
+                                <a class="btn btn-sm bg-danger" wire:click="getData('{{$data->id}}')" data-toggle ="modal" data-target="#modalHapus"s><i class="fas fa-light fa-trash-alt text-xs"></i> Hapus</a>
                             </td>
                         </tr>
                     @endforeach
@@ -48,6 +48,7 @@
         </div>
     </div>
     @include('livewire.jenis-pengujian-sampel.ModalEdit')
+    @include('livewire.jenis-pengujian-sampel.ModalHapus')
 </div>
 <script>
     window.addEventListener('success',event=>{
