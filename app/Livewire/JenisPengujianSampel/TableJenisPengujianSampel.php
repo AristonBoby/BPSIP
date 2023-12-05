@@ -7,17 +7,25 @@ use Livewire\WithPagination;
 use Livewire\Component;
 
 class TableJenisPengujianSampel extends Component
-{   
+{
     use WithPagination;
     public $id;
     public $idView;
     public $jenis;
     public $status;
+    public $cari;
+
     public function render()
     {
-        $data = jenis_pengujian_sampel::paginate(5);
+        $data = jenis_pengujian_sampel::where('jenis_pengujian','LIKE', '%'.$this->cari.'%')->paginate(5);
         return view('livewire.jenis-pengujian-sampel.table-jenis-pengujian-sampel',['query'=>$data]);
     }
+
+    public function tblRefresh()
+    {
+        $this->render();
+    }
+
 
     private function resetVariabel()
     {
@@ -33,12 +41,12 @@ class TableJenisPengujianSampel extends Component
         $this->id = $id;
         $query = jenis_pengujian_sampel::where('id',$this->id)->first();
         if($query)
-        {   
+        {
             $this->idView   = $query['id'];
             $this->jenis    = $query['jenis_pengujian'];
             $this->status   = $query['status'];
         }
-        
+
     }
     protected $rules =[
             'jenis'             => 'required',

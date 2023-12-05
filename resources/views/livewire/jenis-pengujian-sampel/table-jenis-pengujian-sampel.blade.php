@@ -1,21 +1,20 @@
 <div>
     <div class="card card-primary card-outline">
         <div class="card-header">
-            <h5 class="card-title"><b>Tabel</b> Jenis Pengujian Sampel</h5>
+            <h5 class="card-title"><b>Tabel</b> Jenis Pengujian Sampel <span wire:loading class="badge bg-success text-xs"> <i class="text-xs fas fa-3x fa-sync-alt fa-spin"></i> Loading...</span></h5>
         </div>
-    
         <div class="card-body table-responsive">
             <div class="col-lg-12">
                 <div class="input-group col-md-3 input-group float-right mb-1">
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Pencarian">
+                    <input type="text" wire:model='cari' class="form-control float-right" placeholder="Pencarian">
                     <div class="input-group-append">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" wire:click='tblRefresh()' class="btn btn-primary">
                             <i class="fas fa-search"></i> Cari
                         </button>
                     </div>
                 </div>
             </div>
-            
+
             <table class="table text-sm table-sm table-hover table-striped p-0">
                 <thead class="text-uppercase">
                     <tr>
@@ -27,7 +26,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($query as $index=>$data)
+                    @forelse($query as $index=>$data)
                         <tr>
                             <td>{{$query->firstItem() + $index}}.</td>
                             <td>{{$data->jenis_pengujian}}</td>
@@ -35,10 +34,14 @@
                             <td class="text-center" >{{$data->created_at}}</td>
                             <td class="text-center" >
                                 <a class="btn btn-sm btn-warning" wire:click="getData('{{$data->id}}')" data-toggle="modal" data-target="#modalEdit"><i class="text-xs fa fa-edit"></i> Edit</a>
-                                <a class="btn btn-sm bg-danger" ><i class="fas fa-light fa-trash-alt text-xs"></i> Hapus</a>
+                                <a class="btn btn-sm bg-danger" wire:click="getData('{{$data->id}}')" data-toggle ="modal" data-target="#modalHapus"s><i class="fas fa-light fa-trash-alt text-xs"></i> Hapus</a>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="6" class="text-center">Data Tidak Ditemukan</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
             <div class="col-md-12 mt-3 float-right">
@@ -46,10 +49,10 @@
                     {{$query->links()}}
                 </div>
             </div>
-           
         </div>
     </div>
     @include('livewire.jenis-pengujian-sampel.ModalEdit')
+    @include('livewire.jenis-pengujian-sampel.ModalHapus')
 </div>
 <script>
     window.addEventListener('success',event=>{
