@@ -32,6 +32,8 @@
     <script>
     window.addEventListener('alert', event => {
         $('#modalEdit').modal('hide');
+        $('#modalHapus').modal('hide');
+
         Swal.fire({
             text: event.detail.text,
             title: event.detail.title,

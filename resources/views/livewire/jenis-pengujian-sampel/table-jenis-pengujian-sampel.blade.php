@@ -5,6 +5,12 @@
         </div>
         <div class="card-body table-responsive">
             <div class="col-lg-12">
+            <div class="input-group col-md-3 input-group float-right mb-1">
+                    <select wire:model.live="filter">
+                        <option value=0>Sumua Data</option>
+                        <option value=1>Dihapus</option>
+                    </select>
+                </div>
                 <div class="input-group col-md-3 input-group float-right mb-1">
                     <input type="text" wire:model='cari' class="form-control float-right" placeholder="Pencarian">
                     <div class="input-group-append">
@@ -32,9 +38,13 @@
                             <td>{{$data->jenis_pengujian}}</td>
                             <td class="text-center">@if($data->status=='1')<span class="badge bg-success">Aktif</span>@elseif($data->status=='0')<span class="badge bg-danger">Tidak Aktif</span> @endif</td>
                             <td class="text-center" >{{$data->created_at}}</td>
-                            <td class="text-center" >
-                                <a class="btn btn-sm btn-warning" wire:click="getData('{{$data->id}}')" data-toggle="modal" data-target="#modalEdit"><i class="text-xs fa fa-edit"></i> Edit</a>
-                                <a class="btn btn-sm bg-danger" wire:click="getData('{{$data->id}}')" data-toggle ="modal" data-target="#modalHapus"s><i class="fas fa-light fa-trash-alt text-xs"></i> Hapus</a>
+                            <td class="text-center">
+                                @if($filter == 0)
+                                    <a class="btn btn-sm btn-warning" wire:click="getData('{{$data->id}}')" data-toggle="modal" data-target="#modalEdit"><i class="text-xs fa fa-edit"></i> Edit</a>
+                                    <a class="btn btn-sm bg-danger" wire:click="getData('{{$data->id}}')" data-toggle ="modal" data-target="#modalHapus"s><i class="fas fa-light fa-trash-alt text-xs"></i> Hapus</a>
+                                @elseif($filter == 1)
+                                <a class="btn btn-sm btn-success" wire:click="restoreDelete('{{$data->id}}')" data-toggle="modal" data-target="#modalEdit"><i class="fa fa-undo" aria-hidden="true"></i> Batal Hapus</a>
+                                @endif
                             </td>
                         </tr>
                     @empty

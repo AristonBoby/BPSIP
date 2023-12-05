@@ -14,10 +14,16 @@ class TableJenisPengujianSampel extends Component
     public $jenis;
     public $status;
     public $cari;
-
+    public $filter=0;
     public function render()
     {
-        $data = jenis_pengujian_sampel::where('jenis_pengujian','LIKE', '%'.$this->cari.'%')->paginate(5);
+        if($this->filter == 0)
+        {
+            $data = jenis_pengujian_sampel::where('jenis_pengujian','LIKE', '%'.$this->cari.'%')->paginate(5);
+        }elseif($this->filter == 1)
+        {   
+            $data = jenis_pengujian_sampel::onlyTrashed()->paginate(5);
+        }
         return view('livewire.jenis-pengujian-sampel.table-jenis-pengujian-sampel',['query'=>$data]);
     }
 
@@ -71,14 +77,19 @@ class TableJenisPengujianSampel extends Component
 
         if($query)
         {
-            $this->dispatch('alert',text:'Data Berhasil disimpan !!!',icon:'success',title:'Berhasil',timer:2000);
+            $this->dispatch('alert',text:'Data Berhasil Ditambah !!!',icon:'success',title:'Berhasil',timer:2000);
         }
     }
 
     public function delete()
     {
-        $post = Post::find($this->id);
+        $post = jenis_pengujian_sampel::find($this->id);
         $post->delete();
+
+        if($post)
+        {
+            $this->dispatch('alert',text:'Data Berhasil Dihapus !!!',icon:'success',title:'Berhasil',timer:2000);
+        }
     }
 
 }
