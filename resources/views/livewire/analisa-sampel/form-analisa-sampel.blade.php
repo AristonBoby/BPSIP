@@ -2,7 +2,6 @@
         <div class="card-header">
             <h5 class="card-title"><b>Form</b> Jenis Pengujian Sampel</h5>
         </div>
-
         <div class="card-body row">
             <form wire:submit="create">
 
@@ -18,9 +17,9 @@
                     </div>
                 </div>
                 <div class="form-group col-lg-12 col-md-12 col-sm-12 row" style="margin-bottom:-3px;">
-                   <label class="control-label col-sm-4">Jenis Sampel<b class='text-red'>*</b></label>
+                   <label class="control-label col-sm-4">Analisis Sampel<b class='text-red'>*</b></label>
                         <div class="col-sm-8">
-                            <input type="text" wire:model.defer='varJenis' class="form-control rounded-0  @error('varJenis') is-invalid @enderror" placeholder="Jenis Pengujian Sampel">
+                            <input type="text" wire:model.defer='varJenis' class="form-control rounded-0  @error('varJenis') is-invalid @enderror" placeholder="Jenis Analisis Sampel">
                             @error('varJenis') <span class=" text-red text-sm">{{ $message }}</span> @enderror
                         </div>
                 </div>
@@ -35,7 +34,7 @@
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    <button class="btn btn-sm btn-primary float-right">Simpan</button>
+                    <button class="btn btn-sm btn-primary float-right"><i class="fa fa-save"></i> Simpan</button>
                 </div>
             </form>
         </div>
