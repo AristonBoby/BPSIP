@@ -5,20 +5,23 @@
         </div>
         <div class="card-body table-responsive">
             <div class="col-lg-12">
-            <div class="input-group col-md-3 input-group float-right mb-1">
-                    <select wire:model.live="filter">
-                        <option value=0>Sumua Data</option>
-                        <option value=1>Dihapus</option>
-                    </select>
-                </div>
+            @if($filter=='0')
                 <div class="input-group col-md-3 input-group float-right mb-1">
-                    <input type="text" wire:model='cari' class="form-control float-right" placeholder="Pencarian">
+                    <input type="text" wire:model='cari' class="form-control roundered-0 float-right" placeholder="Pencarian">
                     <div class="input-group-append">
                         <button type="submit" wire:click='tblRefresh()' class="btn btn-primary">
                             <i class="fas fa-search"></i> Cari
                         </button>
                     </div>
                 </div>
+            @endif
+                <div class="input-group col-md-3 input-group float-right mb-1">
+                    <select wire:model.live="filter" class="form-control">
+                        <option value=0>Aktif</option>
+                        <option value=1>Dihapus</option>
+                    </select>
+                </div>
+               
             </div>
 
             <table class="table text-sm table-sm table-hover table-striped p-0">
@@ -27,7 +30,7 @@
                         <th>No.</th>
                         <th>Jenis Pengujian Sampel</th>
                         <th class="text-center">Status</th>
-                        <th class="text-center">TGL Pembuatan</th>
+                        <th class="text-center">@if($filter==0)TGL Pembuatan @elseif($filter==1) TGL Hapus @endif</th>
                         <th class="text-center">*</th>
                     </tr>
                 </thead>
@@ -43,7 +46,7 @@
                                     <a class="btn btn-sm btn-warning" wire:click="getData('{{$data->id}}')" data-toggle="modal" data-target="#modalEdit"><i class="text-xs fa fa-edit"></i> Edit</a>
                                     <a class="btn btn-sm bg-danger" wire:click="getData('{{$data->id}}')" data-toggle ="modal" data-target="#modalHapus"s><i class="fas fa-light fa-trash-alt text-xs"></i> Hapus</a>
                                 @elseif($filter == 1)
-                                <a class="btn btn-sm btn-success" wire:click="restoreDelete('{{$data->id}}')" data-toggle="modal" data-target="#modalEdit"><i class="fa fa-undo" aria-hidden="true"></i> Batal Hapus</a>
+                                <a class="btn btn-sm btn-success" wire:click="restoreDelete('{{$data->id}}')"><i class="fa fa-undo" aria-hidden="true"></i> Batal Hapus</a>
                                 @endif
                             </td>
                         </tr>

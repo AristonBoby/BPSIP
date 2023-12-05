@@ -80,15 +80,28 @@ class TableJenisPengujianSampel extends Component
             $this->dispatch('alert',text:'Data Berhasil Ditambah !!!',icon:'success',title:'Berhasil',timer:2000);
         }
     }
+    public function restoreDelete($query)
+    {   
+        $post = jenis_pengujian_sampel::withTrashed()->find($query);
+        $post->update([
+            'status'=>'1',
+        ]);
+        $post->restore();
+        if($post)
+        {
+                $this->dispatch('alert',text:'Data Batal Dihapus !!!',icon:'success',title:'Berhasil',timer:2000); 
+        }
+       
+    }
 
     public function delete()
     {
         $post = jenis_pengujian_sampel::find($this->id);
         $post->delete();
-
+        $post->update(['status' => '0']);
         if($post)
         {
-            $this->dispatch('alert',text:'Data Berhasil Dihapus !!!',icon:'success',title:'Berhasil',timer:2000);
+                $this->dispatch('alert',text:'Data Berhasil Dihapus !!!',icon:'success',title:'Berhasil',timer:2000); 
         }
     }
 
