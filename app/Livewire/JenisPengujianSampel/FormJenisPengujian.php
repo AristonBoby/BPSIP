@@ -23,7 +23,7 @@ class FormJenisPengujian extends Component
     public function messages()
     {
         return [
-            'varJenis.'      =>  'Data wajib diisi !!!',
+            'varJenis'      =>  'Data wajib diisi !!!',
             'varStatus'        => 'required|max:1',
           
         ];

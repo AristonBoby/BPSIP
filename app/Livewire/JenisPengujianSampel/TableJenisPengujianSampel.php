@@ -75,4 +75,10 @@ class TableJenisPengujianSampel extends Component
         }
     }
 
+    public function delete()
+    {
+        $post = Post::find($this->id);
+        $post->delete();
+    }
+
 }
