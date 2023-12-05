@@ -54,8 +54,3 @@
     @include('livewire.jenis-pengujian-sampel.ModalEdit')
     @include('livewire.jenis-pengujian-sampel.ModalHapus')
 </div>
-<script>
-    window.addEventListener('success',event=>{
-        $('#modalEdit').modal('hide');
-    });
-</script>

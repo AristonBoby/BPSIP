@@ -71,7 +71,7 @@ class TableJenisPengujianSampel extends Component
 
         if($query)
         {
-            $this->dispatch('success');
+            $this->dispatch('alert',text:'Data Berhasil disimpan !!!',icon:'success',title:'Berhasil',timer:2000);
         }
     }
 
