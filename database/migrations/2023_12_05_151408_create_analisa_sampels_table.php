@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('analisa_sampels', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('jenis_pengujian',50);
+            $table->string('jenis_analisa',50);
             $table->foreignUuid('jenisPengujian_id');
             $table->foreignId('users_id');
             $table->char('status',1);
