@@ -34,6 +34,13 @@ class FormAnalisaSampel extends Component
             'varStatus.required'    => 'Data Wajib diisi !!!'
         ];
     }   
+    private function resetForm()
+    {
+        $this->varAnalisa   = '';
+        $this->varJenis     = '';
+        $this->varStatus    = '1';
+    }
+
 
     public function create()
     {   
@@ -48,6 +55,7 @@ class FormAnalisaSampel extends Component
 
         if($query)
         {
+            $this->resetForm();
             $this->dispatch('alert',text:'Data Tidak Tersimpan',icon:'success',title:'Berhasil   ',timer:2000);
         }
     }

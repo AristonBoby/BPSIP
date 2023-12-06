@@ -19,10 +19,10 @@ class TableJenisPengujianSampel extends Component
     {
         if($this->filter == 0)
         {
-            $data = jenis_pengujian_sampel::where('jenis_pengujian','LIKE', '%'.$this->cari.'%')->paginate(5);
+            $data = jenis_pengujian_sampel::where('jenis_pengujian','LIKE', '%'.$this->cari.'%')->paginate(10);
         }elseif($this->filter == 1)
         {   
-            $data = jenis_pengujian_sampel::onlyTrashed()->paginate(5);
+            $data = jenis_pengujian_sampel::onlyTrashed()->paginate(10);
         }
         return view('livewire.jenis-pengujian-sampel.table-jenis-pengujian-sampel',['query'=>$data]);
     }
