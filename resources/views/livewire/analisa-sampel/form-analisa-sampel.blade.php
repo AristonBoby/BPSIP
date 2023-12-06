@@ -44,7 +44,7 @@
     </div>
     <script>
     window.addEventListener('alert', event => {
-        $('#modalEdit').modal('hide');
+        $('#modalBatalHapus').modal('hide');
         $('#modalHapus').modal('hide');
 
         Swal.fire({

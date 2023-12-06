@@ -17,7 +17,7 @@ class TableAnalisaSampel extends Component
     public $editId;
     public function render()
     {   
-        if($this->filter === 0)
+        if($this->filter == 0)
         $query  = analisaSampel::join('jenis_pengujian_sampels','jenis_pengujian_sampels.id','analisa_sampels.jenisPengujian_id')
                 ->join('users','users.id','analisa_sampels.users_id')
                 ->select('analisa_sampels.id','jenis_pengujian_sampels.jenis_pengujian','jenis_analisa','analisa_sampels.status','analisa_sampels.created_at','users.name')
@@ -25,9 +25,15 @@ class TableAnalisaSampel extends Component
                 ->where('analisa_sampels.jenis_analisa','LIKE', '%'.$this->cari.'%')
                 ->orWhere('analisa_sampels.jenis_analisa','LIKE', '%'.$this->cari.'%')
                 ->paginate(10);
-        elseif($$this->filter ==1)
+        elseif($this->filter ==1)
         {
-
+            $query  = analisaSampel::onlyTrashed()->join('jenis_pengujian_sampels','jenis_pengujian_sampels.id','analisa_sampels.jenisPengujian_id')
+            ->join('users','users.id','analisa_sampels.users_id')
+            ->select('analisa_sampels.id','jenis_pengujian_sampels.jenis_pengujian','jenis_analisa','analisa_sampels.status','analisa_sampels.created_at','users.name')
+            ->where('analisa_sampels.status','1')
+            ->where('analisa_sampels.jenis_analisa','LIKE', '%'.$this->cari.'%')
+            ->orWhere('analisa_sampels.jenis_analisa','LIKE', '%'.$this->cari.'%')
+            ->paginate(10);
         }
 
 
@@ -41,24 +47,48 @@ class TableAnalisaSampel extends Component
         $this->resetPage();
     }
 
+    public function updatingFilter()
+    {   
+        $this->resetPage();
+    }
+    public function updatinCarir()
+    {   
+        $this->resetPage();
+    }
+
     public function getData($id)
     {
         $this->id       = $id;
         $this->editId   = $id;
         $query = analisaSampel::find($id);
-        $this->jenisPengujian = $query->jenisPengujian_id;
+        //dd($query);
+        if($query)
+        {
+            $this->jenisPengujian = $query->jenisPengujian_id;
+        }
     }
 
     public function delete()
     {
-        $query = analisaSampel::find($this->id)->first();
+        $query = analisaSampel::find($this->editId);
         $query->delete();
         if($query)
         {
-             $this->cari='';
-             $this->id = '';
-             $this->filter = 0;
-             $this->editId = '';
+             $this->cari    = '';
+             $this->id      = '';
+             $this->filter  =  0;
+             $this->editId  = '';
         }
+    }
+
+    public function btlHapus()
+    {   
+        $query = analisaSampel::onlyTrashed()->find($this->editId);
+        $query->restore();
+        if($query)
+        {
+            $this->dispatch('alert',text:'Behasil Menyimpan',icon:'success',title:'Berhasil   ',timer:2000);
+        }
+       
     }
 }

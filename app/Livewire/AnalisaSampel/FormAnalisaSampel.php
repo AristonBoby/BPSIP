@@ -56,7 +56,7 @@ class FormAnalisaSampel extends Component
         if($query)
         {
             $this->resetForm();
-            $this->dispatch('alert',text:'Data Tidak Tersimpan',icon:'success',title:'Berhasil   ',timer:2000);
+            $this->dispatch('alert',text:'Data Behasil Tersimpan',icon:'success',title:'Berhasil   ',timer:2000);
         }
     }
 }

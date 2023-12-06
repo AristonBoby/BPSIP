@@ -11,10 +11,10 @@
             </button>
         </div>
         <div class="modal-body" wire:loading.remove>
-            <span style="font-family: Sans-serif;" class="text-danger">Apakah Anda Ingin Mengajukan Penghapusan Data ?</span>
+            <span style="font-family: Sans-serif;" >Apakah Anda Ingin Mengajukan Penghapusan Data ?</span>
         </div>
         <div class="modal-footer">
-            <button type="submit" class="btn btn-danger btn-sm text-sm" wire:click="delete()"><i class=" fas fas fa-light fa-trash-alt text-xs"></i> Ajukan Penghapusan</button>
+            <button type="submit" class="btn btn-danger btn-sm text-sm" wire:click="delete('{{$id}}')"><i class=" fas fas fa-light fa-trash-alt text-xs"></i> Ajukan Penghapusan</button>
             <button type="button" class="btn btn-default btn-sm text-sm " data-dismiss="modal"><span class="text-xs fa fa-times"></span> Batal</button>
         </div>
         </form>

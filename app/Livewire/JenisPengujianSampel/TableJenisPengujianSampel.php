@@ -32,7 +32,7 @@ class TableJenisPengujianSampel extends Component
         $this->render();
     }
 
-
+    
     private function resetVariabel()
     {
          $this->id      ='';
