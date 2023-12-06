@@ -15,7 +15,8 @@ class FormAnalisaSampel extends Component
 
     public function render()
     {
-        $query = jenis_pengujian_sampel::all();
+        $query = jenis_pengujian_sampel::where('status','1')->get();
+
         return view('livewire.analisa-sampel.form-analisa-sampel',['pengujian'=>$query]);
     }
 
@@ -31,7 +32,6 @@ class FormAnalisaSampel extends Component
             'varJenis.required'     => 'Data Wajib diisi !!!',
             'varAnalisa.required'   => 'Data Wajib diisi !!!',
             'varStatus.required'    => 'Data Wajib diisi !!!'
-
         ];
     }   
 
@@ -45,5 +45,10 @@ class FormAnalisaSampel extends Component
             'jenisPengujian_id' => $this->varJenis,
             'status'            => $this->varStatus,
         ]);
+
+        if($query)
+        {
+            $this->dispatch('alert',text:'Data Tidak Tersimpan',icon:'success',title:'Berhasil   ',timer:2000);
+        }
     }
 }

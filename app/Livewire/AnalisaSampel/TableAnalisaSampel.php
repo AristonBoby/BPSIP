@@ -9,7 +9,8 @@ class TableAnalisaSampel extends Component
 {
     public function render()
     {   
-        //$query = DB::table('')->all;
+        $query  = DB::table('analisa_sampels')
+                ->join();
         return view('livewire.analisa-sampel.table-analisa-sampel');
     }
 }

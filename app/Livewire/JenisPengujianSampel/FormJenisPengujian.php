@@ -40,7 +40,7 @@ class FormJenisPengujian extends Component
 
        if($create)
        {
-        $this->dispatch('alert',text:'Data Tidak Tersimoan',icon:'success',title:'Berhasil   ',timer:2000);
+        $this->dispatch('alert',text:'Data Tidak Tersimpan',icon:'success',title:'Berhasil   ',timer:2000);
        }
     }
 }
