@@ -46,6 +46,8 @@
     window.addEventListener('alert', event => {
         $('#modalBatalHapus').modal('hide');
         $('#modalHapus').modal('hide');
+        $('#modalEdit').modal('hide');
+        
 
         Swal.fire({
             text: event.detail.text,

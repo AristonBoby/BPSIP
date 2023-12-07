@@ -87,6 +87,7 @@ class TableJenisPengujianSampel extends Component
             'status'=>'1',
         ]);
         $post->restore();
+
         if($post)
         {
                 $this->dispatch('alert',text:'Data Batal Dihapus !!!',icon:'success',title:'Berhasil',timer:2000); 

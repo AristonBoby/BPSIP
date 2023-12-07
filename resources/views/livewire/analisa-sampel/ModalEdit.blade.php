@@ -37,7 +37,7 @@
                     <div class="form-group row">
                         <label class="col-md-3 col-from-label">Jenis Analisa <i class="text-danger">*</i></label>
                         <div class="col-md-9">
-                            <input type="text" wire:model="jenis" class="form-control  @error('jenis') is-invalid @enderror"  id="recipient-name">
+                            <input type="text" wire:model="jenisAnalisa" class="form-control  @error('jenis') is-invalid @enderror"  id="recipient-name">
                             @error('jenis') <span class=" text-red">{{ $message }}</span> @enderror
                         </div>
                     </div>
