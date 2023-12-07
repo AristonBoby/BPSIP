@@ -22,8 +22,8 @@
                 <thead class="text-uppercase">
                     <tr>
                         <th>No.</th>
-                        <th>Kategori Pengujian</th>
-                        <th>Jenis Analisa Sampel</th>
+                        <th>Jenis Analisa</th>
+                        <th>Kategori Analisa</th>
                         <th>TGL PEMBUATAN</th>
                         <th>USER PEMBUATAN</th>
                         <th class="text-center">Status</th>

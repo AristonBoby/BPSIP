@@ -23,19 +23,19 @@
             <li class="nav-item">
               <a href="{{ route('formJenisPengujian') }}" class="nav-link">
                 <i class="nav-icon fa fa-envelope" aria-hidden="true"></i>
-                <p>Jenis Pengujian Sampel</p>
+                <p>Item Jenis Analisa</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="{{ route('FormAnalisaSampel') }}" class="nav-link">
                 <i class="nav-icon fa fa-envelope" aria-hidden="true"></i>
-                <p>Analisa Sampel</p>
+                <p>Item Pengujian Sampel</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="{{ route('jenisPemeriksaan') }}" class="nav-link">
                 <i class="nav-icon fa fa-envelope" aria-hidden="true"></i>
-                <p>Jenis Pemeriksaan</p>
+                <p>Item Pengujian</p>
               </a>
             </li>
           </ul>

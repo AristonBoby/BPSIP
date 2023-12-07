@@ -2,7 +2,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-            <h6 class="modal-title" id="staticBackdropLabel"><b>Form Edit</b></h6>
+            <h6 class="modal-title" id="staticBackdropLabel"><b>Edit Analisa</b></h6>
             <div wire:loading>
                 <span class="badge bg-success text-xs" style="margin-left:5px;"> <i class="text-xs fas fa-3x fa-sync-alt fa-spin"></i> Loading...</span>
             </div>
@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="form-group row">
-                        <label class="col-md-3 col-from-label">Jenis Pemeriksaan <i class="text-danger">*</i></label>
+                        <label class="col-md-3 col-from-label">Jenis Analisa <i class="text-danger">*</i></label>
                         <div class="col-md-9">
                             <input type="text" wire:model="jenis" class="form-control  @error('jenis') is-invalid @enderror"  id="recipient-name">
                             @error('jenis') <span class=" text-red">{{ $message }}</span> @enderror

@@ -28,7 +28,7 @@
                 <thead class="text-uppercase">
                     <tr>
                         <th>No.</th>
-                        <th>Jenis Pengujian Sampel</th>
+                        <th>Jenis Analisa </th>
                         <th class="text-center">Status</th>
                         <th class="text-center">@if($filter==0)TGL Pembuatan @elseif($filter==1) TGL Hapus @endif</th>
                         <th class="text-center">*</th>

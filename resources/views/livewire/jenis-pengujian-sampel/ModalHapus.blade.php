@@ -11,7 +11,7 @@
             </button>
         </div>
         <div class="modal-body" wire:loading.remove>
-            <span style="font-family: Sans-serif;" class="text-danger">Apakah Anda Ingin Mengajukan Penghapusan Data ?</span>
+            <span style="font-family: Sans-serif;" class="text-danger">Apakah Anda Ingin Mengajukan Penghapusan Data Analisa?</span>
         </div>
         <div class="modal-footer">
             <button type="submit" class="btn btn-danger btn-sm text-sm" wire:click="delete()"><i class=" fas fas fa-light fa-trash-alt text-xs"></i> Ajukan Penghapusan</button>
