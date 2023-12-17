@@ -14,6 +14,10 @@ class jenisPemeriksaanSampel extends Model
 
     protected $fillable = [
         'id',
-        ''
+        'harga',
+        'itemPemeriksaan',
+        'user_id',
+        'analisa_sampel_id',
+        'status'
     ];
 }

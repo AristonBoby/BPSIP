@@ -5,6 +5,7 @@ namespace App\Livewire\AnalisaSampel;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\analisaSampel;
+use Illuminate\Support\Str;
 use App\Models\jenis_pengujian_sampel;
 use Illuminate\Support\Facades\DB;
 
@@ -20,7 +21,7 @@ class TableAnalisaSampel extends Component
     public $status;
 
     public function render()
-    {   
+    {
         if($this->filter == 0)
             $query  = analisaSampel::join('jenis_pengujian_sampels','jenis_pengujian_sampels.id','analisa_sampels.jenisPengujian_id')
                     ->join('users','users.id','analisa_sampels.users_id')
@@ -37,23 +38,23 @@ class TableAnalisaSampel extends Component
                 ->where('analisa_sampels.jenis_analisa','LIKE', '%'.$this->cari.'%')
                 ->onlyTrashed()
                 ->paginate(10);
-            
+
         }
         $queryJenis = jenis_pengujian_sampel::where('status','1')->get();
         return view('livewire.analisa-sampel.table-analisa-sampel',['data'=>$query,'jenis'=>$queryJenis]);
     }
 
     public function cariData()
-    {   
+    {
         $this->resetPage();
     }
 
     public function updatingFilter()
-    {   
+    {
         $this->resetPage();
     }
     public function updatinCarir()
-    {   
+    {
         $this->resetPage();
     }
 
@@ -72,7 +73,7 @@ class TableAnalisaSampel extends Component
         if($query)
         {
             $this->jenisPengujian   = $query->jenisPengujian_id;
-            $this->status           = $query->status;    
+            $this->status           = $query->status;
             $this->jenisAnalisa     = $query->jenis_analisa;
         }
     }
@@ -87,7 +88,7 @@ class TableAnalisaSampel extends Component
              $this->id      = '';
              $this->filter  =  0;
              $this->editId  = '';
-             $this->dispatch('alert',text:'Behasil Menyimpan',icon:'success',title:'Berhasil   ',timer:2000);   
+             $this->dispatch('alert',text:'Behasil Menyimpan',icon:'success',title:'Berhasil   ',timer:2000);
         }
     }
 
@@ -107,13 +108,13 @@ class TableAnalisaSampel extends Component
     }
 
     public function btlHapus()
-    {   
+    {
         $query = analisaSampel::withTrashed()->find($this->editId);
         $query->restore();
         if($query)
         {
             $this->dispatch('alert',text:'Behasil Menyimpan',icon:'success',title:'Berhasil   ',timer:2000);
         }
-       
+
     }
 }

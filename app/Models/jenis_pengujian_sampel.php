@@ -14,6 +14,6 @@ class jenis_pengujian_sampel extends Model
     protected $fillable = [
        'id',
        'jenis_pengujian',
-       'status'
+       'status',
     ];
 }
