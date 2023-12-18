@@ -19,9 +19,11 @@ class FormJenisPemeriksaan extends Component
 
     public function render()
     {
-        $query = DB::table('jenis_pemeriksaan_sampels')
-        ->select('jenis_pemeriksaan_sampels.analisa_sampel_id, DB::raw(SUM(harga) AS Total)')->groupBy('jenis_pemeriksaan_sampels.analisa_sampel_id')->get();
-        //select('jenis_pengujian_sampels.*','jenis_pemeriksaan_sampels.*',DB::raw('jenis_pemeriksaan_sampels.*,SUM(harga) AS Total'))->groupBy('user_id')->get();
+        //$query = jenisPemeriksaanSampel::select('analisa_sampel_id',DB::raw('SUM(jenis_pemeriksaan_sampels.harga) AS harga'), DB::raw('GROUP_CONCAT(jenis_pemeriksaan_sampels.itemPemeriksaan) AS item'))->groupBy('analisa_sampel_id')->get();
+        $query = jenisPemeriksaanSampel::join('analisa_sampels','analisa_sampels.id','=','jenis_pemeriksaan_sampels.analisa_sampel_id')
+                                        ->select('analisa_sampels.jenis_analisa',DB::raw('SUM(jenis_pemeriksaan_sampels.harga) AS harga'),DB::raw("GROUP_CONCAT(jenis_pemeriksaan_sampels.itemPemeriksaan SEPARATOR ' , ') AS jenis"))
+                                        ->groupBy('analisa_sampels.jenis_analisa')
+                                        ->paginate(10);
         dd($query);
         $data=jenis_pengujian_sampel::all();
         $analisa = analisaSampel::where('jenisPengujian_id',$this->jenisPengujian)->get();
