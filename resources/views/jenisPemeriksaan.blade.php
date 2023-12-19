@@ -12,8 +12,10 @@ JENIS ANALISA <b>SAMPEL</b>
     <div class="row">
         <div class="col-lg-4 col-md-12 col-sm-12">
                 <livewire:jenis-pemeriksaan.form-jenis-pemeriksaan>
+
         </div>
         <div class="col-lg-8 col-md-12 col-sm-12">
+            <livewire:jenis-pemeriksaan.table-jenis-pemeriksaan>
         </div>
     </div>
 @endsection

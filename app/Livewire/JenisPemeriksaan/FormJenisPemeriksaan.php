@@ -21,10 +21,10 @@ class FormJenisPemeriksaan extends Component
     {
         //$query = jenisPemeriksaanSampel::select('analisa_sampel_id',DB::raw('SUM(jenis_pemeriksaan_sampels.harga) AS harga'), DB::raw('GROUP_CONCAT(jenis_pemeriksaan_sampels.itemPemeriksaan) AS item'))->groupBy('analisa_sampel_id')->get();
         $query = jenisPemeriksaanSampel::join('analisa_sampels','analisa_sampels.id','=','jenis_pemeriksaan_sampels.analisa_sampel_id')
-                                        ->select('analisa_sampels.jenis_analisa',DB::raw('SUM(jenis_pemeriksaan_sampels.harga) AS harga'),DB::raw("GROUP_CONCAT(jenis_pemeriksaan_sampels.itemPemeriksaan SEPARATOR ' , ') AS jenis"))
+                                        ->select('analisa_sampels.jenis_analisa',DB::raw('SUM(jenis_pemeriksaan_sampels.harga) AS harga'),DB::raw("GROUP_CONCAT(jenis_pemeriksaan_sampels.itemPemeriksaan SEPARATOR ' <br> ') AS jenis"))
                                         ->groupBy('analisa_sampels.jenis_analisa')
                                         ->paginate(10);
-        dd($query);
+                                      //  dd($query);
         $data=jenis_pengujian_sampel::all();
         $analisa = analisaSampel::where('jenisPengujian_id',$this->jenisPengujian)->get();
         return view('livewire.jenis-pemeriksaan.form-jenis-pemeriksaan',['query'=>$data,'analisaSampel'=>$analisa]);

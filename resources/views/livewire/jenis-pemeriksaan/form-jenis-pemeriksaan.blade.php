@@ -42,7 +42,7 @@
             <div class="form-group col-lg-12 col-md-12 col-sm-12 row" >
                 <label class="control-label col-sm-4">Biaya <b class='text-red'>*</b></label>
                 <div class="col-sm-8">
-                    <input type="text" wire:model.defer='biaya' class="form-control rounded-0  @error('varNomor_Surat') is-invalid @enderror" placeholder="Jenis Pengujian Sampel">
+                    <input type="text" id="" wire:model.defer='biaya' class="form-control rounded-0  @error('varNomor_Surat') is-invalid @enderror" placeholder="Jenis Pengujian Sampel">
                      @error('varFile') <span class=" text-red">{{ $message }}</span> @enderror
                 </div>
             </div>
