@@ -21,7 +21,7 @@
                         <option value=1>Dihapus</option>
                     </select>
                 </div>
-               
+
             </div>
 
             <table class="table text-sm table-sm table-hover table-striped p-0">
@@ -30,7 +30,7 @@
                         <th>No.</th>
                         <th>Jenis Analisa </th>
                         <th class="text-center">Status</th>
-                        <th class="text-center">@if($filter==0)TGL Pembuatan @elseif($filter==1) TGL Hapus @endif</th>
+                        <th class="text-center">@if($filter==0)TGL PEMBUATAN @elseif($filter==1) TGL Hapus @endif</th>
                         <th class="text-center">*</th>
                     </tr>
                 </thead>

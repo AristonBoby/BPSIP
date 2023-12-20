@@ -36,7 +36,7 @@
                                     <td><b>{{ formatRupiah($data->harga) }}</b></td>
                                     <td>{{ $data->name }}</td>
                                     <td>{{ $data->created_at }}</td>
-                                    <td><a class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
+                                    <td><a  wire:click="detailId('{{ $data->idItem }}')"data-toggle="modal" data-target="#modalDelete"class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
                                 </tr>
                             @empty
 

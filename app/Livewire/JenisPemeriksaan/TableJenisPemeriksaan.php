@@ -12,6 +12,7 @@ class TableJenisPemeriksaan extends Component
 {
     use WithPagination;
     public $modalItem;
+    public $varDetaiId;
     public function render()
     {
         $query = jenisPemeriksaanSampel::join('analisa_sampels','analisa_sampels.id','=','jenis_pemeriksaan_sampels.analisa_sampel_id')
@@ -20,14 +21,37 @@ class TableJenisPemeriksaan extends Component
         ->groupBy('analisa_sampels.jenis_analisa')
         ->groupBy('jenis_pengujian_sampels.jenis_pengujian')
         ->groupBy('jenis_pemeriksaan_sampels.analisa_sampel_id')
-        ->paginate(2);
+        ->paginate(10);
         return view('livewire.jenis-pemeriksaan.table-jenis-pemeriksaan',['query'=>$query]);
     }
 
     public function detailItem($id)
     {
         $query = jenisPemeriksaanSampel::where('analisa_sampel_id',$id)
-                ->join('users','users.id','=','jenis_pemeriksaan_sampels.user_id')->get();
-        $this->modalItem = $query;
+                ->join('users','users.id','=','jenis_pemeriksaan_sampels.user_id')
+                ->select('jenis_pemeriksaan_sampels.id as idItem','jenis_pemeriksaan_sampels.*','users.*')->get();
+        if($query)
+        {
+            $this->modalItem = $query;
+        }
+
     }
+
+    public function detailId($id)
+    {   $this->varDetaiId = $id;
+        $this->detailItem($this->varDetaiId);
+    }
+
+    public function delete()
+    {
+        $this->detailItem($this->varDetaiId);
+        $query=jenisPemeriksaanSampel::find($this->varDetaiId);
+        $query->delete();
+        if($query)
+        {
+            $this->detailItem($this->varDetaiId);
+            $this->dispatch('alert',text:'Data Berhasil Dihapus !!!',icon:'success',title:'Berhasil',timer:2000);
+        }
+    }
+
 }

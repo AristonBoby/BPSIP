@@ -3,7 +3,7 @@
         <h5 class="card-title"><b>Tabel</b> Jenis Analisa Sampel  <span wire:loading class="badge bg-success text-xs"> <i class="text-xs fas fa-3x fa-sync-alt fa-spin"></i> Loading... </span></h5>
     </div>
     <div class="card-body ">
-        <div class="col-lg-4 float-right mb-3 ">      
+        <div class="col-lg-4 float-right mb-3 ">
             <div class="input-group col-md-12 input-group float-right mb-1">
                 <select wire:model.live="filter" class="col-md-3 form-control">
                     <option value='0'>Aktif</option>
@@ -22,8 +22,8 @@
                 <thead class="text-uppercase">
                     <tr>
                         <th>No.</th>
-                        <th>Jenis Analisa</th>
-                        <th>Kategori Analisa</th>
+                        <th>Jenis ANALISA</th>
+                        <th>Kategori PEMERIKSAAN</th>
                         <th>TGL PEMBUATAN</th>
                         <th>USER PEMBUATAN</th>
                         <th class="text-center">Status</th>
@@ -34,7 +34,7 @@
                         <td>Loading... </td>
                     </tr>
                 <tbody wire:loading.remove>
-                
+
                 @forelse($data as $no=>$query)
                     <tr>
                         <td>{{ $data->firstItem() + $no }}. </td>
