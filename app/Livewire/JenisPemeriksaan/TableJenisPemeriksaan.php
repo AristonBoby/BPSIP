@@ -26,8 +26,8 @@ class TableJenisPemeriksaan extends Component
 
     public function detailItem($id)
     {
-        $query = jenisPemeriksaanSampel::where('analisa_sampel_id',$id)->get();
-
+        $query = jenisPemeriksaanSampel::where('analisa_sampel_id',$id)
+                ->join('users','users.id','=','jenis_pemeriksaan_sampels.user_id')->get();
         $this->modalItem = $query;
     }
 }

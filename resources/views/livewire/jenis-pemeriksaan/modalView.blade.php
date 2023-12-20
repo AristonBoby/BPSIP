@@ -16,14 +16,15 @@
             </div>
         <div class="modal-body" wire:loading.remove>
             <div class="row">
-                <table class="table table-sm table-hover table-striped">
+                <table class="table table-hover table-sm table-striped">
                     <thead>
                         <tr>
                             <th>No.</th>
                             <th>Item Pemeriksaan</th>
                             <th>HARGA</th>
                             <th>USER</th>
-                            <th>*</th>
+                            <th>TGL PEMBUATAN</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,8 +33,9 @@
                                 <tr>
                                     <td>{{ 1+$no }}.</td>
                                     <td>{{ $data->itemPemeriksaan }}</td>
-                                    <td>{{ formatRupiah($data->harga) }}</td>
-                                    <td>{{ $data->harga }}</td>
+                                    <td><b>{{ formatRupiah($data->harga) }}</b></td>
+                                    <td>{{ $data->name }}</td>
+                                    <td>{{ $data->created_at }}</td>
                                     <td><a class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a></td>
                                 </tr>
                             @empty
