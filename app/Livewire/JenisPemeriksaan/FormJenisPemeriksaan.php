@@ -30,6 +30,25 @@ class FormJenisPemeriksaan extends Component
         return view('livewire.jenis-pemeriksaan.form-jenis-pemeriksaan',['query'=>$data,'analisaSampel'=>$analisa]);
     }
 
+    protected $rules = [
+        'biaya'             =>  'required|integer',
+        'analisa'           =>  'required|',
+        'jenisPengujian'    =>  'required|',
+        'analisa'           =>  'required|'
+    ];
+
+
+    public function messages()
+    {
+        return [
+            'biaya.required'            => 'Data tidak boleh kosong',
+            'biaya.integer'             => 'Data yang diinput wajib angka',
+            'analisa.required'          => 'Data tidak boleh kosong',
+            'jenisPengujian.required'   => 'Data tidak boleh kosong',
+            'analisa.required'          => 'Data tidak boleh kosong',
+        ];
+    }
+
     public function formReset()
     {
         $this->jenisPengujian = '';
@@ -42,7 +61,7 @@ class FormJenisPemeriksaan extends Component
     }
 
     public function simpan()
-    {
+    {    $this->validate();
         $query = jenisPemeriksaanSampel::create([
             'id'                => str::uuid(),
             'itemPemeriksaan'   => $this->itemPengujian,
@@ -58,8 +77,5 @@ class FormJenisPemeriksaan extends Component
         }
     }
 
-    public function hitung()
-    {
 
-    }
 }

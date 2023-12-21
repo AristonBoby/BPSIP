@@ -15,9 +15,18 @@
 
             </div>
         <div class="modal-body" wire:loading.remove>
+            <div class="col-12 mb-4">
+                <div class="callout callout-warning">
+                    <h5>
+                        <i class="fas fa-info"></i>
+                        CATATAN :
+                    </h5>
+                   Jika ada pembaruan / perubahan terkait item pemeriksaan / harga dapat menghapus daftar harga yang ingin ubah
+                </div>
+            </div>
             <div class="row">
                 <table class="table table-hover table-sm table-striped">
-                    <thead>
+                    <thead class="text-uppercase">
                         <tr>
                             <th>No.</th>
                             <th>Item Pemeriksaan</th>
@@ -47,8 +56,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button type="submit" class="btn btn-info btn-sm text-sm "><i class=" fas fa-eye text-xs"></i> Edit</button>
-            <button type="button" class="btn btn-danger btn-sm text-sm " data-dismiss="modal"><span class="text-xs fa fa-times"></span> Batal</button>
+            <a type="button" class="btn btn-danger btn-md text-sm " data-dismiss="modal"><span class="text-xs fa fa-times"></span> Batal</a>
         </div>
         </form>
         </div>
