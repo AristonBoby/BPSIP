@@ -13,6 +13,7 @@ class TableJenisPemeriksaan extends Component
     use WithPagination;
     public $modalItem;
     public $varDetaiId;
+
     public function render()
     {
         $query = jenisPemeriksaanSampel::join('analisa_sampels','analisa_sampels.id','=','jenis_pemeriksaan_sampels.analisa_sampel_id')
@@ -25,6 +26,10 @@ class TableJenisPemeriksaan extends Component
         return view('livewire.jenis-pemeriksaan.table-jenis-pemeriksaan',['query'=>$query]);
     }
 
+    public function perbarui()
+    {
+        $this->render();
+    }
     public function detailItem($id)
     {
         $query = jenisPemeriksaanSampel::where('analisa_sampel_id',$id)

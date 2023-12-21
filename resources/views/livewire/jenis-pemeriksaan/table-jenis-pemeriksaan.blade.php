@@ -3,6 +3,9 @@
         <label class="card-title">Table Jenis Analisa</label>
     </div>
     <div class="card-body">
+        <div class="col-md-12 col-sm-12 col-lg-12 mb-4">
+            <a wire:click='perbarui()' class="btn btn-md btn-primary float-right btn-flat"><i class="fas fas-refresh"></i>Perbarui</a>
+        </div>
         <table class="table text-sm table-sm table-hover table-striped p-0 mb-3">
             <thead>
             <tr>
