@@ -1,13 +1,13 @@
 <div wire:ignore.self class="modal fade" id="modalView" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-            <h6 class="modal-title" id="staticBackdropLabel"><b>VIEW ITEM</b></h6>
+            <div class="modal-header bg-dark">
+            <h6 class="modal-title" id="staticBackdropLabel"><b>EDIT</b> ITEM</h6>
             <div wire:loading>
                 <span class="badge bg-success text-xs" style="margin-left:5px;"> <i class="text-xs fas fa-3x fa-sync-alt fa-spin"></i> Loading...</span>
             </div>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                <i aria-hidden="true" class="text-xs fa fa-times"></i>
             </button>
         </div>
         <form  class="form-horizontal" wire:submit.prevent='update()'>
