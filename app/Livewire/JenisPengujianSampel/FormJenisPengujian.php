@@ -16,16 +16,16 @@ class FormJenisPengujian extends Component
     }
 
     protected $rules = [
-        'varJenis'      => 'required|max:50',
-        'varStatus'        => 'required|max:1',
+        'varJenis'  => 'required|max:50',
+        'varStatus' => 'required|max:1',
     ];
 
     public function messages()
     {
         return [
-            'varJenis'      =>  'Data wajib diisi !!!',
-            'varStatus'        => 'required|max:1',
-          
+            'varJenis'   =>  'Data wajib diisi !!!',
+            'varStatus'  =>  'required|max:1',
+
         ];
     }
 
