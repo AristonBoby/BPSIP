@@ -4,8 +4,8 @@
             <div class="card-header ">
                 <h5 class="card-title">FORM <b>PERMOHONAN ANALISIS</b></h5>
             </div>
-            <div class="card- col-md-12">
-                <form wire:submit='simpan' class="row form-horizontal">
+            <div class="card-body col-md-12">
+                <form wire:submit='store' class="row form-horizontal">
                 <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
                         <label class="control-label col-sm-3"> Nomor SPK <b class='text-red'>*</b></label>
                         <div class="col-sm-7">
@@ -18,8 +18,11 @@
                         <label class="control-label col-sm-3"> Jenis Pengujian Sampel <b class='text-red'>*</b></label>
                         <div class="col-sm-7">
                             <select class=" form-control" >
-                                <option>Tanah(TH)</option>
-                                <option>Pupuk Organik (PO)</option>
+                                <option value="">-- Pilih Salah Satu --</option>
+                                @foreach ($analisa as $data )
+                                    <option value="{{ $data->id }}">{{ $data->jenis_pengujian}}</option>
+                                @endforeach
+
                             <select>
                             @error('varAsal_Surat') <span class=" text-xs error is-invalid text-red"> {{ $message }} </span> @enderror
                         </div>
@@ -166,22 +169,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+
+                                  @foreach ( $sampel as $no=>$data )
                                     <tr>
-                                        <td>1.</td>
-                                        <td><input type="text" class="form-control form-control-sm rounded-0"></td>
+                                        <td>{{ $no+1 }}.</td>
+                                        <td><input wire:model='kodeSampel.{{ $no }}' type="text"  class="form-control form-control-sm rounded-0"></td>
                                         <td><input type="text" class="form-control"></td>
                                         <td><input type="text" class="form-control"></td>
                                         <td><input type="text" class="form-control"></td>
-                                        <td class="text-center"><a class="btn btn-primary">+</a></td>
+                                        @if($no===0)
+                                            <td class="text-center"><a class="btn btn-primary" wire:click="addSampel('{{ $no }}')">+</a></td>
+                                        @else
+                                            <td class="text-center"><a class="btn btn-danger" wire:click="removeSampel({{ $no }})"><i class="fa fa-trash"></i></a></td>
+                                        @endif
+
                                     </tr>
-                                    <tr>
-                                        <td>2.</td>
-                                        <td><input type="text" class="form-control form-control-sm rounded-0"></td>
-                                        <td><input type="text" class="form-control"></td>
-                                        <td><input type="text" class="form-control"></td>
-                                        <td><input type="text" class="form-control"></td>
-                                        <td class="text-center"><a class="btn btn-primary">+</a></td>
-                                    </tr>
+                                  @endforeach
+
                                 </tbody>
                             </table>
                         </div>
