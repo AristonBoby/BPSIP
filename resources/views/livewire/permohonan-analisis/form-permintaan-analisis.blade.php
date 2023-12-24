@@ -4,9 +4,8 @@
             <div class="card-header ">
                 <h5 class="card-title">FORM <b>PERMOHONAN ANALISIS</b></h5>
             </div>
-            <div class="card-body col-md-12">
+            <div class="card- col-md-12">
                 <form wire:submit='simpan' class="row form-horizontal">
-
                 <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
                         <label class="control-label col-sm-3"> Nomor SPK <b class='text-red'>*</b></label>
                         <div class="col-sm-7">
