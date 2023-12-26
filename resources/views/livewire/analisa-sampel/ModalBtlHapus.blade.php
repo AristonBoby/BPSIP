@@ -6,9 +6,7 @@
                 <div wire:loading>
                     <span class="badge bg-success text-xs" style="margin-left:5px;"> <i class="text-xs fas fa-3x fa-sync-alt fa-spin"></i> Loading...</span>
                 </div>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+
             </div>
             <div class="modal-body">
                 <span>Apakah anda ingin mengembalikan data yang telah di hapus?</span>
@@ -18,7 +16,7 @@
                 <a class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Batal</a>
             </div>
         <div>
-            
+
     </div>
 </div>
 

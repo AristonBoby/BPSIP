@@ -1,5 +1,5 @@
 <div wire:ignore.self class="modal fade" id="modalDelete" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog bg-danger" role="document">
         <div class="modal-content">
             <div class="modal-header bg-danger">
             <h6 class="modal-title" id="staticBackdropLabel"><b>HAPUS ITEM PEMERIKSAAN</b></h6>
