@@ -4,7 +4,7 @@
             <div class="card card-outline card-primary">
                 <div class="card-header ">
                     <h5 class="card-title">FORM <b>IDENTITAS PERMOHONAN ANALISIS</b></h5>
-                    <a class="btn btn-warning btn-sm float-right"><i class="fa fa-plus"></i> Data Pemohon</a>
+                    <a class="btn btn-warning btn-sm float-right"><i class="fa fa-plus"></i> <b>Data Pemohon</b></a>
                 </div>
                 <div class="card-body row">
                     <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
