@@ -194,5 +194,6 @@
             timer: event.detail.timer,
             buttons: false,
         });
+
     });
 </script>
