@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header bg-dark">
-            <h6 class="modal-title" id="staticBackdropLabel"><b>PENCARIAN DATA PEMOHON</b></h6>
+            <h6 class="modal-title" id="staticBackdropLabel"><b><i class="fa fa-address-card" aria-hidden="true"></i> PENCARIAN DATA PEMOHON</b></h6>
             <div wire:loading>
                 <span class="badge bg-success text-xs" style="margin-left:5px;"> <i class="text-xs fas fa-3x fa-sync-alt fa-spin"></i> Loading...</span>
             </div>
