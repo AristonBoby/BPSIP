@@ -94,4 +94,9 @@ class FormPermintaanAnalisis extends Component
     {
         $this->validate();
     }
+
+    public function pencarianPemohon()
+    {
+
+    }
 }

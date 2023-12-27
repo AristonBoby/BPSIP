@@ -4,7 +4,7 @@
             <div class="card card-outline card-primary">
                 <div class="card-header ">
                     <h5 class="card-title"><i class="fa fa-address-card" aria-hidden="true"></i> FORM <b>IDENTITAS PERMOHONAN ANALISIS</b></h5>
-                    <a class="btn btn-warning btn-sm float-right"><i class="fa fa-plus"></i> <b>Data Pemohon</b></a>
+                    <button type="button" data-toggle="modal" data-target="#modalCariPemohon" class="btn btn-warning btn-sm float-right"><i class="fa fa-plus"></i> <b>Data Pemohon</b></button>
                 </div>
                 <div class="card-body row">
                     <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
@@ -186,6 +186,7 @@
             </div>
         </div>
     </form>
+    @include('livewire.permohonan-analisis.modalCariPemohon')
 </div>
 <script>
     window.addEventListener('alert', event => {

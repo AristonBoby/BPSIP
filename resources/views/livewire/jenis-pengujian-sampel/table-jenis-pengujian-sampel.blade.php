@@ -44,7 +44,7 @@
                             <td class="text-center">
                                 @if($filter == 0)
                                     <a class="btn btn-sm btn-warning" wire:click="getData('{{$data->id}}')" data-toggle="modal" data-target="#modalEdit"><i class="text-xs fa fa-edit"></i> Edit</a>
-                                    <a class="btn btn-sm bg-danger" wire:click="getData('{{$data->id}}')" data-toggle ="modal" data-target="#modalHapus"s><i class="fas fa-light fa-trash-alt text-xs"></i> Hapus</a>
+                                    <a class="btn btn-sm bg-danger" wire:click="getData('{{$data->id}}')" data-toggle ="modal" data-target="#modalHapus"><i class="fas fa-light fa-trash-alt text-xs"></i> Hapus</a>
                                 @elseif($filter == 1)
                                 <a class="btn btn-sm btn-success" wire:click="restoreDelete('{{$data->id}}')"><i class="fa fa-undo" aria-hidden="true"></i> Batal Hapus</a>
                                 @endif
