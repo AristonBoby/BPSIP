@@ -5,10 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class permintaanAnalisa extends Model
+class provinsi extends Model
 {
     use HasFactory;
-
-
-
 }
