@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('user_pemohons', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->char('no_tlpn',16)->index();
+            $table->foreignId('kelurahan');
+            $table->string('alamat');
             $table->foreignId('user_id')->index();
             $table->foreign('user_id')->references('id')->on('users');
             $table->softDeletes();

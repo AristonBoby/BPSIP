@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\analisaSampel;
 use App\Models\jenis_pengujian_sampel;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 class FormAnalisaSampel extends Component
 {

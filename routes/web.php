@@ -23,4 +23,6 @@ Route::get('/FormJenisPengujian', [App\Http\Controllers\jenisPengujian::class, '
 Route::get('/FormAnalisaSampel', [App\Http\Controllers\analisaSampel::class, 'index'])->name('FormAnalisaSampel');
 Route::get('/jenisPemeriksaan', [App\Http\Controllers\jenisPemeriksaan::class, 'index'])->name('jenisPemeriksaan');
 Route::get('/PermohonanAnalis', [App\Http\Controllers\permohonanAnalis::class, 'index'])->name('permohonanAnalis');
+Route::get('/pendaftaran', [App\Http\Controllers\pendaftaranUserPemohon::class, 'index'])->name('pendaftaranPemohon');
+
 
