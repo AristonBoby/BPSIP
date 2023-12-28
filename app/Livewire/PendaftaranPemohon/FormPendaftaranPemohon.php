@@ -4,6 +4,7 @@ namespace App\Livewire\PendaftaranPemohon;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use App\Models\User;
+use App\Models\provinsi;
 use App\Models\userPemohon;
 use Illuminate\Support\Facades\Hash;
 class FormPendaftaranPemohon extends Component
@@ -31,8 +32,8 @@ class FormPendaftaranPemohon extends Component
         'kel'                       =>  'required',
     ];
     public function render()
-    {
-        return view('livewire.pendaftaran-pemohon.form-pendaftaran-pemohon');
+    {   $prov = provinsi::all();
+        return view('livewire.pendaftaran-pemohon.form-pendaftaran-pemohon',['provinsi'=>$prov]);
     }
     public function messages()
     {

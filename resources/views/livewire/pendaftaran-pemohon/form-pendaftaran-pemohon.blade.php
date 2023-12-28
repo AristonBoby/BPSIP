@@ -3,9 +3,9 @@
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
                 <a href="../../index2.html" class="h3"><b>PENDAFTARAN</b> LABORATORIUM</a>
-            </div>  
+            </div>
             <div class="card-body">
-                <form wire:submit="store()"> 
+                <form wire:submit="store()">
                     <p class="login-box-msg">MASUKAN DATA ANDA</p>
                     <div class="input-group mb-2">
                         <input type="text" class="form-control @error('nama') is-invalid @enderror" wire:model='nama' placeholder="Nama Lengkap">
@@ -26,7 +26,7 @@
                     <div class="input-group mb-2">
                         <input type="text" class="form-control @error('noHp') is-invalid @enderror" placeholder="No HP" wire:model="noHp">
                         <div class="input-group-append">
-                            <div class="input-group-text">            
+                            <div class="input-group-text">
                                 <i class="fa fa-whatsapp fa-lg fa-solid" aria-hidden="true"></i>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                     <div class="input-group mb-2">
                         <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" wire:model="password">
                         <div class="input-group-append">
-                            <div class="input-group-text">            
+                            <div class="input-group-text">
                                 <i class="fa fa-lock" aria-hidden="true"></i>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                     <div class="input-group mb-2">
                         <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" wire:model="password_confirmation">
                         <div class="input-group-append">
-                            <div class="input-group-text">            
+                            <div class="input-group-text">
                                 <i class="fa fa-lock" aria-hidden="true"></i>
                             </div>
                         </div>
@@ -53,6 +53,10 @@
                     <div class="input-group mb-2">
                         <select type="text" class="form-control @error('prov') is-invalid @enderror" wire:model="prov">
                             <option>-- Pilih Provinsi --</option>
+                            @foreach ($provinsi as $data)
+                                <option value="{{ $data->id }}">{{$data->namaProvinsi}}</option>
+                            @endforeach
+
                         </select>
                         <div class="input-group-append">
                             <div class="input-group-text">
