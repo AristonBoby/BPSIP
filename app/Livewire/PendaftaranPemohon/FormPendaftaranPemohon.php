@@ -6,12 +6,14 @@ use Livewire\Component;
 use App\Models\User;
 use App\Models\provinsi;
 use App\Models\kota;
+use App\Models\kecamatan;
+use App\Models\kelurahan;
 use App\Models\userPemohon;
 use Illuminate\Support\Facades\Hash;
 class FormPendaftaranPemohon extends Component
 {
     public $nama;
-    public $email;
+    public $varEmail;
     public $noHp;
     public $password;
     public $password_confirmation;
@@ -23,9 +25,9 @@ class FormPendaftaranPemohon extends Component
 
     protected $rules = [
         'nama'                      =>  'required',
-        'email'                     =>  'required',
-        'noHp'                      =>  'required||numeric|unique:user_pemohons,no_tlpn',
-        'password'                  =>  'same:password_confirmation|min:6',
+        'varEmail'                  =>  'required|unique:users,email|email',
+        'noHp'                      =>  'required|numeric|unique:user_pemohons,no_tlpn',
+        'password'                  =>  'required|same:password_confirmation|min:6',
         'password_confirmation'     =>  'required',
         'prov'                      =>  'required',
         'city'                      =>  'required',
@@ -35,13 +37,20 @@ class FormPendaftaranPemohon extends Component
     public function render()
     {   $prov = provinsi::all();
         $kota = kota::where('provinsi_id',$this->prov)->get();
-        return view('livewire.pendaftaran-pemohon.form-pendaftaran-pemohon',['provinsi'=>$prov,'kota'=>$kota]);
+        $kec  = kecamatan::where('kota_id',$this->city)->get();
+        $kel  = kelurahan::where('kecamatan_id',$this->kec)->get();
+
+        return view('livewire.pendaftaran-pemohon.form-pendaftaran-pemohon',['provinsi'=>$prov,'kota'=>$kota,'kecamatan'=>$kec,'kelurahan'=>$kel]);
     }
     public function messages()
     {
         return [
+            'nama.required'         => 'Nama wajib diisi',
+            'varEmail.required'     => 'Email wajib diisi',
+            'varEmail.email'        => 'Format email tidak sesuai',
+            'varEmail.unique'       => 'Email yang anda masukan telah terdaftar',
             'password.same'         => 'Password Tidak Sesuai',
-            'password.same'         => 'Password Tidak Sesuai',
+            'password.required'     => 'Password wajib diisi',
             'noHp.numeric'          => 'Nomor Wajib Angka',
             'noHp.required'         => 'Data No Telepon wajib diisi',
             'noHp.unique'           => 'No Telepon / Whatsaap Anda Telah Terdaftar',
@@ -50,12 +59,12 @@ class FormPendaftaranPemohon extends Component
 
     public function store()
     {
-        //$this->validate();
+        $this->validate();
         $query = User::create([
-            'name'      => $this->nama,
-            'email'     => $this->email,
-            'password'  => Hash::make($this->password),
-            'role'      => '2',
+            'name'          => $this->nama,
+            'email'      => $this->varEmail,
+            'password'      => Hash::make($this->password),
+            'role'          => '2',
         ]);
 
         if($query){
@@ -63,7 +72,7 @@ class FormPendaftaranPemohon extends Component
             $data = userPemohon::create([
                 'id'        =>  Str::uuid(),
                 'no_tlpn'   =>  $this->noHp,
-                'kelurahan' =>  '3',
+                'kelurahan' =>  $this->kel,
                 'alamat'    =>  $this->alamat,
                 'user_id'   =>  $idUser->id,
             ]);

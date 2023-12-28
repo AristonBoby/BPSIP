@@ -1,4 +1,4 @@
-<div class="register-page" style="margin-top:-100px;">
+<div class="register-page" style="margin-top:-50px;">
     <div class="register-box">
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
@@ -15,14 +15,16 @@
                             </div>
                         </div>
                     </div>
+                    @error('nama') <a class="text-red text-sm">{{ $message }}</a> @enderror
                     <div class="input-group mb-2">
-                        <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" wire:model="email">
+                        <input type="text" class="form-control @error('varEmail') is-invalid @enderror" placeholder="Email" wire:model="varEmail">
                         <div class="input-group-append">
                             <div class="input-group-text">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
+                    @error('varEmail') <a class="text-red text-sm">{{ $message }}</a> @enderror
                     <div class="input-group mb-2">
                         <input type="text" class="form-control @error('noHp') is-invalid @enderror" placeholder="No HP" wire:model="noHp">
                         <div class="input-group-append">
@@ -64,6 +66,7 @@
                             </div>
                         </div>
                     </div>
+                    @error('prov') <a class="text-red text-sm">{{ $message }}</a> @enderror
                     <div class="input-group mb-2">
                         <select type="text" class="form-control @error('city') is-invalid @enderror" wire:model.live="city">
                             <option>-- Pilih Kab/Kota --</option>
@@ -79,9 +82,14 @@
                             </div>
                         </div>
                     </div>
+                    @error('city') <a class="text-red text-sm">{{ $message }}</a> @enderror
                     <div class="input-group mb-2">
-                    <select type="text" class="form-control @error('kec') is-invalid @enderror" wire:model="kec">
+                    <select type="text" class="form-control @error('kec') is-invalid @enderror" wire:model.live="kec">
                             <option>-- Pilih Kecamatan --</option>
+                            @forelse ($kecamatan as $data)
+                                <option value="{{ $data->id }}">{{$data->namaKecamatan}}</option>
+                            @empty
+                            @endforelse
                         </select>
                         <div class="input-group-append">
                             <div class="input-group-text">
@@ -89,9 +97,14 @@
                             </div>
                         </div>
                     </div>
+                    @error('kec') <a class="text-red text-sm">{{ $message }}</a> @enderror
                     <div class="input-group mb-2">
                     <select type="text" class="form-control @error('kel') is-invalid @enderror" wire:model="kel">
                             <option>-- Pilih Desa / Kelurahan --</option>
+                            @forelse ($kelurahan as $data)
+                                <option value="{{ $data->id }}">{{$data->namaKelurahan}}</option>
+                            @empty
+                            @endforelse
                         </select>
                         <div class="input-group-append">
                             <div class="input-group-text">
@@ -99,18 +112,21 @@
                             </div>
                         </div>
                     </div>
+                    @error('kel') <a class="text-red text-sm">{{ $message }}</a> @enderror
                     <div class="input-group mb-2">
-                        <textarea type="text" class="form-control" wire:model="alamat"></textarea>
+                        <textarea type="text" class="form-control" wire:model="alamat" placeholder="Alamat"></textarea>
                         <div class="input-group-append">
                             <div class="input-group-text">
                             <i class="fa fa-home" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
+                    @error('alamat') <a class="text-red text-sm">{{ $message }}</a> @enderror
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary btn-block">Daftar</button>
+                        <a href="{{route('login')}}" type="submit" class="btn btn-success btn-block">Klik disini login</a>
                     </div>
-                    <a href="{{route('login')}}"class="text-center mt-2">Klik disini jika sudah memiliki akun</a>
+                    <a href="{{route('login')}}"class="text-center mt-2">Lupa Password</a>
                 </form>
             </div>
         </div>

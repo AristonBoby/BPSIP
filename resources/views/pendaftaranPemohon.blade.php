@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appPendaftaran')
 
 @section('header')
 FORM <b>PENDAFTARAN PEMOHON</b>
