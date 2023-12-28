@@ -5,6 +5,7 @@ use Illuminate\Support\Str;
 use Livewire\Component;
 use App\Models\User;
 use App\Models\provinsi;
+use App\Models\kota;
 use App\Models\userPemohon;
 use Illuminate\Support\Facades\Hash;
 class FormPendaftaranPemohon extends Component
@@ -33,7 +34,8 @@ class FormPendaftaranPemohon extends Component
     ];
     public function render()
     {   $prov = provinsi::all();
-        return view('livewire.pendaftaran-pemohon.form-pendaftaran-pemohon',['provinsi'=>$prov]);
+        $kota = kota::where('provinsi_id',$this->prov)->get();
+        return view('livewire.pendaftaran-pemohon.form-pendaftaran-pemohon',['provinsi'=>$prov,'kota'=>$kota]);
     }
     public function messages()
     {

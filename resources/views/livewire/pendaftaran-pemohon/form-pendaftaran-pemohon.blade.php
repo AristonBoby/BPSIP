@@ -51,7 +51,7 @@
                     </div>
                     @error('password') <a class="text-red text-sm">{{ $message }}</a> @enderror
                     <div class="input-group mb-2">
-                        <select type="text" class="form-control @error('prov') is-invalid @enderror" wire:model="prov">
+                        <select type="text" class="form-control @error('prov') is-invalid @enderror" wire:model.live="prov">
                             <option>-- Pilih Provinsi --</option>
                             @foreach ($provinsi as $data)
                                 <option value="{{ $data->id }}">{{$data->namaProvinsi}}</option>
@@ -65,8 +65,13 @@
                         </div>
                     </div>
                     <div class="input-group mb-2">
-                        <select type="text" class="form-control @error('city') is-invalid @enderror" wire:model="city">
+                        <select type="text" class="form-control @error('city') is-invalid @enderror" wire:model.live="city">
                             <option>-- Pilih Kab/Kota --</option>
+                            @forelse ($kota as $data)
+                                <option value="{{ $data->id }}">{{$data->namaKota}}</option>
+                            @empty
+
+                            @endforelse
                         </select>
                         <div class="input-group-append">
                             <div class="input-group-text">
