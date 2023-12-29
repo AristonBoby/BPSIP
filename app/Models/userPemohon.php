@@ -11,12 +11,16 @@ class userPemohon extends Model
     protected $fillable = [
         'no_tlpn',
         'id',
-        'kelurahan',
+        'kelurahan_id',
         'alamat',
         'user_id'
     ];
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+    public function kelurahan()
+    {
+    	return $this->hasOne('App\Models\kelurahan');
     }
 }

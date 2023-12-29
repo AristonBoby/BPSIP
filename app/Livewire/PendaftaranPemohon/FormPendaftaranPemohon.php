@@ -68,15 +68,17 @@ class FormPendaftaranPemohon extends Component
         ]);
 
         if($query){
-            $idUser = User::where('email',$this->email)->first();
+            $idUser = User::where('email',$this->varEmail)->first();
             $data = userPemohon::create([
-                'id'        =>  Str::uuid(),
-                'no_tlpn'   =>  $this->noHp,
-                'kelurahan' =>  $this->kel,
-                'alamat'    =>  $this->alamat,
-                'user_id'   =>  $idUser->id,
+                'id'            =>  Str::uuid(),
+                'no_tlpn'       =>  $this->noHp,
+                'kelurahan_id'  =>  $this->kel,
+                'alamat'        =>  $this->alamat,
+                'user_id'       =>  $idUser->id,
             ]);
         }
 
     }
+
+
 }

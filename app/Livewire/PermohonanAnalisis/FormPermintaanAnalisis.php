@@ -2,13 +2,19 @@
 
 namespace App\Livewire\PermohonanAnalisis;
 
+use App\Models\user;
 use Livewire\Component;
+use Livewire\WithPagination;
+use Illuminate\Support\Facades\DB;
 use App\Models\jenis_pengujian_sampel;
+
 class FormPermintaanAnalisis extends Component
-{
+{   use WithPagination;
     public $sampel = [1];
     public $index  = 0;
     public $kodeSampel=[];
+    public $cari='';
+    public $varCari;
 
     public $tanggal;
     public $nomorSpk;
@@ -35,8 +41,9 @@ class FormPermintaanAnalisis extends Component
     }
 
     public function render()
-    {   $data = jenis_pengujian_sampel::all();
-        return view('livewire.permohonan-analisis.form-permintaan-analisis',['analisa'=>$data]);
+    {   $query = User::where('name','LIKE','%'.$this->cari.'%')->where('role',2)->paginate(10);
+        $data = jenis_pengujian_sampel::all();
+        return view('livewire.permohonan-analisis.form-permintaan-analisis',['analisa'=>$data,'cariUser'=>$query]);
     }
 
     public function addSampel($no)
@@ -95,8 +102,29 @@ class FormPermintaanAnalisis extends Component
         $this->validate();
     }
 
-    public function pencarianPemohon()
+    public function batal()
     {
+        $this->cari = '';
+    }
+
+    public function selectUser($id)
+    {
+       $query = DB::table('users')
+                ->join('user_pemohons','user_pemohons.user_id','users.id')
+                ->join('kelurahans','kelurahans.id','uuser_pemohons')
+                ->where('role',2)
+                ->where('users.id',$id)
+                ->first();
+       dd($query);
+       if($query)
+       {
+        $this->dispatch('alert',text:'[ '.$query->name.' ]' ,icon:'success',title:'Berhasil',timer:2000);
+        $this->namaPemohon  =   $query->name;
+        $this->noTlpn       =   $query->userPemohon->no_tlpn;
+        $this->kel          =   $query->userPemohon;
+       }
+
+
 
     }
 }

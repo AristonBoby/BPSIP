@@ -48,4 +48,8 @@ class User extends Authenticatable
     {
     	return $this->hasOne('App\Models\userPemohon');
     }
+    public function kelurahan()
+    {
+    	return $this->hasOne('App\Models\kelurahan');
+    }
 }

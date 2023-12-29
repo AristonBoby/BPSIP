@@ -54,9 +54,7 @@
                         </td>
                     </tr>
                 @empty
-                    <tr>
-                        <td colspan="6" class="text-center">DATA TIDAK DITEMUKAN</td>
-                    </tr>
+
                 @endforelse
                 </tbody>
             </table>
