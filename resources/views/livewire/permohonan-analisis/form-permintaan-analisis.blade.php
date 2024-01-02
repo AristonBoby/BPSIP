@@ -8,16 +8,9 @@
                 </div>
                 <div class="card-body row">
                     <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
-                        <label class="control-label col-sm-3"> Nomor SPK <b class='text-red'>*</b></label>
+                        <label class=" control-label col-sm-3 text-uppercase">Nama Pemohon <b class='text-red'>*</b></label>
                         <div class="col-sm-7">
-                           <input type="text" wire:model='nomorSpk' disabled class=" form-control @error('nomorSpk') is-invalid @enderror" placeholder="Nomor SPK">
-                            @error('nomorSpk') <span class="error is-invalid text-red"> {{ $message }} </span> @enderror
-                        </div>
-                    </div>
-                    <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
-                        <label class=" control-label col-sm-3">Nama Pemohon <b class='text-red'>*</b></label>
-                        <div class="col-sm-7">
-                            <input type="text" wire:model.defer='namaPemohon' class="form-control rounded-0  @error('namaPemohon') is-invalid @enderror" placeholder=" Nama Pemohon" disabled>
+                            <input type="text" wire:model='namaPemohon' class="form-control rounded-0  @error('namaPemohon') is-invalid @enderror" placeholder=" Nama Pemohon" disabled>
                             @error('namaPemohon') <span class=" text-red error">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -29,39 +22,10 @@
                         </div>
                     </div>
                     <div class="form-group  col-lg-6 col-md-12 col-sm-12 row">
-                        <label class="control-label  col-sm-3">Provinsi<b class='text-red'>*</b></label>
+                        <label class="control-label col-sm-3">Alamat<b class='text-red'>*</b></label>
                         <div class="col-sm-7">
-                            <select class=" form-control @error('provinsi') is-invalid @enderror" wire:model='provinsi' disabled>
-                                <option value="">-- Pilih Salah Satu ---</option>
-                            <select>
-                            @error('provinsi')<span class="error text-red ">{{ $message }}</span>@enderror
-                        </div>
-                    </div>
-                    <div class="form-group  col-lg-6 col-md-12 col-sm-12 row">
-                        <label class="control-label col-sm-3">Kab/Kota<b class='text-red'>*</b></label>
-                        <div class="col-sm-7" >
-                            <select wire:model='kab' class="form-control  @error('kab') is-invalid @enderror" disabled>
-                                <option value="">-- Pilih Salah Satu ---</option>
-                            <select>
-                            @error('kab')<span class="error text-red ">{{ $message }}</span>@enderror
-                        </div>
-                    </div>
-                    <div class="form-group  col-lg-6 col-md-12 col-sm-12 row">
-                        <label class="control-label  col-sm-3">Kecamatan<b class='text-red'>*</b></label>
-                        <div class="col-sm-7">
-                            <select class=" @error('kec') is-invalid @enderror form-control" disabled>
-                                <option value="">-- Pilih Salah Satu ---</option>
-                            <select>
-                            @error('kec')<span class="error text-red ">{{ $message }}</span>@enderror
-                        </div>
-                    </div>
-                    <div class="form-group  col-lg-6 col-md-12 col-sm-12 row">
-                        <label class="control-label col-sm-3">Kelurahan/Desa<b class='text-red'>*</b></label>
-                        <div class="col-sm-7">
-                            <select class="form-control @error('kel') is-invalid @enderror" disabled>
-                                <option value="">-- Pilih Salah Satu ---</option>
-                            <select>
-                            @error('kel')<span class="error text-red ">{{ $message }}</span>@enderror
+                            <textarea wire:model='alamat' placeholder="Alamat" class="text-uppercase form-control @error('kel') is-invalid @enderror" disabled/></textarea>
+                            @error('alamat')<span class="error text-red ">{{ $message }}</span>@enderror
                         </div>
                     </div>
                     <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
@@ -80,10 +44,17 @@
                     <h5 class="card-title"><i class="fa fa-flask" aria-hidden="true"></i> FORM <b>IDENTITAS CONTOH</b></h5>
                 </div>
                 <div class="card-body row">
+                    <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
+                        <label class="control-label col-sm-3"> Nomor SPK <b class='text-red'>*</b></label>
+                        <div class="col-sm-7">
+                           <input type="text" wire:model='nomorSpk' class=" form-control @error('nomorSpk') is-invalid @enderror" placeholder="Nomor SPK" @disabled($form)>
+                            @error('nomorSpk') <span class="error is-invalid text-red"> {{ $message }} </span> @enderror
+                        </div>
+                    </div>
                 <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
                     <label class="control-label col-sm-3"> Jenis Pengujian Sampel <b class='text-red'>*</b></label>
                     <div class="col-sm-7">
-                        <select wire:model='jenisPengujian' class=" form-control @error('jenisPengujian') is-invalid @enderror">
+                        <select wire:model.live='jenisPengujian' class=" form-control @error('jenisPengujian') is-invalid @enderror" @disabled($form)>
                             <option value="">-- Pilih Salah Satu --</option>
                             @foreach ($analisa as $data )
                             <option value="{{ $data->id }}">{{ $data->jenis_pengujian}}</option>
@@ -95,42 +66,42 @@
                 <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
                     <label class="control-label  col-sm-3"> Jumlah Contoh <b class='text-red'>*</b></label>
                     <div class="col-sm-7">
-                        <input type="text" wire:model.defer='jumContoh' class="form-control rounded-0  @error('jumContoh') is-invalid @enderror" placeholder=" Jumlah Contoh">
+                        <input type="text" wire:model.defer='jumContoh' class="form-control rounded-0  @error('jumContoh') is-invalid @enderror" placeholder=" Jumlah Contoh" @disabled($form)>
                         @error('jumContoh')<span class=" text-red">{{ $message }}</span>@enderror
                     </div>
                 </div>
                 <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
                     <label class="control-label  col-sm-3"> Jenis Contoh <b class='text-red'>*</b></label>
                     <div class="col-sm-7">
-                        <input type="text" wire:model='jenisContoh' class="form-control rounded-0  @error('jenisContoh') is-invalid @enderror" placeholder=" Jenis Contoh">
+                        <input type="text" wire:model='jenisContoh' class="form-control rounded-0  @error('jenisContoh') is-invalid @enderror" placeholder=" Jenis Contoh" @disabled($form)>
                         @error('jenisContoh')<span class=" text-red">{{ $message }}</span>@enderror
                     </div>
                 </div>
                 <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
                     <label class="control-label  col-sm-3"> Berat Contoh <b class='text-red'>*</b></label>
                     <div class="col-sm-7">
-                        <input type="text" wire:model.defer='beratContoh' class="form-control rounded-0  @error('beratContoh') is-invalid @enderror" placeholder=" Berat Contoh">
+                        <input type="text" wire:model.defer='beratContoh' class="form-control rounded-0  @error('beratContoh') is-invalid @enderror" placeholder=" Berat Contoh" @disabled($form)>
                         @error('beratContoh')<span class=" text-red">{{ $message }}</span>@enderror
                     </div>
                 </div>
                 <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
                     <label class="control-label  col-sm-3">Bentuk Contoh<b class='text-red'>*</b></label>
                     <div class="col-sm-7">
-                        <input type="text" wire:model.defer='bentukContoh' class="form-control rounded-0  @error('bentukContoh') is-invalid @enderror" placeholder=" Bentuk Contoh">
+                        <input type="text" wire:model.defer='bentukContoh' class="form-control rounded-0  @error('bentukContoh') is-invalid @enderror" placeholder=" Bentuk Contoh" @disabled($form)>
                         @error('bentukContoh') <span class=" text-red">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
                     <label class="control-label  col-sm-3">Kondisi Contoh<b class='text-red'>*</b></label>
                     <div class="col-sm-7">
-                        <input type="text" wire:model.defer='kondisiContoh' class="form-control rounded-0  @error('kondisiContoh') is-invalid @enderror" placeholder=" Kondisi Kemasan">
+                        <input type="text" wire:model.defer='kondisiContoh' class="form-control rounded-0  @error('kondisiContoh') is-invalid @enderror" placeholder=" Kondisi Kemasan" @disabled($form)>
                         @error('kondisiContoh') <span class=" text-red">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
                     <label class="control-label  col-sm-3">Jenis Kemasan<b class='text-red'>*</b></label>
                     <div class="col-sm-7">
-                        <input type="text" wire:model.defer='jenisKemasan' class="form-control rounded-0  @error('jenisKemasan') is-invalid @enderror" placeholder=" Jenis Kemasan  ">
+                        <input type="text" wire:model.defer='jenisKemasan' class="form-control rounded-0  @error('jenisKemasan') is-invalid @enderror" placeholder=" Jenis Kemasan" @disabled($form)>
                         @error('jenisKemasan') <span class=" text-red">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -160,16 +131,24 @@
                             @foreach ( $sampel as $no=>$data )
                             <tr>
                                 <td>{{ $no+1 }}.</td>
-                                <td><input placeholder="Kode Sampel" wire:model='kodeSampel.{{ $no }}' type="text"  class="form-control form-control-sm rounded-0"></td>
-                                <td><input placeholder="Kode Lab" type="text" class="form-control form-control-sm rounded-0"></td>
-                                <td><input type="text" class="form-control form-control-sm rounded-0"></td>
-                                <td><input placeholder="Keterangan" type="text" class="form-control form-control-sm rounded-0"></td>
-                                <td></td>
-                                <td></td>
+                                <td><input placeholder="Kode Sampel" wire:model='kodeSampel.{{ $no }}' type="text"  class="form-control form-control-sm rounded-0" @disabled($form)></td>
+                                <td><input placeholder="Kode Lab" type="text" class="form-control form-control-sm rounded-0" @disabled($form)></td>
+                                <td>
+                                    <select class="form-control form-control-sm rounded-0" wire:model.live='idpemeriksaan.{{$no}}' @disabled($form)>
+                                        <option>-- Pilih Salah Satu --</option>
+                                        @forelse ($itemPengujian as $data )
+                                            <option value="{{$data->id}}">{{ $data->jenis_analisa }}</option>
+                                        @empty
+
+                                        @endforelse
+                                    </select>
+                                </td>
+                                <td><textarea placeholder="Keterangan" type="text" class="form-control form-control-sm rounded-0" @disabled($form)></textarea></td>
+                                <td><input wire:model.live='getharga.{{$no}}'></td>
                                 @if($no===0)
-                                    <td class="text-center"><a class="btn btn-primary" wire:click="addSampel('{{ $no }}')">+</a></td>
+                                    <td class="text-center"><button type="button" class="btn btn-primary" wire:click="addSampel('{{ $no }}')" @disabled($form)>+</button></td>
                                 @else
-                                    <td class="text-center"><a class="btn btn-danger" wire:click="removeSampel({{ $no }})"><i class="fa fa-trash"></i></a></td>
+                                    <td class="text-center"><button type="button" class="btn btn-danger" wire:click="removeSampel({{ $no }})" @disabled($form)><i class="fa fa-trash" ></i></button></td>
                                 @endif
 
                             </tr>
@@ -179,8 +158,8 @@
                 </div>
                 <div class="card-footer">
                     <div class="col-md-12 col-lg-12 col-sm-12">
-                        <a href="" class=" btn-md btn btn-danger  float-right" style="margin-right:15px;"><i class="fa fa-times" aria-hidden="true"></i> Batal</a>
-                        <button class=" btn-md btn btn-primary  float-right" style="margin-right:15px;"><i class="fa fa-save" aria-hidden="true"></i> Simpan</button>
+                        <button type="button" class=" btn-md btn btn-danger  float-right" style="margin-right:15px;" @disabled($form)><i class="fa fa-times" aria-hidden="true"></i> Batal</button>
+                        <button class=" btn-md btn btn-primary  float-right" style="margin-right:15px;" @disabled($form)><i class="fa fa-save" aria-hidden="true" ></i> Simpan</button>
                     </div>
                 </div>
             </div>

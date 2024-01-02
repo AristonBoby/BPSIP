@@ -13,8 +13,11 @@ class FormPermintaanAnalisis extends Component
     public $sampel = [1];
     public $index  = 0;
     public $kodeSampel=[];
+    public $getharga=[];
     public $cari='';
     public $varCari;
+
+    public $form = true;
 
     public $tanggal;
     public $nomorSpk;
@@ -31,10 +34,9 @@ class FormPermintaanAnalisis extends Component
     public $kondisiContoh;
     public $bentukContoh;
     public $jenisKemasan;
-
-
-    public $i = 0;
-
+    public $alamat;
+    public $idpemeriksaan=[];
+    public $i=0;
     public function mount()
     {
         $this->tanggal = date('d-m-Y');
@@ -43,7 +45,12 @@ class FormPermintaanAnalisis extends Component
     public function render()
     {   $query = User::where('name','LIKE','%'.$this->cari.'%')->where('role',2)->paginate(10);
         $data = jenis_pengujian_sampel::all();
-        return view('livewire.permohonan-analisis.form-permintaan-analisis',['analisa'=>$data,'cariUser'=>$query]);
+        $pengujian = DB::table('analisa_sampels')
+                     ->join('jenis_pengujian_sampels','jenis_pengujian_sampels.id','analisa_sampels.jenisPengujian_id')
+                     ->where('analisa_sampels.jenisPengujian_id',$this->jenisPengujian)
+                     ->select('analisa_sampels.jenis_analisa','analisa_sampels.id')
+                     ->get();
+        return view('livewire.permohonan-analisis.form-permintaan-analisis',['analisa'=>$data,'cariUser'=>$query,'itemPengujian'=>$pengujian]);
     }
 
     public function addSampel($no)
@@ -111,20 +118,35 @@ class FormPermintaanAnalisis extends Component
     {
        $query = DB::table('users')
                 ->join('user_pemohons','user_pemohons.user_id','users.id')
-                ->join('kelurahans','kelurahans.id','uuser_pemohons')
+                ->join('kelurahans','kelurahans.id','user_pemohons.kelurahan_id')
+                ->join('kecamatans','kecamatans.id','kelurahans.kecamatan_id')
+                ->join('kotas','kotas.id','kecamatans.kota_id')
+                ->join('provinsis','provinsis.id','kotas.provinsi_id')
                 ->where('role',2)
                 ->where('users.id',$id)
+                ->select('name','no_tlpn','alamat','namaKelurahan','namaKecamatan','namaKota','namaProvinsi')
                 ->first();
-       dd($query);
+       //dd($query);
        if($query)
        {
         $this->dispatch('alert',text:'[ '.$query->name.' ]' ,icon:'success',title:'Berhasil',timer:2000);
         $this->namaPemohon  =   $query->name;
-        $this->noTlpn       =   $query->userPemohon->no_tlpn;
-        $this->kel          =   $query->userPemohon;
+        $this->noTlpn       =   $query->no_tlpn;
+        $this->alamat       =   $query->alamat. ', DESA/KEL. '. $query->namaKelurahan.', KEC. '. $query->namaKecamatan.', KAB/KOTA. '. $query->namaKota.', Provinsi '.$query->namaProvinsi;
+        $this->form         =   false;
+       }else
+       {
+        $this->dispatch('alert',text:'Gagal Mengambil Data' ,icon:'warning',title:'Gagal ',timer:2000);
+        $this->namaPemohon  =   '';
+        $this->noTlpn       =   '';
+        $this->alamat       =   '';
+        $this->form         =   true;
        }
+    }
 
-
-
+    public function updatedIdpemeriksaan($value,$key)
+    {
+       // dd($this->idpemeriksaan);
+       $this->getharga[$key] = 10000;
     }
 }
