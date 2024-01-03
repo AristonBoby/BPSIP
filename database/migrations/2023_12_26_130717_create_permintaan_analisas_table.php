@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('permintaan_analisas', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('userPemohon_id');
             $table->smallInteger('jumContoh');
             $table->smallInteger('beratContoh');
             $table->string('bentukContoh');

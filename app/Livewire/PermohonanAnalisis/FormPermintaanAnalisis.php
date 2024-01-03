@@ -7,6 +7,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
 use App\Models\jenis_pengujian_sampel;
+use App\Models\jenisPemeriksaanSampel;
 
 class FormPermintaanAnalisis extends Component
 {   use WithPagination;
@@ -14,6 +15,7 @@ class FormPermintaanAnalisis extends Component
     public $index  = 0;
     public $kodeSampel=[];
     public $getharga=[];
+    public $itemPemeriksaan=[];
     public $cari='';
     public $varCari;
 
@@ -36,6 +38,8 @@ class FormPermintaanAnalisis extends Component
     public $jenisKemasan;
     public $alamat;
     public $idpemeriksaan=[];
+
+
     public $i=0;
     public function mount()
     {
@@ -64,6 +68,9 @@ class FormPermintaanAnalisis extends Component
     {   $this->kodeSampel[$no]='';
         unset($this->sampel[$no]);
         unset($this->kodeSampel[$no]);
+        unset($this->itemPemeriksaan[$no]);
+        unset($this->idpemeriksaan[$no]);
+        unset($this->getharga[$no]);
         array_push($this->sampel);
     }
 
@@ -146,7 +153,18 @@ class FormPermintaanAnalisis extends Component
 
     public function updatedIdpemeriksaan($value,$key)
     {
-       // dd($this->idpemeriksaan);
-       $this->getharga[$key] = 10000;
+
+       $query = jenisPemeriksaanSampel::join('analisa_sampels','analisa_sampels.id','=','jenis_pemeriksaan_sampels.analisa_sampel_id')
+       ->join('jenis_pengujian_sampels','jenis_pengujian_sampels.id','=','analisa_sampels.jenisPengujian_id')
+       ->select(DB::raw('SUM(jenis_pemeriksaan_sampels.harga) AS harga'),DB::raw("GROUP_CONCAT(jenis_pemeriksaan_sampels.itemPemeriksaan SEPARATOR ' , ') AS jenis"))
+       ->groupBy('jenis_pengujian_sampels.jenis_pengujian')
+       ->groupBy('jenis_pemeriksaan_sampels.analisa_sampel_id')
+       ->where('jenis_pemeriksaan_sampels.analisa_sampel_id',$this->idpemeriksaan[$key])
+       ->get();
+
+       foreach ($query as $value) {
+        $this->getharga[$key] = formatRupiah($value->harga);
+        $this->itemPemeriksaan[$key] = $value->jenis;
+      }
     }
 }

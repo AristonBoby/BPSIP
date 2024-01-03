@@ -20,7 +20,7 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('users_id')->references('id')->on('users');
-            $table->foreign('jenisPengujian_id')->references('id')->on('jenis_pengujian_Sampels')->casecadeOnUpdate()->casecadeOnDelete('casecade');
+            $table->foreign('jenisPengujian_id')->references('id')->on('jenis_pengujian_sampels');
 
         });
     }

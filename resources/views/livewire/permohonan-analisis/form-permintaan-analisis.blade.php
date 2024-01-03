@@ -135,7 +135,7 @@
                                 <td><input placeholder="Kode Lab" type="text" class="form-control form-control-sm rounded-0" @disabled($form)></td>
                                 <td>
                                     <select class="form-control form-control-sm rounded-0" wire:model.live='idpemeriksaan.{{$no}}' @disabled($form)>
-                                        <option>-- Pilih Salah Satu --</option>
+                                        <option selected>-- Pilih Salah Satu --</option>
                                         @forelse ($itemPengujian as $data )
                                             <option value="{{$data->id}}">{{ $data->jenis_analisa }}</option>
                                         @empty
@@ -144,7 +144,8 @@
                                     </select>
                                 </td>
                                 <td><textarea placeholder="Keterangan" type="text" class="form-control form-control-sm rounded-0" @disabled($form)></textarea></td>
-                                <td><input wire:model.live='getharga.{{$no}}'></td>
+                                <td><b><input type="text" class="form-control" wire:model='getharga.{{ $no }}' disabled></input></b></td>
+                                <td><textarea class="form-control" wire:model='itemPemeriksaan.{{ $no }}' disabled></textarea></td>
                                 @if($no===0)
                                     <td class="text-center"><button type="button" class="btn btn-primary" wire:click="addSampel('{{ $no }}')" @disabled($form)>+</button></td>
                                 @else
