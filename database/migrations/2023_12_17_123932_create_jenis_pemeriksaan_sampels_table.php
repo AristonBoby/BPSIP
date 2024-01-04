@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('itemPemeriksaan',25);
             $table->bigInteger('harga');
             $table->foreignId('user_id');
-            $table->uuid('analisa_sampel_id');
+            $table->foreignUuid('analisa_sampel_id');
             $table->char('status',1);
             $table->softDeletes();
             $table->timestamps();
