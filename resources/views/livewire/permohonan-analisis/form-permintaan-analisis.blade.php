@@ -24,7 +24,7 @@
                     <div class="form-group  col-lg-6 col-md-12 col-sm-12 row">
                         <label class="control-label col-sm-3">Alamat<b class='text-red'>*</b></label>
                         <div class="col-sm-7">
-                            <textarea wire:model='alamat' placeholder="Alamat" class="text-uppercase form-control @error('kel') is-invalid @enderror" disabled/></textarea>
+                            <textarea wire:model='alamat' placeholder="Alamat" class="text-uppercase form-control @error('alamat') is-invalid @enderror" disabled/></textarea>
                             @error('alamat')<span class="error text-red ">{{ $message }}</span>@enderror
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                 <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
                     <label class="control-label  col-sm-3"> Jumlah Contoh <b class='text-red'>*</b></label>
                     <div class="col-sm-7">
-                        <input type="text" wire:model.defer='jumContoh' class="form-control rounded-0  @error('jumContoh') is-invalid @enderror" placeholder=" Jumlah Contoh" @disabled($form)>
+                        <input type="text" wire:model='jumContoh' class="form-control rounded-0  @error('jumContoh') is-invalid @enderror" placeholder=" Jumlah Contoh" @disabled($form)>
                         @error('jumContoh')<span class=" text-red">{{ $message }}</span>@enderror
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                 <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
                     <label class="control-label  col-sm-3"> Berat Contoh <b class='text-red'>*</b></label>
                     <div class="col-sm-7">
-                        <input type="text" wire:model.defer='beratContoh' class="form-control rounded-0  @error('beratContoh') is-invalid @enderror" placeholder=" Berat Contoh" @disabled($form)>
+                        <input type="text" wire:model='beratContoh' class="form-control rounded-0  @error('beratContoh') is-invalid @enderror" placeholder=" Berat Contoh" @disabled($form)>
                         @error('beratContoh')<span class=" text-red">{{ $message }}</span>@enderror
                     </div>
                 </div>

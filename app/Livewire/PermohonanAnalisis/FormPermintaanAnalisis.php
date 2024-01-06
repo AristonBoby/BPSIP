@@ -4,8 +4,11 @@ namespace App\Livewire\PermohonanAnalisis;
 
 use App\Models\user;
 use Livewire\Component;
+use Illuminate\Support\Str;
 use Livewire\WithPagination;
+use App\Models\permintaanAnalisa;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Models\jenis_pengujian_sampel;
 use App\Models\jenisPemeriksaanSampel;
 
@@ -21,6 +24,7 @@ class FormPermintaanAnalisis extends Component
 
     public $form = true;
 
+    public $userId;
     public $tanggal;
     public $nomorSpk;
     public $namaPemohon='';
@@ -79,10 +83,6 @@ class FormPermintaanAnalisis extends Component
         'namaPemohon'       =>  'required',
         'jenisPengujian'    =>  'required',
         'noTlpn'            =>  'required',
-        'provinsi'          =>  'required',
-        'kab'               =>  'required',
-        'kec'               =>  'required',
-        'kel'               =>  'required',
         'jumContoh'         =>  'required',
         'beratContoh'       =>  'required',
         'jenisContoh'       =>  'required',
@@ -114,6 +114,21 @@ class FormPermintaanAnalisis extends Component
     public function store()
     {
         $this->validate();
+
+        $insert = permintaanAnalisa::create([
+            'id'            =>  Str::uuid(),
+            'jumContoh'     =>  $this->jumContoh,
+            'beratContoh'   =>  $this->beratContoh,
+            'bentukContoh'  =>  $this->bentukContoh,
+            'kondisiContoh' =>  $this->kondisiContoh,
+            'jenisKemasan'  =>  $this->jenisKemasan,
+            'user_id'       =>  $this->userId,
+        ]);
+
+        if($insert)
+        {
+            $this->dispatch('alert',text:'Data Berhasil Disimpan',icon:'success',title:'Berhasil',timer:2000);
+        }
     }
 
     public function batal()
@@ -131,7 +146,7 @@ class FormPermintaanAnalisis extends Component
                 ->join('provinsis','provinsis.id','kotas.provinsi_id')
                 ->where('role',2)
                 ->where('users.id',$id)
-                ->select('name','no_tlpn','alamat','namaKelurahan','namaKecamatan','namaKota','namaProvinsi')
+                ->select('users.id','name','no_tlpn','alamat','namaKelurahan','namaKecamatan','namaKota','namaProvinsi')
                 ->first();
        //dd($query);
        if($query)
@@ -141,6 +156,7 @@ class FormPermintaanAnalisis extends Component
         $this->noTlpn       =   $query->no_tlpn;
         $this->alamat       =   $query->alamat. ', DESA/KEL. '. $query->namaKelurahan.', KEC. '. $query->namaKecamatan.', KAB/KOTA. '. $query->namaKota.', Provinsi '.$query->namaProvinsi;
         $this->form         =   false;
+        $this->userId       =   $query->id;
        }else
        {
         $this->dispatch('alert',text:'Gagal Mengambil Data' ,icon:'warning',title:'Gagal ',timer:2000);
