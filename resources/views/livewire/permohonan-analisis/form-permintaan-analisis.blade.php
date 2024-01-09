@@ -132,7 +132,7 @@
                             <tr>
                                 <td>{{ $no+1 }}.</td>
                                 <td><input placeholder="Kode Sampel" wire:model='kodeSampel.{{ $no }}' type="text"  class="form-control form-control-sm rounded-0" @disabled($form)></td>
-                                <td><input placeholder="Kode Lab" type="text" class="form-control form-control-sm rounded-0" @disabled($form)></td>
+                                <td><input placeholder="Kode Lab" wire:model='kodeLab.{{ $no }}'type="text" class="form-control form-control-sm rounded-0" @disabled($form)></td>
                                 <td>
                                     <select class="form-control form-control-sm rounded-0" wire:model.live='idpemeriksaan.{{$no}}' @disabled($form)>
                                         <option selected>-- Pilih Salah Satu --</option>
@@ -143,13 +143,18 @@
                                         @endforelse
                                     </select>
                                 </td>
-                                <td><textarea placeholder="Keterangan" type="text" class="form-control form-control-sm rounded-0" @disabled($form)></textarea></td>
+                                <td><textarea placeholder="Keterangan" wire:model='keterangan.{{ $no }}'type="text" class="form-control form-control-sm rounded-0" @disabled($form)></textarea></td>
                                 <td><b><input type="text" class="form-control" wire:model='getharga.{{ $no }}' disabled></input></b></td>
                                 <td><textarea class="form-control" wire:model='itemPemeriksaan.{{ $no }}' disabled></textarea></td>
                                 @if($no===0)
-                                    <td class="text-center"><button type="button" class="btn btn-primary" wire:click="addSampel('{{ $no }}')" @disabled($form)>+</button></td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-primary" wire:click="addSampel('{{ $no }}')" @disabled($form)>+</button>
+
+                                    </td>
                                 @else
-                                    <td class="text-center"><button type="button" class="btn btn-danger" wire:click="removeSampel({{ $no }})" @disabled($form)><i class="fa fa-trash" ></i></button></td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-danger" wire:click="removeSampel({{ $no }})" @disabled($form)><i class="fa fa-trash" ></i></button>
+                                </td>
                                 @endif
 
                             </tr>

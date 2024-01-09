@@ -4,6 +4,7 @@ namespace App\Livewire\PermohonanAnalisis;
 
 use App\Models\user;
 use Livewire\Component;
+use App\Models\itemAnalisa;
 use Illuminate\Support\Str;
 use Livewire\WithPagination;
 use App\Models\permintaanAnalisa;
@@ -17,10 +18,13 @@ class FormPermintaanAnalisis extends Component
     public $sampel = [1];
     public $index  = 0;
     public $kodeSampel=[];
+    public $kodeLab=[];
     public $getharga=[];
+    public $keterangan=[];
     public $itemPemeriksaan=[];
     public $cari='';
     public $varCari;
+    public $removeItem;
 
     public $form = true;
 
@@ -69,13 +73,19 @@ class FormPermintaanAnalisis extends Component
     }
 
     public function removeSampel($no)
-    {   $this->kodeSampel[$no]='';
+    {
+        $this->kodeSampel[$no]='';
         unset($this->sampel[$no]);
         unset($this->kodeSampel[$no]);
         unset($this->itemPemeriksaan[$no]);
         unset($this->idpemeriksaan[$no]);
         unset($this->getharga[$no]);
+        unset($this->keterangan[$no]);
         array_push($this->sampel);
+        array_push($this->kodeSampel);
+        array_push($this->itemPemeriksaan);
+        array_push($this->idpemeriksaan);
+        array_push($this->keterangan);
     }
 
     protected $rules=[
@@ -114,6 +124,7 @@ class FormPermintaanAnalisis extends Component
     public function store()
     {
         $this->validate();
+        dd($this->idpemeriksaan);
 
         $insert = permintaanAnalisa::create([
             'id'            =>  Str::uuid(),
@@ -127,7 +138,30 @@ class FormPermintaanAnalisis extends Component
 
         if($insert)
         {
-            $this->dispatch('alert',text:'Data Berhasil Disimpan',icon:'success',title:'Berhasil',timer:2000);
+            $idAnalisa = permintaanAnalisa::orderBy('created_at', 'DESC')->first();
+            for($i=0; $i < count($this->kodeSampel); $i++ )
+            {
+                $item = jenisPemeriksaanSampel::where('analisa_sampel_id',$this->idpemeriksaan[$i])->where('status','1')->get();
+
+                if($item)
+                {
+                    foreach($item as $data){
+                        $query = itemAnalisa::create([
+                                'id'                        =>  Str::uuid(),
+                                'kodeSampel'                =>  $this->kodeSampel[$i],
+                                'kodeLab'                   =>  $this->kodeLab[$i],
+                                'jenisPemeriksaanSampels_id'=>  $data->id,
+                                'permintaan_analisas_id'    =>  $idAnalisa->id,
+                                'keterangan'                =>  $this->keterangan[$i],
+                           ]);
+                    }
+                   // for($i=0; $i < count($this->kodeSampel); $i++ )
+                   //
+                }
+
+            }
+
+
         }
     }
 

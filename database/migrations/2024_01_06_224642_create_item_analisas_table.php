@@ -15,6 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('kodeSampel');
             $table->string('kodeLab');
+            $table->string('keterangan')->nullable();
             $table->foreignUuid('jenisPemeriksaanSampels_id')->index();
             $table->foreignUuid('permintaan_analisas_id')->index();
             $table->softdeletes();
