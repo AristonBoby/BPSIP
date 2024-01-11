@@ -24,5 +24,7 @@ Route::get('/FormAnalisaSampel', [App\Http\Controllers\analisaSampel::class, 'in
 Route::get('/jenisPemeriksaan', [App\Http\Controllers\jenisPemeriksaan::class, 'index'])->name('jenisPemeriksaan');
 Route::get('/PermohonanAnalis', [App\Http\Controllers\permohonanAnalis::class, 'index'])->middleware('auth')->name('permohonanAnalis');
 Route::get('/pendaftaran', [App\Http\Controllers\pendaftaranUserPemohon::class, 'index'])->name('pendaftaranPemohon');
+Route::get('/dataAnalis', [App\Http\Controllers\dataAnalis::class, 'index'])->name('dataAnalis');
+
 
 

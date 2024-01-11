@@ -28,7 +28,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('permohonanAnalis') }}" class="nav-link">
+                    <a href="{{ route('dataAnalis') }}" class="nav-link">
                       <i class="nav-icon fa fa-envelope" aria-hidden="true"></i>
                       <p>Data Analis</p>
                     </a>
