@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\jenis_pengujian_sampel;
 use App\Models\jenisPemeriksaanSampel;
+use Livewire\Attributes\Rule;
 
 class FormPermintaanAnalisis extends Component
 {   use WithPagination;
@@ -46,9 +47,8 @@ class FormPermintaanAnalisis extends Component
     public $jenisKemasan;
     public $alamat;
     public $idpemeriksaan=[];
-
-
     public $i=0;
+
     public function mount()
     {
         $this->tanggal = date('d-m-Y');
@@ -67,14 +67,14 @@ class FormPermintaanAnalisis extends Component
 
     public function addSampel($no)
     {   $no+1;
-        $this->index = $no;
+        $this->index++;
         $this->sampel[$no]='';
         array_push($this->sampel,$no);
     }
 
     public function removeSampel($no)
     {
-        $this->kodeSampel[$no]='';
+        $this->index--;
         unset($this->sampel[$no]);
         unset($this->kodeSampel[$no]);
         unset($this->itemPemeriksaan[$no]);
@@ -99,6 +99,8 @@ class FormPermintaanAnalisis extends Component
         'kondisiContoh'     =>  'required',
         'bentukContoh'      =>  'required',
         'jenisKemasan'      =>  'required',
+        'kodeSampel.*'      =>  'required',
+        'kodeLab'           =>  'required',
     ];
 
     public function messages()
@@ -124,8 +126,6 @@ class FormPermintaanAnalisis extends Component
     public function store()
     {
         $this->validate();
-        dd($this->idpemeriksaan);
-
         $insert = permintaanAnalisa::create([
             'id'            =>  Str::uuid(),
             'jumContoh'     =>  $this->jumContoh,
@@ -139,13 +139,13 @@ class FormPermintaanAnalisis extends Component
         if($insert)
         {
             $idAnalisa = permintaanAnalisa::orderBy('created_at', 'DESC')->first();
-            for($i=0; $i < count($this->kodeSampel); $i++ )
+            for($i=0; $i < count($this->kodeSampel); $i++)
             {
                 $item = jenisPemeriksaanSampel::where('analisa_sampel_id',$this->idpemeriksaan[$i])->where('status','1')->get();
-
                 if($item)
                 {
-                    foreach($item as $data){
+                    for($i=0; $i < count($this->kodeSampel); $i++ )
+                    {   $data =  jenisPemeriksaanSampel::where('analisa_sampel_id',$this->idpemeriksaan[$i])->first();
                         $query = itemAnalisa::create([
                                 'id'                        =>  Str::uuid(),
                                 'kodeSampel'                =>  $this->kodeSampel[$i],
@@ -153,23 +153,18 @@ class FormPermintaanAnalisis extends Component
                                 'jenisPemeriksaanSampels_id'=>  $data->id,
                                 'permintaan_analisas_id'    =>  $idAnalisa->id,
                                 'keterangan'                =>  $this->keterangan[$i],
-                           ]);
+                        ]);
                     }
-                   // for($i=0; $i < count($this->kodeSampel); $i++ )
-                   //
                 }
-
             }
-
-
         }
+        $this->dispatch('alert',text:'Data Berhasil Di Simpan' ,icon:'success',title:'Berhasil',timer:2000);
     }
 
     public function batal()
     {
         $this->cari = '';
     }
-
     public function selectUser($id)
     {
        $query = DB::table('users')
@@ -182,7 +177,6 @@ class FormPermintaanAnalisis extends Component
                 ->where('users.id',$id)
                 ->select('users.id','name','no_tlpn','alamat','namaKelurahan','namaKecamatan','namaKota','namaProvinsi')
                 ->first();
-       //dd($query);
        if($query)
        {
         $this->dispatch('alert',text:'[ '.$query->name.' ]' ,icon:'success',title:'Berhasil',timer:2000);
@@ -203,7 +197,6 @@ class FormPermintaanAnalisis extends Component
 
     public function updatedIdpemeriksaan($value,$key)
     {
-
        $query = jenisPemeriksaanSampel::join('analisa_sampels','analisa_sampels.id','=','jenis_pemeriksaan_sampels.analisa_sampel_id')
        ->join('jenis_pengujian_sampels','jenis_pengujian_sampels.id','=','analisa_sampels.jenisPengujian_id')
        ->select(DB::raw('SUM(jenis_pemeriksaan_sampels.harga) AS harga'),DB::raw("GROUP_CONCAT(jenis_pemeriksaan_sampels.itemPemeriksaan SEPARATOR ' , ') AS jenis"))
@@ -211,7 +204,6 @@ class FormPermintaanAnalisis extends Component
        ->groupBy('jenis_pemeriksaan_sampels.analisa_sampel_id')
        ->where('jenis_pemeriksaan_sampels.analisa_sampel_id',$this->idpemeriksaan[$key])
        ->get();
-
        foreach ($query as $value) {
         $this->getharga[$key] = formatRupiah($value->harga);
         $this->itemPemeriksaan[$key] = $value->jenis;

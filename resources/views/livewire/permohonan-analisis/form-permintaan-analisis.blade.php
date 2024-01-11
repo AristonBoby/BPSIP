@@ -124,17 +124,21 @@
                                 <th width="200" class="text-center">Keterangan</th>
                                 <th width="200" class="text-center">Biaya</th>
                                 <th width="200" class="text-center">Item Pengujian</th>
-                                <th width="200" class="text-center">Action</th>
+                                <th width="200" class="text-center">*</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ( $sampel as $no=>$data )
                             <tr>
                                 <td>{{ $no+1 }}.</td>
-                                <td><input placeholder="Kode Sampel" wire:model='kodeSampel.{{ $no }}' type="text"  class="form-control form-control-sm rounded-0" @disabled($form)></td>
-                                <td><input placeholder="Kode Lab" wire:model='kodeLab.{{ $no }}'type="text" class="form-control form-control-sm rounded-0" @disabled($form)></td>
                                 <td>
-                                    <select class="form-control form-control-sm rounded-0" wire:model.live='idpemeriksaan.{{$no}}' @disabled($form)>
+                                    <input placeholder="Kode Sampel" wire:model='kodeSampel.{{ $no }}' type="text"  class="@error('kodeSampel.$no') is-invalid @enderror form-control form-control-sm rounded-0 @error('kodeSampel') is-invalid @enderror " @disabled($form) >
+                                </td>
+                                <td>
+                                    <input placeholder="Kode Lab" wire:model='kodeLab.{{ $no }}'type="text" class="form-control form-control-sm rounded-0" @disabled($form) >
+                                </td>
+                                <td>
+                                    <select class="form-control form-control-sm rounded-0" wire:model.live='idpemeriksaan.{{$no}}' @disabled($form) >
                                         <option selected>-- Pilih Salah Satu --</option>
                                         @forelse ($itemPengujian as $data )
                                             <option value="{{$data->id}}">{{ $data->jenis_analisa }}</option>
@@ -142,6 +146,9 @@
 
                                         @endforelse
                                     </select>
+                                    @error('idpemeriksaan.{$no}')
+                                        <h4>error</h4>
+                                    @enderror
                                 </td>
                                 <td><textarea placeholder="Keterangan" wire:model='keterangan.{{ $no }}'type="text" class="form-control form-control-sm rounded-0" @disabled($form)></textarea></td>
                                 <td><b><input type="text" class="form-control" wire:model='getharga.{{ $no }}' disabled></input></b></td>
@@ -149,12 +156,9 @@
                                 @if($no===0)
                                     <td class="text-center">
                                         <button type="button" class="btn btn-primary" wire:click="addSampel('{{ $no }}')" @disabled($form)>+</button>
-
+                                        <button type="button" class="btn btn-danger" wire:click="removeSampel({{ $index }})" @disabled($form)><i class="fa fa-trash" ></i></button>
                                     </td>
                                 @else
-                                <td class="text-center">
-                                    <button type="button" class="btn btn-danger" wire:click="removeSampel({{ $no }})" @disabled($form)><i class="fa fa-trash" ></i></button>
-                                </td>
                                 @endif
 
                             </tr>
