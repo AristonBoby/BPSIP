@@ -24,24 +24,57 @@
                 </div>
             </div>
         </div>
-        <table class="table table-sm text-sm table-stripped table-bordered p-0">
+        <table class="table table-sm text-sm table-striped table-bordered p-0 table-hover">
             <thead>
                 <tr class="text-center">
                     <th>No.</th>
+                    <th>No. SPK</th>
                     <th>Nama Pengirim</th>
                     <th>No HP</th>
                     <th>Alamat</th>
                     <th>Jenis Pengujian Sampel</th>
-                    <th>Parameter Uji</th>
+                    <th>Jenis Pemeriksaan Sampel</th>
                     <th>Tanggal</th>
+                    <th>Pendaftaran</th>
                     <th>Status</th>
                     <th>*</th>
                 </tr>
             </thead>
             <tbody>
+                @forelse ($query as $no=>$data )
                 <tr>
-                    <td></td>
+                    <td class="text-center">{{ $query->firstItem()+$no}}</td>
+                    <td class="text-center">{{ $data->name}}</td>
+                    <td class="text-center">{{ $data->name}}</td>
+                    <td class="text-center">{{ $data->no_tlpn}}</td>
+                    <td class="text-center">{{ $data->alamat}}</td>
+                    <td class="text-center">{{ $data->jenis_pengujian}}</td>
+                    <td class="text-center">{{ $data->jenis_analisa}}</td>
+                    <td class="text-center">{{ $data->tanggal}}</td>
+                    <td class="text-center text-md">
+                        @if($data->status_daftar == 1 )
+                            <span class="text-center badge bg-success">Online</span>
+                        @elseif($data->status_daftar == 2)
+                            <span class="text-center badge bg-warning">Offline</span>
+                        @endif
+                    </td>
+                    <td class="text-center text-md">
+                        @if($data->status == 1 )
+                            <span class="text-center badge bg-info">Sampel telah di terima</span>
+                        @elseif($data->status == 2)
+                            <span class="text-center badge bg-warning">Sampel belum di terima</span>
+                        @elseif($data->status == 3)
+                            <span class="text-center badge bg-primary">Sampel sedang dalam Proses Pemeriksaan</span>
+                        @endif
+                    </td>
+                    <td>
+                        <button class="btn btn-xs btn-info"><i class="fa fa-eye"></i> Detail</button>
+                    </td>
                 </tr>
+                @empty
+
+                @endforelse
+
             </tbody>
         </table>
     </div>
