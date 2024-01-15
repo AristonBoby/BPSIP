@@ -1,6 +1,6 @@
 <div class="card card-primary card-outline">
     <div class="card-header">
-        <h5 class="card-title"> <b>Table</b> Jenis Analisa</h5> 
+        <h5 class="card-title"> <b>Table</b> Jenis Analisa</h5>
     </div>
     <div class="card-body">
     <div class="col-12 mb-4">
@@ -37,7 +37,7 @@
                         <td>{{ $data->jenis }}</td>
                         <td ><b><span id="amount">{{ formatRupiah($data->harga) }}</span></b> </td>
                         <td>
-                            <a data-toggle="modal" wire:click="detailItem('{{$data->analisa_sampel_id }}')" data-target="#modalView" class="btn btn-primary btn-sm"><span class="fa fa-eye"></span></a>
+                            <a data-toggle="modal" wire:click='' data-target="#modalView" class="btn btn-primary btn-sm"><span class="fa fa-eye"></span></a>
                         </td>
                     </tr>
                 @endforeach
