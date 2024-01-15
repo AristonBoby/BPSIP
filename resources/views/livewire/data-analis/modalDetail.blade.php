@@ -9,25 +9,66 @@
 
         </div>
         <div class="modal-body">
-            <div class="invo"
+            <div class="invoice"
             <div class="row">
                 <div class="row invoice-info">
-                    <div class="col-sm-6 col-md-6 col-lg6-6  invoice-col">
-                        Detail Pemohon
+                    <div class="col-sm-6 col-md-6 col-lg-4 invoice-col">
+                        Detail Pemohon<br>
+                        <Strong>Ariston Boby Willy Munte</Strong>
+                        <br>
+                        No Hp :
                         <address>
-                            <Strong>Ariston Boby Willy Munte</Strong>
-                            <br>
-                            xxxx
+                            Alamat:
                         </address>
-
                     </div>
-                    <div class="col-sm-4 col-md-4 col-lg-6 invoice-col">
-                        Detail Pemohon
+                    <div class="col-sm-4 col-md-4 col-lg-4 invoice-col">
+                        <strong>Detail Sampel</strong>
                         <address>
-                            <Strong>Ariston Boby Willy Munte</Strong>
+                            Jenis Pengujian Sampel<br>
+                            Jumlah Contoh<br>
+                            Jenis Contoh <br>
+                            Berat Contoh<br>
+                            Bentuk Contoh<br>
+                            Kondisi Contoh<br>
+                            Jenis Kemasan<br>
+                        </address>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4 invoice-col">
+                        <strong> Nomor SPK : </strong>
+                        <address>
+
                         </address>
                     </div>
                 </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
+                <table class="table table-striped table-sm p-0 table-hover">
+                    <thead>
+                        <tr class="text-center">
+                            <th>No.</th>
+                            <th>Parameter Uji</th>
+                            <th>Item Pengujian</th>
+                            <th>Harga</th>
+                            <th>*</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center">1.</td>
+                            <td>1.</td>
+                            <td>1.</td>
+                            <td>1.</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">1.</td>
+                            <td>1.</td>
+                            <td>1.</td>
+                            <td>1.</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         <div class="modal-footer">
