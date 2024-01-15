@@ -155,8 +155,8 @@
                                 <td><textarea class="form-control" wire:model='itemPemeriksaan.{{ $no }}' disabled></textarea></td>
                                 @if($no===0)
                                     <td class="text-center">
-                                        <button type="button" class="btn btn-primary" wire:click="addSampel('{{ $no }}')" @disabled($form)>+</button>
-                                        <button type="button" class="btn btn-danger" wire:click="removeSampel({{ $index }})" @disabled($form)><i class="fa fa-trash" ></i></button>
+                                        <button type="button" class="btn-sm btn btn-primary" wire:click="addSampel('{{ $no }}')" @disabled($form)>+</button>
+                                        <button type="button" class="btn-smbtn btn-danger" wire:click="removeSampel({{ $index }})" @disabled($form)>-</i></button>
                                     </td>
                                 @else
                                 @endif
