@@ -7,12 +7,13 @@ use Livewire\Component;
 use App\Models\itemAnalisa;
 use Illuminate\Support\Str;
 use Livewire\WithPagination;
+use Livewire\Attributes\Rule;
+use Illuminate\Support\Carbon;
 use App\Models\permintaanAnalisa;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\jenis_pengujian_sampel;
 use App\Models\jenisPemeriksaanSampel;
-use Livewire\Attributes\Rule;
 
 class FormPermintaanAnalisis extends Component
 {   use WithPagination;
@@ -129,13 +130,16 @@ class FormPermintaanAnalisis extends Component
         $insert = permintaanAnalisa::create([
             'id'            =>  Str::uuid(),
             'jumContoh'     =>  $this->jumContoh,
+            'no_spk'        =>  $this->nomorSpk,
             'beratContoh'   =>  $this->beratContoh,
             'bentukContoh'  =>  $this->bentukContoh,
             'kondisiContoh' =>  $this->kondisiContoh,
             'jenisKemasan'  =>  $this->jenisKemasan,
+            'tanggal'       =>  Carbon::parse($this->tanggal)->format('Y/m/d'),
+            'status_daftar' =>  2,
+            'status'        =>  1,
             'user_id'       =>  $this->userId,
         ]);
-
         if($insert)
         {
             $idAnalisa = permintaanAnalisa::orderBy('created_at', 'DESC')->first();

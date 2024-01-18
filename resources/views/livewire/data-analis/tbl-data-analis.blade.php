@@ -45,7 +45,7 @@
                     @forelse ($query as $no=>$data )
                     <tr>
                         <td class="text-center">{{ $query->firstItem()+$no}}</td>
-                        <td class="text-center">{{ $data->name}}</td>
+                        <td class="text-center">{{ $data->no_spk}}</td>
                         <td class="text-center">{{ $data->name}}</td>
                         <td class="text-center">{{ $data->no_tlpn}}</td>
                         <td class="text-center">{{ $data->alamat}}</td>
@@ -61,17 +61,19 @@
                         </td>
                         <td class="text-center text-md">
                             @if($data->status == 1 )
-                                <span class="text-center badge bg-info">Sampel telah di terima</span>
+                                <span class="text-center badge bg-info">Sampel telah di terima petugas pendaftaran</span>
                             @elseif($data->status == 2)
                                 <span class="text-center badge bg-warning">Sampel belum di terima</span>
                             @elseif($data->status == 3)
                                 <span class="text-center badge bg-primary">Sampel sedang dalam Proses Pemeriksaan</span>
+                            @elseif($data->status == 4)
+                                <span class="text-center badge bg-success">Sampel selesai diperiksa</span>
                             @endif
                         </td>
                         <td>
-                            <a data-toggle="modal" class="btn btn-sm btn-info" data-target="#modalDetail" ><i class="fa fa-eye"></i> Detail</a>
+                            <a data-toggle="modal" wire:click='itemAnalisaModal("{{ $data->permintaan_analisas_id }}")' class="btn btn-sm btn-info" data-target="#modalDetail" ><i class="fa fa-eye"></i> Detail</a>
                             <br>
-                            <a data-toggle="modal" class="btn btn-sm btn-warning mt-1" data-target="#modalDetail" ><i class="fa fa-check-circle"></i> Konfirmasi</a>
+                            <a data-toggle="modal" wire:click='itemAnalisaModal("{{ $data->permintaan_analisas_id }}")' class="btn btn-sm btn-warning" data-target="#modalKonn" ><i class="fa fa-eye"></i> Approve</a>
                         </td>
                     </tr>
                     @empty
@@ -83,4 +85,6 @@
         </div>
     </div>
     @include('livewire.data-analis.modalDetail')
+    @include('livewire.data-analis.modalKonf')
+
 </div>

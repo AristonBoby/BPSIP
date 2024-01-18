@@ -20,4 +20,14 @@ class jenisPemeriksaanSampel extends Model
         'analisa_sampel_id',
         'status'
     ];
+
+    public function tblitemAnalisa()
+    {
+        return $this->belongsTo('App\Models\analisaSampel', 'analisa_sampel_id', 'id');
+    }
+
+    public function dataUser()
+    {
+        return $this->belongsTo('App\Models\user', 'user_id', 'id');
+    }
 }

@@ -15,12 +15,21 @@ class permintaanAnalisa extends Model
 
     protected $fillable = [
         'id',
+        'no_spk',
         'jumContoh',
         'beratContoh',
         'bentukContoh',
         'kondisiContoh',
         'jenisKemasan',
-        'user_id'
+        'tanggal',
+        'user_id',
+        'status_daftar',
+        'status',
     ];
+
+    public function dataUser()
+    {
+        return $this->belongsTo('App\Models\user', 'user_id', 'id');
+    }
 
 }
