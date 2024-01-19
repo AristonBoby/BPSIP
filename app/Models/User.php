@@ -44,12 +44,11 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function userPemohon()
+    public function userPemohons()
     {
-    	return $this->hasOne('App\Models\userPemohon');
+        return $this->hasMany('App\Models\userPemohon', 'user_id', 'id');
+
     }
-    public function kelurahan()
-    {
-    	return $this->hasOne('App\Models\kelurahan');
-    }
+
+
 }

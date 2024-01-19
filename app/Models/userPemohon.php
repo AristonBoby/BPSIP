@@ -17,10 +17,11 @@ class userPemohon extends Model
     ];
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\MOdels\User');
+
     }
     public function kelurahan()
     {
-    	return $this->hasOne('App\Models\kelurahan');
+    	return $this->belongsTo('App\Models\kelurahan');
     }
 }

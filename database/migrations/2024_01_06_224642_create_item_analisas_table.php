@@ -16,11 +16,11 @@ return new class extends Migration
             $table->string('kodeSampel');
             $table->string('kodeLab');
             $table->string('keterangan')->nullable();
-            $table->foreignUuid('jenisPemeriksaanSampels_id')->index();
+            $table->foreignUuid('jenisAnalisaSampel_id')->index();
             $table->foreignUuid('permintaan_analisas_id')->index();
             $table->softdeletes();
             $table->timestamps();
-            $table->foreign('jenisPemeriksaanSampels_id')->references('id')->on('jenis_pemeriksaan_sampels');
+            $table->foreign('jenisAnalisaSampel_id')->references('id')->on('analisa_sampels');
             $table->foreign('permintaan_analisas_id')->references('id')->on('permintaan_analisas');
 
         });

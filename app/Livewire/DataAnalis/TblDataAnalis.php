@@ -19,12 +19,12 @@ class TblDataAnalis extends Component
                 ->join('users','users.id','user_id')
                 ->join('user_pemohons','user_pemohons.user_id','users.id')
                 ->join('item_analisas','item_analisas.permintaan_analisas_id','permintaan_analisas.id')
-                ->join('jenis_pemeriksaan_sampels','jenis_pemeriksaan_sampels.id','jenisPemeriksaanSampels_id')
+                ->join('jenis_pemeriksaan_sampels','jenis_pemeriksaan_sampels.id','analisa_sampel_id')
                 ->join('analisa_sampels','analisa_sampels.id','analisa_sampel_id')
                 ->join('jenis_pengujian_sampels','jenis_pengujian_sampels.id','jenisPengujian_id')
                 ->select('name','no_spk','no_tlpn','alamat','jenis_analisa','jenis_pengujian','tanggal','permintaan_analisas.status','permintaan_analisas.status_daftar','item_analisas.permintaan_analisas_id')
                 ->paginate(10);
-           //dd($query);
+           dd($query);
         return view('livewire.data-analis.tbl-data-analis',[ 'query' => $query, 'detailItem' => $this->detail, 'itemAnalisaSampel'=>$this->itemAnalisa]);
     }
 

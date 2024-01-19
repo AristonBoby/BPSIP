@@ -1,15 +1,16 @@
 <?php
 
 namespace App\Livewire\PendaftaranPemohon;
-use Illuminate\Support\Str;
-use Livewire\Component;
-use App\Models\User;
-use App\Models\provinsi;
 use App\Models\kota;
+use App\Models\User;
+use Livewire\Component;
+use App\Models\provinsi;
 use App\Models\kecamatan;
 use App\Models\kelurahan;
 use App\Models\userPemohon;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
+
 class FormPendaftaranPemohon extends Component
 {
     public $nama;
@@ -58,6 +59,19 @@ class FormPendaftaranPemohon extends Component
     }
 
     public function store()
+    {
+        $query = user::find(11)->userPemohons()->kelurahan()->paginate(10);
+        dd($query);
+
+        foreach( $query as $value )
+        {
+            foreach($value->userPemohons as $data)
+            {
+                dd($data);
+            }
+        }
+    }
+    public function ss()
     {
         $this->validate();
         $query = User::create([

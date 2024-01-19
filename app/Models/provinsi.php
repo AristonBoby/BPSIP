@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class provinsi extends Model
 {
     use HasFactory;
+
+    public function kota()
+    {
+        return $this->hasMany('App\Models\kota', 'provinsi_id', 'id');
+    }
+
+
+
 }
+
+
