@@ -14,7 +14,7 @@ class itemAnalisa extends Model
         'id',
         'kodeSampel',
         'kodeLab',
-        'jenisPemeriksaanSampels_id',
+        'jenisAnalisaSampel_id',
         'permintaan_analisas_id',
         'keterangan',
     ];

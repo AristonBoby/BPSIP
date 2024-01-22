@@ -154,7 +154,7 @@ class FormPermintaanAnalisis extends Component
                                 'id'                        =>  Str::uuid(),
                                 'kodeSampel'                =>  $this->kodeSampel[$i],
                                 'kodeLab'                   =>  $this->kodeLab[$i],
-                                'jenisPemeriksaanSampels_id'=>  $data->id,
+                                'jenisAnalisaSampel_id'     =>  $data->analisa_sampel_id,
                                 'permintaan_analisas_id'    =>  $idAnalisa->id,
                                 'keterangan'                =>  $this->keterangan[$i],
                         ]);
