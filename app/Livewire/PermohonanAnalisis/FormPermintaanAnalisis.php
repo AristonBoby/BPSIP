@@ -9,7 +9,9 @@ use Illuminate\Support\Str;
 use Livewire\WithPagination;
 use Livewire\Attributes\Rule;
 use Illuminate\Support\Carbon;
+use App\Models\transaksiAnalisa;
 use App\Models\permintaanAnalisa;
+use App\Models\transaksi_analisa;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\jenis_pengujian_sampel;
@@ -145,19 +147,34 @@ class FormPermintaanAnalisis extends Component
             $idAnalisa = permintaanAnalisa::orderBy('created_at', 'DESC')->first();
             for($i=0; $i < count($this->kodeSampel); $i++)
             {
-                $item = jenisPemeriksaanSampel::where('analisa_sampel_id',$this->idpemeriksaan[$i])->where('status','1')->get();
-                if($item)
+
+                if($idAnalisa)
                 {
                     for($i=0; $i < count($this->kodeSampel); $i++ )
-                    {   $data =  jenisPemeriksaanSampel::where('analisa_sampel_id',$this->idpemeriksaan[$i])->first();
+                    {
+                        $id = Str::uuid();
                         $query = itemAnalisa::create([
-                                'id'                        =>  Str::uuid(),
+                                'id'                        =>  $id,
                                 'kodeSampel'                =>  $this->kodeSampel[$i],
                                 'kodeLab'                   =>  $this->kodeLab[$i],
-                                'jenisAnalisaSampel_id'     =>  $data->analisa_sampel_id,
+                                'jenisAnalisaSampel_id'     =>  $this->idpemeriksaan[$i],
                                 'permintaan_analisas_id'    =>  $idAnalisa->id,
                                 'keterangan'                =>  $this->keterangan[$i],
                         ]);
+                        //-------------------------------------------------//
+                        //-- Cek Jumlah item Analisa Yang ingin di input --//
+                        //-------------------------------------------------//
+
+                        if($query)
+                        {
+                            $item = jenisPemeriksaanSampel::where('analisa_sampel_id',$this->idpemeriksaan[$i])->where('status','1')->get();
+                            foreach($item as $value)
+                            $qu = transaksiAnalisa::create([
+                            'id'                            =>  Str::uuid(),
+                            'item_analisa_id'               =>  $id,
+                            'jenis_pemeriksaan_sampels_id'  =>  $value->id,
+                            ]);
+                        }
                     }
                 }
             }
