@@ -46,9 +46,9 @@
                     <tr>
                         <td class="text-center">{{ $query->firstItem()+$no}}</td>
                         <td class="text-center">{{ $data->no_spk}}</td>
-                        <td class="text-center">{{ $data->name}}</td>
-                        <td class="text-center">{{ $data->no_tlpn}}</td>
-                        <td class="text-center">{{ $data->alamat}}</td>
+                        <td class="text-center">{{ $data->dataUser->name}}</td>
+                        <td class="text-center">{{ $data->dataUser->userPemohons->no_tlpn}}</td>
+                        <td class="text-center">{{ $data->dataUser->userPemohons->alamat}}</td>
                         <td class="text-center">{{ $data->jenis_pengujian}}</td>
                         <td class="text-center">{{ $data->jenis_analisa}}</td>
                         <td class="text-center">{{ $data->tanggal}}</td>

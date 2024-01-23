@@ -2,8 +2,10 @@
 
 namespace App\Livewire\DataAnalis;
 
+use App\Models\User;
 use Livewire\Component;
 use App\Models\itemAnalisa;
+use App\Models\userPemohon;
 use App\Models\permintaanAnalisa;
 use Illuminate\Support\Facades\DB;
 
@@ -15,7 +17,8 @@ class TblDataAnalis extends Component
 
     public function render()
     {
-        $query = DB::table('permintaan_analisas')
+
+       /* $query = DB::table('permintaan_analisas')
                 ->join('users','users.id','user_id')
                 ->join('user_pemohons','user_pemohons.user_id','users.id')
                 ->join('item_analisas','item_analisas.permintaan_analisas_id','permintaan_analisas.id')
@@ -24,7 +27,13 @@ class TblDataAnalis extends Component
                 ->join('jenis_pengujian_sampels','jenis_pengujian_sampels.id','jenisPengujian_id')
                 ->select('name','no_spk','no_tlpn','alamat','jenis_analisa','jenis_pengujian','tanggal','permintaan_analisas.status','permintaan_analisas.status_daftar','item_analisas.permintaan_analisas_id')
                 ->paginate(10);
-           //dd($query);
+           //dd($query);*/
+
+        $query = permintaanAnalisa::paginate(10);
+     //   foreach($query as $value)
+       // {
+         //   dd($value);
+        //}
         return view('livewire.data-analis.tbl-data-analis',[ 'query' => $query, 'detailItem' => $this->detail, 'itemAnalisaSampel'=>$this->itemAnalisa]);
     }
 

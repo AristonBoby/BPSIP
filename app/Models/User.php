@@ -46,7 +46,7 @@ class User extends Authenticatable
 
     public function userPemohons()
     {
-        return $this->hasMany('App\Models\userPemohon', 'user_id', 'id');
+        return $this->hasOne('App\Models\userPemohon', 'user_id', 'id');
 
     }
 

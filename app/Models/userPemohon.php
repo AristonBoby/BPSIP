@@ -17,7 +17,7 @@ class userPemohon extends Model
     ];
     public function user()
     {
-        return $this->belongsTo('App\MOdels\User');
+        return $this->belongsTo('App\Models\User','user_id','id');
 
     }
     public function kelurahan()

@@ -32,4 +32,9 @@ class permintaanAnalisa extends Model
         return $this->belongsTo('App\Models\user', 'user_id', 'id');
     }
 
+    public function itemAnalisa()
+    {
+        return $this->hashMany('App\Models\itemAnalisa','id','permintaan_analisas_id');
+    }
+
 }
