@@ -29,8 +29,8 @@ class TblDataAnalis extends Component
                 ->paginate(10);
            //dd($query);*/
 
-        $query = itemAnalisa::find('90337a53-37c3-40bf-a25f-a5ce4ccd6574')->paginate(5);
-        //dd($query);
+        $query = itemAnalisa::paginate(5);
+
      /*   foreach($query as $value)
         {
         foreach($value->transaksiAnalisa as $da)

@@ -52,5 +52,7 @@
     </div>
     @include('livewire.jenis-pemeriksaan.modalView')
     @include('livewire.jenis-pemeriksaan.modalDelete')
+
+
 </div>
 
