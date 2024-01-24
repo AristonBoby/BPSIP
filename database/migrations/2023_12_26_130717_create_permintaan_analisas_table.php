@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('kondisiContoh');
             $table->string('jenisKemasan');
             $table->foreignId('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->softDeletes();
             $table->timestamps();
         });

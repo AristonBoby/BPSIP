@@ -57,21 +57,7 @@ class FormPendaftaranPemohon extends Component
             'noHp.unique'           => 'No Telepon / Whatsaap Anda Telah Terdaftar',
         ];
     }
-
     public function store()
-    {
-        $query = user::find(11)->userPemohons()->kelurahan()->paginate(10);
-        dd($query);
-
-        foreach( $query as $value )
-        {
-            foreach($value->userPemohons as $data)
-            {
-                dd($data);
-            }
-        }
-    }
-    public function ss()
     {
         $this->validate();
         $query = User::create([
