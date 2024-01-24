@@ -44,14 +44,23 @@
                 <tbody>
                     @forelse ($query as $no=>$data )
                     <tr>
-                        <td class="text-center">{{ $query->firstItem()+$no}}</td>
-                        <td class="text-center">{{ $data->no_spk}}</td>
-                        <td class="text-center">{{ $data->dataUser->name}}</td>
-                        <td class="text-center">{{ $data->dataUser->userPemohons->no_tlpn}}</td>
-                        <td class="text-center">{{ $data->dataUser->userPemohons->alamat}}</td>
-                        <td class="text-center">{{ $data->jenis_pengujian}}</td>
-                        <td class="text-center">{{ $data->jenis_analisa}}</td>
-                        <td class="text-center">{{ $data->tanggal}}</td>
+                        <td class="text-center">{{ $query->firstItem()+$no }}</td>
+                        <td class="text-center">{{ $data->tblpermintaan->no_spk }}</td>
+                        <td class="text-center">{{ $data->tblpermintaan->dataUser->name }}</td>
+                        <td class="text-center">{{ $data->tblpermintaan->dataUser->userPemohons->no_tlpn }}</td>
+                        <td class="text-center">{{ $data->tblpermintaan->dataUser->userPemohons->alamat }}</td>
+                        <td class="text-center">
+                        </td>
+                        <td class="text-center">
+                            @foreach ( $data->transaksiAnalisa as $da)
+                                                        <ul>
+                                                            @foreach ($da->tblJenisPemeriksaan as $jenisPemeriksaan)
+                                                                    <li> {{ $jenisPemeriksaan->itemPemeriksaan }}</li>
+                                                            @endforeach
+                                                        </ul>
+                                                @endforeach
+                        </td>
+                        <td class="text-center"></td>
                         <td class="text-center text-md">
                             @if($data->status_daftar == 1 )
                                 <span class="text-center badge bg-success">Online</span>

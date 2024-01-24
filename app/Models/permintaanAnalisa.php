@@ -34,7 +34,7 @@ class permintaanAnalisa extends Model
 
     public function itemAnalisa()
     {
-        return $this->hashMany('App\Models\itemAnalisa','id','permintaan_analisas_id');
+        return $this->hasMany('App\Models\itemAnalisa','permintaan_analisas_id','id');
     }
 
 }

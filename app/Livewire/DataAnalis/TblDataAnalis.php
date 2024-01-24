@@ -29,11 +29,19 @@ class TblDataAnalis extends Component
                 ->paginate(10);
            //dd($query);*/
 
-        $query = permintaanAnalisa::paginate(10);
-     //   foreach($query as $value)
-       // {
-         //   dd($value);
-        //}
+        $query = itemAnalisa::find('90337a53-37c3-40bf-a25f-a5ce4ccd6574')->paginate(5);
+        //dd($query);
+     /*   foreach($query as $value)
+        {
+        foreach($value->transaksiAnalisa as $da)
+           {
+                foreach($da->tblJenisPemeriksaan as $dat)
+                {
+                    dd($dat->itemPemeriksaan);
+                }
+           }
+        }
+*/
         return view('livewire.data-analis.tbl-data-analis',[ 'query' => $query, 'detailItem' => $this->detail, 'itemAnalisaSampel'=>$this->itemAnalisa]);
     }
 

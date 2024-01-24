@@ -30,9 +30,14 @@ class itemAnalisa extends Model
         return $this->belongsTo('App\Models\jenisPemeriksaanSampel', 'jenisPemeriksaanSampels_id', 'id');
     }
 
-    public function tbluser()
+    public function analisaSampel()
     {
-        return $this->belongsTo('App\Models\user', 'user_id', 'id');
+        return $this->belongsTo('App\Models\analisaSampel','jenisAnalisaSampel_id','id');
+    }
+
+    public function transaksiAnalisa()
+    {
+        return $this->hasMany('App\Models\transaksiAnalisa','item_analisa_id','id');
     }
 
 }

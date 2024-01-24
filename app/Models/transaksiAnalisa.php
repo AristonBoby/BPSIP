@@ -13,4 +13,9 @@ class transaksiAnalisa extends Model
         'item_analisa_id',
         'jenis_pemeriksaan_sampels_id',
     ];
+
+    public function tblJenisPemeriksaan()
+    {
+        return $this->hasMany('App\Models\jenisPemeriksaanSampel','id','jenis_pemeriksaan_sampels_id');
+    }
 }
