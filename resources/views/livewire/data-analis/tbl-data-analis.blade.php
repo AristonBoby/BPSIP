@@ -86,15 +86,15 @@
                         </td>
                     </tr>
                     @empty
-
                     @endforelse
-
                 </tbody>
             </table>
         </div>
     </div>
-    <
-    @include('livewire.data-analis.modalDetail')
-    @include('livewire.data-analis.modalKonf')
     @include('livewire.data-analis.modalDel')
+</div>
+    @include('livewire.data-analis.modalDetail')
+</div>
+    @include('livewire.data-analis.modalKonf')
+</div>
 </div>
