@@ -1,34 +1,42 @@
 <div>
    <div class="card">
-        <div class="card-body row">
-            <div class="form-group row"style="margin-top:12px;">
-                <label class="text-uppercase col-md-4 col-lg-4 col-sm-4 text-sm ">Tanggal</label>
-                <div class="input-group col-md-7">
-                    <input  type="text" id="tglKunjungan" onchange="livewire('selecdate')" class=" date form-control" wire:model='tanggal' placeholder="dd-mm-yyyy" >
-                    <span class="input-group-append">
-                        <span class="input-group-text">
-                            <i class="far fa-calendar-alt" aria-hidden="true"></i>
-                        </span>
-                    </span>
-                </div>
-
-            </div>
-            <div class="col-md-3 mb-3">
-                <div class="form-group row">
-                    <label class=" col-md-3 col-form-label text-sm">Jenis Pengujian</label>
-                    <div class="col-md-8">
-                        <input type="text" class="form-control float-right mb-3 form-control-sm" placeholder="Pencarian">
+        <div class="card-body row ">
+            <form wire:submit='pencarian()' class="form-horizontal row col-md-12">
+                <div class="col-md-3">
+                    <div class="form-group row">
+                        <label class="text-uppercase col-md-4 col-lg-4 col-sm-4 text-sm ">Tanggal</label>
+                        <div class="input-group col-md-8">
+                            <input type="text"  x-on:click='render()' class="date form-control " placeholder="dd-mm-yyyy" >
+                            <span class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="far fa-calendar-alt" aria-hidden="true"></i>
+                                </span>
+                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3 mb-3">
-                <div class="form-group row">
-                    <label class=" col-md-3 col-form-label text-sm">Pencarian</label>
-                    <div class="col-md-8">
-                        <input type="text" class="form-control float-right mb-3 form-control-sm" placeholder="Pencarian">
+                <div class="col-md-3 mb-4">
+                    <div class="form-group row">
+                        <label class=" col-md-4 col-form-label text-sm">Jenis Pengujian</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control float-right mb-3 form-control-sm" placeholder="Pencarian">
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="col-md-3 mb-3">
+                    <div class="form-group row">
+                        <label class=" col-md-4 col-form-label text-sm">Pencarian</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control float-right mb-3 form-control-sm" placeholder="Pencarian">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group col-md-12 row">
+                        <button class="btn btn-sm  btn-flatbtn-default">Cari</button>
+                    </div>
+                </div>
+            </form>
             <table class="table table-striped table-sm table-bordered p-0 table-hover">
                 <thead>
                     <tr class="text-center">
@@ -110,3 +118,4 @@
 </div>
 
 </div>
+

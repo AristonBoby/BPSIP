@@ -12,27 +12,35 @@ use Carbon\Carbon;
 
 class TblDataAnalis extends Component
 {
-
+    public $lilisteners = ['datevalue' =>'datevalue'];
     public $detail = [];
     public $itemAnalisa = [];
-    public $tanggal;
+    public $tanggal='';
 
     public function mount()
     {
-        $this->tanggal = date('d-m-Y');
+       // $this->tanggal = date('d-m-Y');
     }
 
-    public function updatingTanggal($value)
+    public function datevalue()
     {
-        $this->tanggal = $value;
+        dd('dd');
+    }
+
+    public function pencarian()
+    {
+        $this->render();
+        $tanggal = \Carbon\Carbon::parse($this->tanggal)->format('Y/m/d');
+        dd($tanggal);
     }
 
     public function render()
     {
-        $name= $this->tanggal;
+        $name = \Carbon\Carbon::parse($this->tanggal)->format('Y/m/d');
         $query = itemAnalisa::with('tblpermintaan')->orwhereHas('tblpermintaan', function(Builder $dat) use ($name){
-            $dat->where('tanggal',$name);
+            $dat->where('tanggal','like','%'.$name.'%');
         })->paginate(10);
+
 
         return view('livewire.data-analis.tbl-data-analis',[ 'query' => $query, 'detailItem' => $this->detail, 'itemAnalisaSampel'=>$this->itemAnalisa]);
     }
