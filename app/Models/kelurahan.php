@@ -12,4 +12,9 @@ class kelurahan extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function kecamatan()
+    {
+        return $this->belongsTo('App\Models\kecamatan','kecamatan_id','id');
+    }
 }

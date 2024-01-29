@@ -1,13 +1,17 @@
 <div>
    <div class="card">
         <div class="card-body row">
-            <div class="col-md-3 mb-3">
-                <div class="form-group row">
-                    <label class=" col-md-3 col-form-label text-sm">Tanggal</label>
-                    <div class="col-md-8">
-                        <input type="text" class="form-control float-right mb-3 form-control-sm" placeholder="Pencarian">
-                    </div>
+            <div class="form-group row"style="margin-top:12px;">
+                <label class="text-uppercase col-md-4 col-lg-4 col-sm-4 text-sm ">Tanggal</label>
+                <div class="input-group col-md-7">
+                    <input  type="text" id="tglKunjungan" onchange="livewire('selecdate')" class=" date form-control" wire:model='tanggal' placeholder="dd-mm-yyyy" >
+                    <span class="input-group-append">
+                        <span class="input-group-text">
+                            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+                        </span>
+                    </span>
                 </div>
+
             </div>
             <div class="col-md-3 mb-3">
                 <div class="form-group row">
@@ -45,17 +49,24 @@
                     @forelse ($query as $no=>$data )
                     <tr>
                         <td class="text-center">{{ $query->firstItem()+$no }}</td>
-                        <td class="text-center">{{ $data->tblpermintaan->no_spk }}</td>
-                        <td class="text-center">{{ $data->tblpermintaan->dataUser->name }}</td>
+                        <td width="150">{{ $data->tblpermintaan->no_spk }}</td>
+                        <td class="">{{ $data->tblpermintaan->dataUser->name }}</td>
                         <td class="text-center">{{ $data->tblpermintaan->dataUser->userPemohons->no_tlpn }}</td>
-                        <td class="text-center">{{ $data->tblpermintaan->dataUser->userPemohons->alamat }}</td>
+                        <td width="200">
+                            {{ $data->tblpermintaan->dataUser->userPemohons->alamat }}, Kel/Desa
+                            {{ $data->tblpermintaan->dataUser->userPemohons->kelurahan->namaKelurahan }}, Kecamatan
+                            {{ $data->tblpermintaan->dataUser->userPemohons->kelurahan->kecamatan->namaKecamatan }},
+                            {{ $data->tblpermintaan->dataUser->userPemohons->kelurahan->kecamatan->kota->namaKota }}, Provinsi
+                            {{ $data->tblpermintaan->dataUser->userPemohons->kelurahan->kecamatan->kota->provinsi->namaProvinsi }}
+
+                        </td>
                         <td class="text-center">{{ $data->analisaSampel->jenis_analisa }}
                         </td>
-                        <td class="text-center">
+                        <td class="text-left" width="400">
                             @foreach ( $data->transaksiAnalisa as $da)
                                 <ul>
                                     @foreach ($da->tblJenisPemeriksaan as $jenisPemeriksaan)
-                                            <li style="margin-bottom:-20px;"> {{ $jenisPemeriksaan->itemPemeriksaan }} : {{ formatRupiah($jenisPemeriksaan->harga) }}</li>
+                                            <li style="margin-bottom:-20px;"> {{ $jenisPemeriksaan->itemPemeriksaan }} : <b>{{ formatRupiah($jenisPemeriksaan->harga) }}</b></li>
                                     @endforeach
                                 </ul>
                             @endforeach
@@ -68,9 +79,9 @@
                                 <span class="text-center badge bg-warning">Offline</span>
                             @endif
                         </td>
-                        <td class="text-center text-md">
+                        <td class="text-center text-md" width="50">
                             @if($data->tblpermintaan->status == 1 )
-                                <span class="text-center badge bg-info">Sampel telah di terima petugas pendaftaran</span>
+                                <span class="text-center badge bg-info">Sampel telah di terima</span>
                             @elseif($data->tblpermintaan->status == 2)
                                 <span class="text-center badge bg-warning">Sampel belum di terima</span>
                             @elseif($data->tblpermintaan->status == 3)
@@ -97,4 +108,5 @@
 </div>
     @include('livewire.data-analis.modalKonf')
 </div>
+
 </div>

@@ -22,6 +22,6 @@ class userPemohon extends Model
     }
     public function kelurahan()
     {
-    	return $this->belongsTo('App\Models\kelurahan');
+    	return $this->belongsTo('App\Models\kelurahan','kelurahan_id','id');
     }
 }

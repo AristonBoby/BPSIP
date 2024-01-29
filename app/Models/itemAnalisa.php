@@ -40,4 +40,9 @@ class itemAnalisa extends Model
         return $this->hasMany('App\Models\transaksiAnalisa','item_analisa_id','id');
     }
 
+    public function search($value)
+    {
+
+    }
+
 }
