@@ -37,4 +37,6 @@ class permintaanAnalisa extends Model
         return $this->hasMany('App\Models\itemAnalisa','permintaan_analisas_id','id');
     }
 
+
+
 }

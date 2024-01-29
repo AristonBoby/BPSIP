@@ -2,47 +2,50 @@
 
 namespace App\Livewire\DataAnalis;
 
+use Carbon\Carbon;
 use App\Models\User;
 use Livewire\Component;
 use App\Models\itemAnalisa;
 use App\Models\userPemohon;
+use App\Models\analisaSampel;
 use App\Models\permintaanAnalisa;
 use Illuminate\Database\Eloquent\Builder;
-use Carbon\Carbon;
 
 class TblDataAnalis extends Component
 {
-    public $lilisteners = ['datevalue' =>'datevalue'];
+    protected $lilisteners = ['datevalue'];
     public $detail = [];
     public $itemAnalisa = [];
     public $tanggal='';
+    public $jenis_analisa = '';
 
-    public function mount()
-    {
-       // $this->tanggal = date('d-m-Y');
-    }
-
-    public function datevalue()
-    {
-        dd('dd');
-    }
 
     public function pencarian()
     {
         $this->render();
-        $tanggal = \Carbon\Carbon::parse($this->tanggal)->format('Y/m/d');
-        dd($tanggal);
+    }
+
+    public function resetPencarian()
+    {   $this->jenis_analisa ='';
+        $this->tanggal="";
+        $this->render();
     }
 
     public function render()
     {
-        $name = \Carbon\Carbon::parse($this->tanggal)->format('Y/m/d');
-        $query = itemAnalisa::with('tblpermintaan')->orwhereHas('tblpermintaan', function(Builder $dat) use ($name){
-            $dat->where('tanggal','like','%'.$name.'%');
-        })->paginate(10);
+        $tgl = $this->tanggal;
+        $jenis_analisa=$this->jenis_analisa;
+
+        $jenisAnalisa = analisaSampel::all();
+
+        $query = itemAnalisa::with('tblpermintaan')
+        ->orwhereHas('tblpermintaan', function(Builder $dat) use ($tgl){
+                $dat->where('tanggal','like','%'.$tgl.'%');
+            })
+        ->orderBy('created_at','desc')->where('jenisAnalisaSampel_id','like','%'.$jenis_analisa.'%')->paginate(10);
 
 
-        return view('livewire.data-analis.tbl-data-analis',[ 'query' => $query, 'detailItem' => $this->detail, 'itemAnalisaSampel'=>$this->itemAnalisa]);
+        return view('livewire.data-analis.tbl-data-analis',[ 'query' => $query, 'detailItem' => $this->detail, 'itemAnalisaSampel'=>$this->itemAnalisa,'itemjenisAnalisa'=>$jenisAnalisa]);
     }
 
     public function itemAnalisaModal($id)

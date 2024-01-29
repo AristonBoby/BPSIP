@@ -107,9 +107,7 @@
                 format: "dd-mm-yyyy",
                 autoclose:true,
                 endDate: "dateToday",
-            }).on('change',function(e){
-
-            });
+            })
         });
     </script>
 

@@ -1,42 +1,45 @@
 <div>
    <div class="card">
-        <div class="card-body row ">
+        <div class="card-header row">
             <form wire:submit='pencarian()' class="form-horizontal row col-md-12">
                 <div class="col-md-3">
                     <div class="form-group row">
                         <label class="text-uppercase col-md-4 col-lg-4 col-sm-4 text-sm ">Tanggal</label>
                         <div class="input-group col-md-8">
-                            <input type="text"  x-on:click='render()' class="date form-control " placeholder="dd-mm-yyyy" >
-                            <span class="input-group-append">
-                                <span class="input-group-text">
-                                    <i class="far fa-calendar-alt" aria-hidden="true"></i>
-                                </span>
-                            </span>
+                            <input type="date" wire:model='tanggal' class=" orm-control " placeholder="dd-mm-yyyy" >
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-4">
+                <div class="col-md-3 ">
                     <div class="form-group row">
                         <label class=" col-md-4 col-form-label text-sm">Jenis Pengujian</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control float-right mb-3 form-control-sm" placeholder="Pencarian">
+                            <select type="text" wire:model='jenis_analisa' class="form-control float-right form-control-sm">
+                                <option value="" selected>--Pilih Salah Satu --</option>
+                                @foreach ($itemjenisAnalisa as $value)
+                                    <option value="{{ $value->id }}">{{ $value->jenis_analisa }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-3">
+                <div class="col-md-3">
                     <div class="form-group row">
                         <label class=" col-md-4 col-form-label text-sm">Pencarian</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control float-right mb-3 form-control-sm" placeholder="Pencarian">
+                            <input type="text" class="form-control float-right form-control-sm" placeholder="Pencarian">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group col-md-12 row">
-                        <button class="btn btn-sm  btn-flatbtn-default">Cari</button>
+                        <button type="submit"class="btn btn-sm  btn-primary"><i class="fa fa-search"></i> Cari</button>
+                        <button type="button" style="margin-left:10px;" wire:click='resetPencarian()' class="btn btn-sm  btn-danger"><i class="fa fa-times"></i> Reset</button>
                     </div>
                 </div>
             </form>
+        </div>
+        <div class="card-body row ">
             <table class="table table-striped table-sm table-bordered p-0 table-hover">
                 <thead>
                     <tr class="text-center">
@@ -105,6 +108,9 @@
                         </td>
                     </tr>
                     @empty
+                    <tr>
+                        <td colspan="11" class="text-center">Data tidak ditemukan</td>
+                    </tr>
                     @endforelse
                 </tbody>
             </table>
