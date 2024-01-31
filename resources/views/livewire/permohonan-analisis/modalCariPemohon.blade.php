@@ -8,7 +8,6 @@
             </div>
 
         </div>
-
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12">
@@ -26,6 +25,7 @@
                 <tr>
                     <th>No.</th>
                     <th>Nama</th>
+                    <th>Email</th>
                     <th>No Telepon</th>
                     <th>*</th>
                 </tr>
@@ -35,7 +35,8 @@
                 <tr>
                         <td>{{ $cariUser->firstItem() + $key}}</td>
                         <td>{{ $data->name }}</td>
-                        <td>{{ $data->userPemohon->no_tlpn ?? '' }}</td>
+                        <td>{{ $data->email}}</td>
+                        <td>{{ $data->userPemohons->no_tlpn}}</td>
                         <td><a class="btn btn-primary btn-xs" data-dismiss="modal" wire:click="selectUser('{{ $data->id }}')"><i class="fa fa-plus"></i></a></td>
                 </tr>
                 @empty

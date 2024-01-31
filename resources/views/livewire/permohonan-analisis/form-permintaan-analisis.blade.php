@@ -10,22 +10,22 @@
                     <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
                         <label class=" control-label col-sm-3 text-uppercase">Nama Pemohon <b class='text-red'>*</b></label>
                         <div class="col-sm-7">
-                            <input type="text" wire:model='namaPemohon' class="form-control rounded-0  @error('namaPemohon') is-invalid @enderror" placeholder=" Nama Pemohon" disabled>
+                            <input type="text" value="{{$namaPemohon}}" class="form-control rounded-0 " placeholder=" Nama Pemohon" disabled>
                             @error('namaPemohon') <span class=" text-red error">{{ $message }}</span> @enderror
                         </div>
                     </div>
                     <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
                         <label class="control-label col-sm-3">No. Telp (HP) <b class='text-red'>*</b></label>
                         <div class="col-sm-7">
-                            <input type="text" wire:model='noTlpn' class="form-control rounded-0  @error('noTlpn') is-invalid @enderror" placeholder=" Nomor Telepon (HP)" disabled>
+                            <input type="text" value="{{$noTlpn}}" class="form-control rounded-0  @error('noTlpn') is-invalid @enderror" placeholder=" Nomor Telepon (HP)" disabled>
                             @error('noTlpn')<span class="error is_invalid  text-red"> {{ $message }} </span>@enderror
                         </div>
                     </div>
                     <div class="form-group  col-lg-6 col-md-12 col-sm-12 row">
                         <label class="control-label col-sm-3">Alamat<b class='text-red'>*</b></label>
                         <div class="col-sm-7">
-                            <textarea wire:model='alamat' placeholder="Alamat" class="text-uppercase form-control @error('alamat') is-invalid @enderror" disabled/></textarea>
-                            @error('alamat')<span class="error text-red ">{{ $message }}</span>@enderror
+                            <textarea placeholder="Alamat" class="text-uppercase form-control" disabled/>{{ $alamatPemohon }}</textarea>
+
                         </div>
                     </div>
                     <div class="form-group col-lg-6 col-md-12 col-sm-12 row">
@@ -156,7 +156,7 @@
                                 @if($no===0)
                                     <td class="text-center">
                                         <button type="button" class="btn-sm btn btn-primary" wire:click="addSampel('{{ $no }}')" @disabled($form)>+</button>
-                                        <button type="button" class="btn-smbtn btn-danger" wire:click="removeSampel({{ $index }})" @disabled($form)>-</i></button>
+                                        <button type="button" class="btn-sm btn btn-danger" wire:click="removeSampel({{ $index }})" @disabled($form)>-</i></button>
                                     </td>
                                 @else
                                 @endif

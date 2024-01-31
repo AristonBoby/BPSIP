@@ -17,6 +17,7 @@ Auth::routes([  'register' => false,
                 'reset'    => false,
                 'verify'   => false,
                 ]);
+
 Route::get('/', [App\Http\Controllers\Auth\LoginController::class,'showLoginForm'])->name('showlogin');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/FormJenisPengujian', [App\Http\Controllers\jenisPengujian::class, 'index'])->middleware('auth')->name('formJenisPengujian');

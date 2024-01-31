@@ -48,7 +48,7 @@ class FormPermintaanAnalisis extends Component
     public $kondisiContoh;
     public $bentukContoh;
     public $jenisKemasan;
-    public $alamat;
+    public $alamatPemohon;
     public $idpemeriksaan=[];
     public $i=0;
 
@@ -59,6 +59,7 @@ class FormPermintaanAnalisis extends Component
 
     public function render()
     {   $query = User::where('name','LIKE','%'.$this->cari.'%')->where('role',2)->paginate(10);
+
         $data = jenis_pengujian_sampel::all();
         $pengujian = DB::table('analisa_sampels')
                      ->join('jenis_pengujian_sampels','jenis_pengujian_sampels.id','analisa_sampels.jenisPengujian_id')
@@ -145,6 +146,7 @@ class FormPermintaanAnalisis extends Component
         if($insert)
         {
             $idAnalisa = permintaanAnalisa::orderBy('created_at', 'DESC')->first();
+
             for($i=0; $i < count($this->kodeSampel); $i++)
             {
 
@@ -175,17 +177,23 @@ class FormPermintaanAnalisis extends Component
                             'jenis_pemeriksaan_sampels_id'  =>  $value->id,
                             ]);
                         }
+                        if($item)
+                        {
+
+                            $this->dispatch('alert',text:'Data Berhasil Di Simpan' ,icon:'success',title:'Berhasil',timer:2000);
+                        }
                     }
                 }
             }
         }
-        $this->dispatch('alert',text:'Data Berhasil Di Simpan' ,icon:'success',title:'Berhasil',timer:2000);
+
     }
 
     public function batal()
     {
         $this->cari = '';
     }
+
     public function selectUser($id)
     {
        $query = DB::table('users')
@@ -200,19 +208,21 @@ class FormPermintaanAnalisis extends Component
                 ->first();
        if($query)
        {
-        $this->dispatch('alert',text:'[ '.$query->name.' ]' ,icon:'success',title:'Berhasil',timer:2000);
         $this->namaPemohon  =   $query->name;
         $this->noTlpn       =   $query->no_tlpn;
-        $this->alamat       =   $query->alamat. ', DESA/KEL. '. $query->namaKelurahan.', KEC. '. $query->namaKecamatan.', KAB/KOTA. '. $query->namaKota.', Provinsi '.$query->namaProvinsi;
+        $this->alamatPemohon       =   $query->alamat. ', DESA/KEL. '. $query->namaKelurahan.', KEC. '. $query->namaKecamatan.', KAB/KOTA. '. $query->namaKota.', Provinsi '.$query->namaProvinsi;
         $this->form         =   false;
         $this->userId       =   $query->id;
+        $this->dispatch('alert',text:'[ '.$query->name.' ]' ,icon:'success',title:'Berhasil',timer:2000);
+
        }else
        {
-        $this->dispatch('alert',text:'Gagal Mengambil Data' ,icon:'warning',title:'Gagal ',timer:2000);
         $this->namaPemohon  =   '';
         $this->noTlpn       =   '';
-        $this->alamat       =   '';
+        $this->alamatPemohon       =   '';
         $this->form         =   true;
+        $this->dispatch('alert',text:'Gagal Mengambil Data' ,icon:'warning',title:'Gagal ',timer:2000);
+
        }
     }
 

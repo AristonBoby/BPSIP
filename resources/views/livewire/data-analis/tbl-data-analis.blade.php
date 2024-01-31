@@ -6,7 +6,7 @@
                     <div class="form-group row">
                         <label class="text-uppercase col-md-4 col-lg-4 col-sm-4 text-sm ">Tanggal</label>
                         <div class="input-group col-md-8">
-                            <input type="date" wire:model='tanggal' class=" orm-control " placeholder="dd-mm-yyyy" >
+                            <input type="date" wire:model='tanggal' class=" form-control " placeholder="dd-mm-yyyy" >
                         </div>
                     </div>
                 </div>
@@ -34,12 +34,12 @@
                 <div class="col-md-3">
                     <div class="form-group col-md-12 row">
                         <button type="submit"class="btn btn-sm  btn-primary"><i class="fa fa-search"></i> Cari</button>
-                        <button type="button" style="margin-left:10px;" wire:click='resetPencarian()' class="btn btn-sm  btn-danger"><i class="fa fa-times"></i> Reset</button>
+                        <a type="button" href="{{ route('dataAnalis')}}" style="margin-left:10px;" wire:click='resetPencarian()' class="btn btn-sm  btn-danger"><i class="fa fa-times"></i> Reset</a>
                     </div>
                 </div>
             </form>
         </div>
-        <div class="card-body row ">
+        <div class="card-body row">
             <table class="table table-striped table-sm table-bordered p-0 table-hover">
                 <thead>
                     <tr class="text-center">
@@ -57,8 +57,11 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr wire:loading>
+                        <td>Loading...</td>
+                    </tr>
                     @forelse ($query as $no=>$data )
-                    <tr>
+                    <tr wire:loading.remove>
                         <td class="text-center">{{ $query->firstItem()+$no }}</td>
                         <td width="150">{{ $data->tblpermintaan->no_spk }}</td>
                         <td class="">{{ $data->tblpermintaan->dataUser->name }}</td>
@@ -102,9 +105,7 @@
                             @endif
                         </td>
                         <td>
-                            <a data-toggle="modal" wire:click='itemAnalisaModal("{{ $data->permintaan_analisas_id }}")' class="btn btn-sm btn-info" data-target="#modalDetail" ><i class="fa fa-eye"></i></a>
-                            <a data-toggle="modal" wire:click='itemAnalisaModal("{{ $data->permintaan_analisas_id }}")' class="btn btn-sm btn-warning" data-target="#modalKonn" ><i class="fa fa-eye"></i> Approve</a>
-                            <a data-toggle="modal" class="btn btn-sm btn-danger" data-target="#modalDelete" ><i class="fa fa-trash"></i> </a>
+                            <a data-toggle="modal" wire:click="itemAnalisaModal({{$data->id}})" class="btn btn-sm btn-info" data-target="#modalDetail" ><i class="fa fa-eye"></i></a>
                         </td>
                     </tr>
                     @empty
@@ -113,15 +114,19 @@
                     </tr>
                     @endforelse
                 </tbody>
+                <tfoot>
+
+                </tfoot>
             </table>
+            <div class="col-md-12 mt-3 float-right">
+                <span class="text-sm float-left">Showing {{$query->currentPage()}} - {{$query->lastPage()}} of {{$query->total()}} </span>
+                <div class="float-right">
+                    {{$query->links()}}
+                </div>
+            </div>
         </div>
     </div>
-    @include('livewire.data-analis.modalDel')
-</div>
     @include('livewire.data-analis.modalDetail')
 </div>
-    @include('livewire.data-analis.modalKonf')
-</div>
-
 </div>
 
