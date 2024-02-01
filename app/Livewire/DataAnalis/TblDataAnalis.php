@@ -20,33 +20,44 @@ class TblDataAnalis extends Component
     public $itemAnalisa = [];
     public $tanggal='';
     public $jenis_analisa = '';
+    public $cari='';
 
 
     public function pencarian()
     {
+        $this->resetPage();
         $this->render();
     }
 
     public function resetPencarian()
-    {   $this->jenis_analisa='';
-        $this->tanggal=null;
+    {
+        $this->resetPage();
+        $this->jenis_analisa = '';
+        $this->tanggal = '';
+        $this->cari = '';
         $this->render();
     }
 
     public function render()
     {
-        $tgl = $this->tanggal;
-        $jenis_analisa=$this->jenis_analisa;
-
         $jenisAnalisa = analisaSampel::all();
 
-        $query = itemAnalisa::with('tblpermintaan')
-        ->orwhereHas('tblpermintaan', function(Builder $dat) use ($tgl){
-                $dat->where('tanggal','like','%'.$tgl.'%');
+        $query = itemAnalisa:://with(['tblpermintaan','tblpermintaan.dataUser'])
+        where('jenisAnalisaSampel_id','like','%'.$this->jenis_analisa.'%')
+        ->whereHas('tblpermintaan', function($dat){
+                $dat->whereHas('dataUser',function($das){
+                    $das->where('name','LIKE','%'.$this->cari.'%');
+                });
+                $dat->orWhere('no_spk',$this->cari);
             })
-        ->orderBy('created_at','desc')->where('jenisAnalisaSampel_id','like','%'.$jenis_analisa.'%')->paginate(2);
-
-
+        ->whereHas('tblpermintaan', function($dat){
+            $dat->whereHas('dataUser',function($das){
+                $das->where('tanggal','Like','%'.$this->tanggal.'%');
+            });
+        })
+        ->orderBy('created_at','desc')
+        ->paginate(10);
+       // dd($query);
         return view('livewire.data-analis.tbl-data-analis',[ 'query' => $query, 'detailItem' => $this->detail, 'itemAnalisaSampel'=>$this->itemAnalisa,'itemjenisAnalisa'=>$jenisAnalisa]);
     }
 

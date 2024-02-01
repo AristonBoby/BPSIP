@@ -27,14 +27,14 @@
                     <div class="form-group row">
                         <label class=" col-md-4 col-form-label text-sm">Pencarian</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control float-right form-control-sm" placeholder="Pencarian">
+                            <input type="text" wire:model='cari' class="form-control float-right form-control-sm" placeholder="Pencarian">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group col-md-12 row">
                         <button type="submit"class="btn btn-sm  btn-primary"><i class="fa fa-search"></i> Cari</button>
-                        <a type="button" href="{{ route('dataAnalis')}}" style="margin-left:10px;" wire:click='resetPencarian()' class="btn btn-sm  btn-danger"><i class="fa fa-times"></i> Reset</a>
+                        <a type="button" style="margin-left:10px;" wire:click='resetPencarian()' class="btn btn-sm  btn-danger"><i class="fa fa-times"></i> Reset</a>
                     </div>
                 </div>
             </form>
@@ -63,6 +63,7 @@
                     @forelse ($query as $no=>$data )
                     <tr wire:loading.remove>
                         <td class="text-center">{{ $query->firstItem()+$no }}</td>
+                        <td class="text-center">{{ $data->id }}</td>
                         <td width="150">{{ $data->tblpermintaan->no_spk }}</td>
                         <td class="">{{ $data->tblpermintaan->dataUser->name }}</td>
                         <td class="text-center">{{ $data->tblpermintaan->dataUser->userPemohons->no_tlpn }}</td>
@@ -119,7 +120,7 @@
                 </tfoot>
             </table>
             <div class="col-md-12 mt-3 float-right">
-                <span class="text-sm float-left">Showing {{$query->currentPage()}} - {{$query->lastPage()}} of {{$query->total()}} </span>
+                <span class="text-sm float-left">Showing {{$query->currentPage()}} - {{$query->lastPage()}} of {{$query->total()}} Record</span>
                 <div class="float-right">
                     {{$query->links()}}
                 </div>
