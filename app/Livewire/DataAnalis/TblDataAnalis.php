@@ -42,22 +42,20 @@ class TblDataAnalis extends Component
     {
         $jenisAnalisa = analisaSampel::all();
 
-        $query = itemAnalisa:://with(['tblpermintaan','tblpermintaan.dataUser'])
-        where('jenisAnalisaSampel_id','like','%'.$this->jenis_analisa.'%')
-        ->whereHas('tblpermintaan', function($dat){
-                $dat->whereHas('dataUser',function($das){
-                    $das->where('name','LIKE','%'.$this->cari.'%');
-                });
-                $dat->orWhere('no_spk',$this->cari);
-            })
-        ->whereHas('tblpermintaan', function($dat){
-            $dat->whereHas('dataUser',function($das){
-                $das->where('tanggal','Like','%'.$this->tanggal.'%');
-            });
-        })
-        ->orderBy('created_at','desc')
-        ->paginate(10);
-       // dd($query);
+        $query = itemAnalisa::where('jenisAnalisaSampel_id','like','%'.$this->jenis_analisa.'%')
+                    ->whereHas('tblpermintaan', function($dat){
+                            $dat->whereHas('dataUser',function($das){
+                                $das->where('name','LIKE','%'.$this->cari.'%');
+                            });
+                            $dat->orWhere('no_spk',$this->cari);
+                        })
+                    ->whereHas('tblpermintaan', function($dat){
+                        $dat->whereHas('dataUser',function($das){
+                            $das->where('tanggal','Like','%'.$this->tanggal.'%');
+                        });
+                    })
+                ->orderBy('created_at','desc')
+                ->paginate(10);
         return view('livewire.data-analis.tbl-data-analis',[ 'query' => $query, 'detailItem' => $this->detail, 'itemAnalisaSampel'=>$this->itemAnalisa,'itemjenisAnalisa'=>$jenisAnalisa]);
     }
 

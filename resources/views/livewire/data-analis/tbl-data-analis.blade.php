@@ -63,7 +63,6 @@
                     @forelse ($query as $no=>$data )
                     <tr wire:loading.remove>
                         <td class="text-center">{{ $query->firstItem()+$no }}</td>
-                        <td class="text-center">{{ $data->id }}</td>
                         <td width="150">{{ $data->tblpermintaan->no_spk }}</td>
                         <td class="">{{ $data->tblpermintaan->dataUser->name }}</td>
                         <td class="text-center">{{ $data->tblpermintaan->dataUser->userPemohons->no_tlpn }}</td>
@@ -127,7 +126,7 @@
             </div>
         </div>
     </div>
-    @include('livewire.data-analis.modalDetail')
+
 </div>
 </div>
 
