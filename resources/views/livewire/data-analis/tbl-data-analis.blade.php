@@ -51,7 +51,6 @@
                         <th>Jenis Pengujian Sampel</th>
                         <th>Jenis Pemeriksaan Sampel</th>
                         <th>Tanggal</th>
-                        <th>Pendaftaran</th>
                         <th>Status</th>
                         <th>*</th>
                     </tr>
@@ -61,7 +60,6 @@
                         <td>Loading...</td>
                     </tr>
                     @forelse ($query as $no=>$data )
-                    {{ $data->transaksiAnalisa->tblJenisPemeriksaan->sum('harga') }}
                     <tr wire:loading.remove>
                         <td class="text-center">{{ $query->firstItem()+$no }}</td>
                         <td width="150">{{ $data->tblpermintaan->no_spk }}</td>
@@ -80,12 +78,12 @@
                         <td class="text-left" width="400">
                             @foreach ( $data->transaksiAnalisa as $da)
                                 <ul>
-                                     <li style="margin-bottom:-20px;"> {{ $da->tblJenisPemeriksaan->itemPemeriksaan }} : <b>{{ formatRupiah($da->tblJenisPemeriksaan->harga) }}</b></li>
+                                    <li style="margin-bottom:-20px;">  {{ $da->tblJenisPemeriksaan->itemPemeriksaan }} : <b>{{ formatRupiah($da->tblJenisPemeriksaan->harga) }}</b></li>
                                 </ul>
                             @endforeach
-
                         </td>
-
+                        <td>
+                       </td>
                         <td class="text-center">{{ $data->tblpermintaan->tanggal }}</td>
                         <td class="text-center text-md">
                             @if($data->tblpermintaan->status_daftar == 1 )

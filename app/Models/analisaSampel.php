@@ -19,4 +19,9 @@ class analisaSampel extends Model
         'jenisPengujian_id',
         'status'
     ];
+
+    public function jenisPemeriksaanSampel()
+    {
+        return $this->hasMany('App\Models\jenisPemeriksaanSampel','item_analisa_id','id');
+    }
 }
