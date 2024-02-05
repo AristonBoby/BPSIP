@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Livewire\PendaftaranPemohon;
+
+use App\Models\itemAnalisa;
 use App\Models\kota;
 use App\Models\User;
 use Livewire\Component;
@@ -36,7 +38,9 @@ class FormPendaftaranPemohon extends Component
         'kel'                       =>  'required',
     ];
     public function render()
-    {   $prov = provinsi::all();
+    {
+        $data= itemAnalisa::all();
+        $prov = provinsi::all();
         $kota = kota::where('provinsi_id',$this->prov)->get();
         $kec  = kecamatan::where('kota_id',$this->city)->get();
         $kel  = kelurahan::where('kecamatan_id',$this->kec)->get();

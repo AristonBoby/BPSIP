@@ -1,15 +1,22 @@
 <?php
 
 namespace App\Models;
-
+use App\Traits\uuid;
 use App\Models\permintaanAnalisa;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class itemAnalisa extends Model
 {
     use HasFactory;
+    use uuid;
+    use SoftDeletes;
+
+    protected $table = 'item_analisas';
+    protected $primaryKey = 'id';
+    protected $visible = 'id';
     protected $fillable = [
         'id',
         'kodeSampel',
@@ -17,6 +24,7 @@ class itemAnalisa extends Model
         'jenisAnalisaSampel_id',
         'permintaan_analisas_id',
         'keterangan',
+
     ];
 
 

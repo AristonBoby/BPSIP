@@ -61,6 +61,7 @@
                         <td>Loading...</td>
                     </tr>
                     @forelse ($query as $no=>$data )
+                    {{ $data->transaksiAnalisa->tblJenisPemeriksaan->sum('harga') }}
                     <tr wire:loading.remove>
                         <td class="text-center">{{ $query->firstItem()+$no }}</td>
                         <td width="150">{{ $data->tblpermintaan->no_spk }}</td>
@@ -79,12 +80,12 @@
                         <td class="text-left" width="400">
                             @foreach ( $data->transaksiAnalisa as $da)
                                 <ul>
-                                    @foreach ($da->tblJenisPemeriksaan as $jenisPemeriksaan)
-                                            <li style="margin-bottom:-20px;"> {{ $jenisPemeriksaan->itemPemeriksaan }} : <b>{{ formatRupiah($jenisPemeriksaan->harga) }}</b></li>
-                                    @endforeach
+                                     <li style="margin-bottom:-20px;"> {{ $da->tblJenisPemeriksaan->itemPemeriksaan }} : <b>{{ formatRupiah($da->tblJenisPemeriksaan->harga) }}</b></li>
                                 </ul>
                             @endforeach
+
                         </td>
+
                         <td class="text-center">{{ $data->tblpermintaan->tanggal }}</td>
                         <td class="text-center text-md">
                             @if($data->tblpermintaan->status_daftar == 1 )
@@ -105,7 +106,7 @@
                             @endif
                         </td>
                         <td>
-                            <a data-toggle="modal" wire:click="itemAnalisaModal({{$data->id}})" class="btn btn-sm btn-info" data-target="#modalDetail" ><i class="fa fa-eye"></i></a>
+                            <a data-toggle="modal" wire:click="itemAnalisaModal('{{$data->id}}')" class="btn btn-sm btn-info" data-target="#modalDetail" ><i class="fa fa-eye"></i></a>
                         </td>
                     </tr>
                     @empty
@@ -126,7 +127,7 @@
             </div>
         </div>
     </div>
-
+    @include('livewire.data-analis.modalDetail')
 </div>
 </div>
 

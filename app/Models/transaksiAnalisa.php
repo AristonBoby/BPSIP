@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Models;
-
+use App\Traits\uuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\SoftDeletes;
 class transaksiAnalisa extends Model
 {
+    use uuid;
     use HasFactory;
     protected $fillable = [
         'id',
@@ -16,6 +17,7 @@ class transaksiAnalisa extends Model
 
     public function tblJenisPemeriksaan()
     {
-        return $this->hasMany('App\Models\jenisPemeriksaanSampel','id','jenis_pemeriksaan_sampels_id');
+        return $this->belongsTo('App\Models\jenisPemeriksaanSampel','jenis_pemeriksaan_sampels_id','id');
     }
+
 }
