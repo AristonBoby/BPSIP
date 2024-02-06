@@ -66,7 +66,7 @@ class TblDataAnalis extends Component
 
     public function itemAnalisaModal($id)
     {
-        dd($id);
+
     }
 
     public function close()

@@ -8,8 +8,8 @@
             </div>
 
         </div>
-        <div class="modal-body" wire:loading.remove>
-            <div class="invoice"
+        <div class="modal-body" >
+            <div class="invoice">
             <div class="row">
                 @forelse ($detailItem as $query)
                 <div class="row invoice-info">
