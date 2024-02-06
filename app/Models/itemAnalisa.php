@@ -24,6 +24,7 @@ class itemAnalisa extends Model
         'jenisAnalisaSampel_id',
         'permintaan_analisas_id',
         'keterangan',
+        'harga'
 
     ];
 

@@ -10,6 +10,7 @@ use App\Models\userPemohon;
 use Livewire\WithPagination;
 use App\Models\analisaSampel;
 use App\Models\permintaanAnalisa;
+use App\Models\transaksiAnalisa;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -22,6 +23,7 @@ class TblDataAnalis extends Component
     public $tanggal='';
     public $jenis_analisa = '';
     public $cari='';
+    public $idHapus;
 
 
     public function pencarian()
@@ -71,5 +73,36 @@ class TblDataAnalis extends Component
     {
         $this->itemAnalisa = [];
         $this->detail = [];
+    }
+
+    public function deleteId($id)
+    {
+        $this->idHapus = $id;
+    }
+
+    public function hapus()
+    {
+        $this->delete($this->idHapus);
+    }
+
+    public function delete($id)
+    {
+        $delete = transaksiAnalisa::where('item_analisa_id',$id)->delete();
+
+        if($delete)
+        {   $permintaan = itemAnalisa::find($id)->first();
+            $delItemAnalisa = itemAnalisa::where('id',$id)->forceDelete();
+
+            if($delItemAnalisa )
+            {
+                $sum = itemAnalisa::where('permintaan_analisas_id',$permintaan->permintaan_analisas_id)->get();
+                if($sum->count() === 0)
+                {
+                    $delete = permintaanAnalisa::find($permintaan->permintaan_analisas_id)->forceDelete();
+                    $this->dispatch('alert',text:'Data Berhasil Dihapus !!!',icon:'success',title:'Berhasil',timer:2000);
+                }
+            }
+        }
+        $this->render();
     }
 }

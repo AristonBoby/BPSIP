@@ -37,6 +37,9 @@
                         <a type="button" style="margin-left:10px;" wire:click='resetPencarian()' class="btn btn-sm  btn-danger"><i class="fa fa-times"></i> Reset</a>
                     </div>
                 </div>
+                <div class="col-md-3" wire:loading>
+                    Loading...
+                </div>
             </form>
         </div>
         <div class="card-body row">
@@ -50,17 +53,15 @@
                         <th>Alamat</th>
                         <th>Jenis Pengujian Sampel</th>
                         <th>Jenis Pemeriksaan Sampel</th>
+                        <th>Harga</th>
                         <th>Tanggal</th>
                         <th>Status</th>
                         <th>*</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr wire:loading>
-                        <td>Loading...</td>
-                    </tr>
                     @forelse ($query as $no=>$data )
-                    <tr wire:loading.remove>
+                    <tr>
                         <td class="text-center">{{ $query->firstItem()+$no }}</td>
                         <td width="150">{{ $data->tblpermintaan->no_spk }}</td>
                         <td class="">{{ $data->tblpermintaan->dataUser->name }}</td>
@@ -83,6 +84,7 @@
                             @endforeach
                         </td>
                         <td>
+                            <b>{{ formatRupiah($data->harga) }}</b>
                        </td>
                         <td class="text-center">{{ $data->tblpermintaan->tanggal }}</td>
                         <td class="text-center text-md">
@@ -105,6 +107,7 @@
                         </td>
                         <td>
                             <a data-toggle="modal" wire:click="itemAnalisaModal('{{$data->id}}')" class="btn btn-sm btn-info" data-target="#modalDetail" ><i class="fa fa-eye"></i></a>
+                            <a data-toggle="modal" data-target="#modalDelete" class="btn btn-danger btn-sm" wire:click="deleteId('{{ $data->id }}')"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     @empty
@@ -127,5 +130,22 @@
     </div>
     @include('livewire.data-analis.modalDetail')
 </div>
+    @include('livewire.data-analis.modalDelete')
+</div>
 </div>
 
+<script>
+    window.addEventListener('alert', event => {
+        $('#modalEdit').modal('hide');
+        $('#modalHapus').modal('hide');
+
+        Swal.fire({
+            text: event.detail.text,
+            title: event.detail.title,
+            icon: event.detail.icon,
+            showConfirmButton: false,
+            timer: event.detail.timer,
+            buttons: false,
+        });
+    });
+</script>

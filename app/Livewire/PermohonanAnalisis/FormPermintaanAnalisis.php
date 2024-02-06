@@ -24,6 +24,7 @@ class FormPermintaanAnalisis extends Component
     public $kodeSampel=[];
     public $kodeLab=[];
     public $getharga=[];
+    public $harga = [];
     public $keterangan=[];
     public $itemPemeriksaan=[];
     public $cari='';
@@ -149,7 +150,6 @@ class FormPermintaanAnalisis extends Component
 
             for($i=0; $i < count($this->kodeSampel); $i++)
             {
-
                 if($idAnalisa)
                 {
                     for($i=0; $i < count($this->kodeSampel); $i++ )
@@ -162,7 +162,9 @@ class FormPermintaanAnalisis extends Component
                                 'jenisAnalisaSampel_id'     =>  $this->idpemeriksaan[$i],
                                 'permintaan_analisas_id'    =>  $idAnalisa->id,
                                 'keterangan'                =>  $this->keterangan[$i],
+                                'harga'                     =>  $this->harga[$i],
                         ]);
+
                         //-------------------------------------------------//
                         //-- Cek Jumlah item Analisa Yang ingin di input --//
                         //-------------------------------------------------//
@@ -208,11 +210,11 @@ class FormPermintaanAnalisis extends Component
                 ->first();
        if($query)
        {
-        $this->namaPemohon  =   $query->name;
-        $this->noTlpn       =   $query->no_tlpn;
-        $this->alamatPemohon       =   $query->alamat. ', DESA/KEL. '. $query->namaKelurahan.', KEC. '. $query->namaKecamatan.', KAB/KOTA. '. $query->namaKota.', Provinsi '.$query->namaProvinsi;
-        $this->form         =   false;
-        $this->userId       =   $query->id;
+        $this->namaPemohon      =   $query->name;
+        $this->noTlpn           =   $query->no_tlpn;
+        $this->alamatPemohon    =   $query->alamat. ', DESA/KEL. '. $query->namaKelurahan.', KEC. '. $query->namaKecamatan.', KAB/KOTA. '. $query->namaKota.', Provinsi '.$query->namaProvinsi;
+        $this->form             =   false;
+        $this->userId           =   $query->id;
         $this->dispatch('alert',text:'[ '.$query->name.' ]' ,icon:'success',title:'Berhasil',timer:2000);
 
        }else
@@ -235,9 +237,12 @@ class FormPermintaanAnalisis extends Component
        ->groupBy('jenis_pemeriksaan_sampels.analisa_sampel_id')
        ->where('jenis_pemeriksaan_sampels.analisa_sampel_id',$this->idpemeriksaan[$key])
        ->get();
+
        foreach ($query as $value) {
+        $this->harga[$key] = $value->harga;
         $this->getharga[$key] = formatRupiah($value->harga);
         $this->itemPemeriksaan[$key] = $value->jenis;
       }
+
     }
 }
