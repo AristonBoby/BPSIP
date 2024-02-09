@@ -96,7 +96,7 @@
                         </td>
                         <td class="text-center text-md" width="50">
                             @if($data->tblpermintaan->status == 1 )
-                                <span class="text-center badge bg-info">Sampel telah di terima</span>
+                                <span class="text-center badge bg-info">   Sampel telah di terima</span>
                             @elseif($data->tblpermintaan->status == 2)
                                 <span class="text-center badge bg-warning">Sampel belum di terima</span>
                             @elseif($data->tblpermintaan->status == 3)

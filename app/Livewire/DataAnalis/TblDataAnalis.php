@@ -24,6 +24,7 @@ class TblDataAnalis extends Component
     public $jenis_analisa = '';
     public $cari='';
     public $idHapus;
+    public $detailModal=[];
 
 
     public function pencarian()
@@ -59,13 +60,15 @@ class TblDataAnalis extends Component
                     })
                 ->orderBy('created_at','desc')
                 ->paginate(10);
-        return view('livewire.data-analis.tbl-data-analis',[ 'query' => $query, 'detailItem' => $this->detail, 'itemAnalisaSampel'=>$this->itemAnalisa,'itemjenisAnalisa'=>$jenisAnalisa]);
+        return view('livewire.data-analis.tbl-data-analis',[ 'detailModal' => $this->detailModal,'query' => $query, 'detailItem' => $this->detail, 'itemAnalisaSampel'=>$this->itemAnalisa,'itemjenisAnalisa'=>$jenisAnalisa]);
 
 
     }
 
     public function itemAnalisaModal($id)
     {
+        $query = itemAnalisa::where('id',$id)->get();
+        $this->detailModal = $query;
 
     }
 

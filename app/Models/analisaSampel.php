@@ -24,4 +24,9 @@ class analisaSampel extends Model
     {
         return $this->hasMany('App\Models\jenisPemeriksaanSampel','item_analisa_id','id');
     }
+
+    public function jenisPengujianSampel()
+    {
+        return $this->belongsTo('App\Models\jenis_pengujian_sampel','jenisPengujian_id','id');
+    }
 }

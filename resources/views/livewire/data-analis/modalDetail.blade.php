@@ -8,80 +8,156 @@
             </div>
 
         </div>
-        <div class="modal-body" >
-            <div class="invoice">
-            <div class="row">
-                @forelse ($detailItem as $query)
-                <div class="row invoice-info">
-                    <div class="col-sm-6 col-md-6 col-lg-4 invoice-col">
-                       <strong> Detail Pemohon </strong><br>
-                        Nama :
-                        <Strong>{{ $query->name }}</Strong>
-                        <br>
-                        No Hp : <strong>{{ $query->no_tlpn }}</strong>
-                        <br>
-
-                        <address class="text-uppercase">
-                            Alamat :<strong>
-                            {{ $query->alamat }} {{ $query->namaKelurahan }} {{ $query->namaKecamatan }}
-                            {{ $query->namaKota }} {{ $query->namaProvinsi }}</strong>
-                        </address>
+        <div class="modal-body row" wire:loading.hide>
+            @forelse ( $detailModal as $data )
+                <div class="col-lg-12 mb-2">
+                    <div class="col-md-12 mb-1">
+                        <b>Status :
+                            @if($data->tblpermintaan->status == 1 )
+                            <span class="text-center badge bg-info">   Sampel telah di terima</span>
+                        @elseif($data->tblpermintaan->status == 2)
+                            <span class="text-center badge bg-warning">Sampel belum di terima</span>
+                        @elseif($data->tblpermintaan->status == 3)
+                            <span class="text-center badge bg-primary">Sampel sedang dalam Proses Pemeriksaan</span>
+                        @elseif($data->tblpermintaan->status == 4)
+                            <span class="text-center badge bg-success">Sampel selesai diperiksa</span>
+                        @endif
+                        </b>
+                        <h5  class="float-right"> <b>TOTAL {{ formatRupiah($data->harga) }}</b></h5>
                     </div>
-                    <div class="col-sm-4 col-md-4 col-lg-4 invoice-col">
-                        <strong>Detail Sampel</strong>
-                        <address>
-                            Jumlah Contoh : <strong> {{ $query->jumContoh }} </strong><br>
-                            Jenis Contoh : <strong> {{ $query->jumContoh }} </strong><br>
-                            Berat Contoh : <strong> {{ $query->beratContoh }} </strong><br>
-                            Bentuk Contoh : <strong> {{ $query->bentukContoh }} </strong><br>
-                            Kondisi Contoh : <strong> {{ $query->kondisiContoh }} </strong><br>
-                            Jenis Kemasan : <strong> {{ $query->jenisKemasan }} </strong><br>
-                        </address>
-                    </div>
-                    <div class="col-sm-4 col-md-4 col-lg-4 invoice-col">
-                        <strong> Nomor SPK : {{ $query->no_spk }}</strong><br>
-                        <strong> Tanggal : {{ $query->tanggal}}  </strong>
-
-                        <address>
-
-                        </address>
+                    <div class="col-md-12">
+                        <h5><b>No.SPK : {{$data->tblpermintaan->no_spk}}</b></h5>
                     </div>
                 </div>
-                @empty
+                <div class="col-lg-12 row">
+                    <div class="col-lg-4 mt-3">
+                        <div class="form-group col-lg-12 row" style="margin-bottom:-4px;">
+                            <label class="control-label col-lg-2">Nama</label>
+                            <label class="control-label col-lg-1">:</label>
+                            <div class="col-lg-9">
+                                <label class="control=label">{{ $data->tblpermintaan->dataUser->name}}</label>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12 row" style="margin-bottom:-4px;">
+                            <label class="control-label col-lg-2">No. Tlpn</label>
+                            <label class="control-label col-lg-1">:</label>
+                            <div class="col-lg-9">
+                                <label class="control=label">{{ $data->tblpermintaan->dataUser->userPemohons->no_tlpn}}</label>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12 row" style="margin-bottom:-4px;">
+                            <label class="control-label col-lg-2">Email</label>
+                            <label class="control-label col-lg-1">:</label>
+                            <div class="col-lg-9">
+                                <label class="control=label">{{ $data->tblpermintaan->dataUser->email}}</label>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-12 row"  style="margin-bottom:-5px;">
+                            <label class="control-label col-lg-2">Alamat</label>
+                            <label class="control-label col-lg-1">:</label>
+                            <div class="col-lg-9">
+                                <label class="control=label">
+                                    {{ $data->tblpermintaan->dataUser->userPemohons->alamat}},
+                                    {{ $data->tblpermintaan->dataUser->userPemohons->kelurahan->namaKelurahan}},
+                                    {{ $data->tblpermintaan->dataUser->userPemohons->kelurahan->kecamatan->namaKecamatan}},
+                                    {{ $data->tblpermintaan->dataUser->userPemohons->kelurahan->kecamatan->kota->namaKota}},
+                                    {{ $data->tblpermintaan->dataUser->userPemohons->kelurahan->kecamatan->kota->provinsi->namaProvinsi}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group col-lg-12 row">
+                            <div class="col-lg-12 row">
+                                <label class="control-label col-lg-7">Jumlah Contoh</label>
+                                <label class="control-label col-lg-1">:</label>
+                                <div class="col-lg-4">
+                                    <label>{{ $data->tblpermintaan->jumContoh }}</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 row">
+                                <label class="control-label col-lg-7">Berat Contoh</label>
+                                <label class="control-label col-lg-1">:</label>
+                                <div class="col-lg-4">
+                                    <label>{{ $data->tblpermintaan->beratContoh }}</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 row">
+                                <label class="control-label col-lg-7">Kondisi Contoh</label>
+                                <label class="control-label col-lg-1">:</label>
+                                <div class="col-lg-4">
+                                    <label>{{ $data->tblpermintaan->kondisiContoh }}</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 row">
+                                <label class="control-label col-lg-7">Jenis Contoh</label>
+                                <label class="control-label col-lg-1">:</label>
+                                <div class="col-lg-4">
+                                    <label>{{ $data->tblpermintaan->jenisContoh }}</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 row">
+                                <label class="control-label col-lg-7">Bentuk Contoh</label>
+                                <label class="control-label col-lg-1">:</label>
+                                <div class="col-lg-4">
+                                    <label>{{ $data->tblpermintaan->jenisContoh }}</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 row">
+                                <label class="control-label col-lg-7">Jenis Kemasan</label>
+                                <label class="control-label col-lg-1">:</label>
+                                <div class="col-lg-4">
+                                    <label>{{ $data->tblpermintaan->jenisContoh }}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group col-lg-12 row">
+                            <div class="col-lg-12 row">
+                                <label class="control-label col-lg-7">Jenis Pengujian Sampel</label>
+                                <label class="control-label col-lg-1">:</label>
+                                <div class="col-lg-4">
+                                    <label>{{$data->analisaSampel->jenisPengujianSampel->jenis_pengujian}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                @endforelse
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
-                <table class="table table-striped table-sm p-0 table-hover">
-                    <thead>
-                        <tr class="text-center">
-                            <th>No.</th>
-                            <th>Kode Sampel</th>
-                            <th>Kode Lab</th>
-                            <th>Parameter Uji</th>
-                            <th>Item Pengujian</th>
-                            <th>Harga</th>
-                            <th>Keterangan</th>
-                            <th>*</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-center">
-                        @foreach ($itemAnalisaSampel as $no=>$data)
-                        <tr>
-                            <td>{{ $no+1}}</td>
-                            <td>{{ $data->kodeSampel}}</td>
-                            <td>{{ $data->kodeLab}}</td>
-                            <td>{{ $data->tblpemeriksaan->tblitemAnalisa->jenis_analisa}}</td>
-                            <td>{{ $data->tblpemeriksaan->itemPemeriksaan }}</td>
-                            <td>{{ formatRupiah($data->tblpemeriksaan->harga) }}</td>
-                            <td>{{ $data->ket }}</td>
-                            <td><a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a></td>
-                        </tr>
-                        @endforeach
-
-                    </tbody>
-                </table>
-            </div>
+                <div class="col-md-12 mt-4">
+                    <table class="table-hover table-bordered border-0 table mt-2">
+                        <thead>
+                            <tr class="text-center text-sm">
+                                <th width=250>KODE CONTOH (CUSTOMER)</th>
+                                <th>KODE LAB</th>
+                                <th>PAREMETER UJI</th>
+                                <th>ITEM PENGUJIAN</th>
+                                <th>KETERANGAN</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">{{ $data->kodeSampel}}</td>
+                                <td class="text-center">{{ $data->kodeLab}}</td>
+                                <td class="text-center">{{ $data->analisaSampel->jenis_analisa}}</td>
+                                <td>
+                                    <ul>
+                                        @foreach ( $data->transaksiAnalisa as $da )
+                                            <li>{{ $da->tblJenisPemeriksaan->itemPemeriksaan }}</li>
+                                        @endforeach
+                                    </ul>
+                                </td>
+                                <td>
+                                    {{ $data->keterangan }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            @empty
+                <td>ss</td>
+            @endforelse
         </div>
         <div class="modal-footer">
             <button type="button" wire:click='close' class="btn btn-danger btn-sm text-sm" data-dismiss="modal"><span class="text-xs fa fa-times"></span> Tutup</button>
