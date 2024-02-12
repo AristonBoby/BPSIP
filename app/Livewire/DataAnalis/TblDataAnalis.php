@@ -44,6 +44,7 @@ class TblDataAnalis extends Component
 
     public function render()
     {
+        $permintaan = permintaanAnalisa::paginate(10);
         $jenisAnalisa = analisaSampel::all();
 
         $query = itemAnalisa::where('jenisAnalisaSampel_id','like','%'.$this->jenis_analisa.'%')
@@ -60,7 +61,7 @@ class TblDataAnalis extends Component
                     })
                 ->orderBy('created_at','desc')
                 ->paginate(10);
-        return view('livewire.data-analis.tbl-data-analis',[ 'detailModal' => $this->detailModal,'query' => $query, 'detailItem' => $this->detail, 'itemAnalisaSampel'=>$this->itemAnalisa,'itemjenisAnalisa'=>$jenisAnalisa]);
+        return view('livewire.data-analis.tbl-data-analis',[ 'detailModal' => $this->detailModal,'query' => $permintaan, 'detailItem' => $this->detail, 'itemAnalisaSampel'=>$this->itemAnalisa,'itemjenisAnalisa'=>$jenisAnalisa]);
 
 
     }

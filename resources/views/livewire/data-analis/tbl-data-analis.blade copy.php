@@ -52,9 +52,9 @@
                         <th>No HP</th>
                         <th>Alamat</th>
                         <th>Jenis Pengujian Sampel</th>
+                        <th>Jenis Pemeriksaan Sampel</th>
                         <th>Harga</th>
                         <th>Tanggal</th>
-                        <th>Pendaftaran</th>
                         <th>Status</th>
                         <th>*</th>
                     </tr>
@@ -63,41 +63,45 @@
                     @forelse ($query as $no=>$data )
                     <tr>
                         <td class="text-center">{{ $query->firstItem()+$no }}</td>
-                        <td width="150">{{ $data->no_spk }}</td>
-                        <td class="">{{ $data->dataUser->name }}</td>
-                        <td class="text-center">{{ $data->dataUser->userPemohons->no_tlpn }}</td>
-                        <td width="400">{{ $data->dataUser->userPemohons->alamat }} ,
-                                        {{ $data->dataUser->userPemohons->kelurahan->namaKelurahan }},
-                                        {{ $data->dataUser->userPemohons->kelurahan->kecamatan->namaKecamatan }},
-                                        {{ $data->dataUser->userPemohons->kelurahan->kecamatan->kota->namaKota }},
-                                        {{ $data->dataUser->userPemohons->kelurahan->kecamatan->kota->provinsi->namaProvinsi }}
+                        <td width="150">{{ $data->tblpermintaan->no_spk }}</td>
+                        <td class="">{{ $data->tblpermintaan->dataUser->name }}</td>
+                        <td class="text-center">{{ $data->tblpermintaan->dataUser->userPemohons->no_tlpn }}</td>
+                        <td width="200">
+                            {{ $data->tblpermintaan->dataUser->userPemohons->alamat }}, Kel/Desa
+                            {{ $data->tblpermintaan->dataUser->userPemohons->kelurahan->namaKelurahan }}, Kecamatan
+                            {{ $data->tblpermintaan->dataUser->userPemohons->kelurahan->kecamatan->namaKecamatan }},
+                            {{ $data->tblpermintaan->dataUser->userPemohons->kelurahan->kecamatan->kota->namaKota }}, Provinsi
+                            {{ $data->tblpermintaan->dataUser->userPemohons->kelurahan->kecamatan->kota->provinsi->namaProvinsi }}
+
                         </td>
-                        <td class="text-center">
-                            <ul>
-                                @foreach ( $data->itemAnalisa as $item )
-                                    <li>{{ $item->analisaSampel->jenis_analisa }} {{ formatRupiah($item->harga) }}</li>
-                                @endforeach
-                            </ul>
+                        <td class="text-center">{{ $data->analisaSampel->jenis_analisa }}
+                        </td>
+                        <td class="text-left" width="400">
+                            @foreach ( $data->transaksiAnalisa as $da)
+                                <ul>
+                                    <li style="margin-bottom:-20px;">  {{ $da->tblJenisPemeriksaan->itemPemeriksaan }} : <b>{{ formatRupiah($da->tblJenisPemeriksaan->harga) }}</b></li>
+                                </ul>
+                            @endforeach
                         </td>
                         <td>
-                            <b>{{ formatRupiah($data->itemAnalisa->sum('harga')) }}</b>
+                            <b>{{ formatRupiah($data->harga) }}</b>
                        </td>
-                        <td class="text-center">{{Carbon\Carbon::parse($data->tanggal)->format('d-m-Y')}}</td>
+                        <td class="text-center">{{ $data->tblpermintaan->tanggal }}</td>
                         <td class="text-center text-md">
-                            @if($data->status_daftar == 1 )
+                            @if($data->tblpermintaan->status_daftar == 1 )
                                 <span class="text-center badge bg-success">Online</span>
-                             @elseif( $data->status_daftar == 2)
+                            @elseif( $data->tblpermintaan->status_daftar == 2)
                                 <span class="text-center badge bg-warning">Offline</span>
                             @endif
                         </td>
                         <td class="text-center text-md" width="50">
-                            @if($data->status == 1 )
+                            @if($data->tblpermintaan->status == 1 )
                                 <span class="text-center badge bg-info">   Sampel telah di terima</span>
-                            @elseif($data->status == 2)
+                            @elseif($data->tblpermintaan->status == 2)
                                 <span class="text-center badge bg-warning">Sampel belum di terima</span>
-                            @elseif($data->status == 3)
+                            @elseif($data->tblpermintaan->status == 3)
                                 <span class="text-center badge bg-primary">Sampel sedang dalam Proses Pemeriksaan</span>
-                            @elseif($data->status == 4)
+                            @elseif($data->tblpermintaan->status == 4)
                                 <span class="text-center badge bg-success">Sampel selesai diperiksa</span>
                             @endif
                         </td>
