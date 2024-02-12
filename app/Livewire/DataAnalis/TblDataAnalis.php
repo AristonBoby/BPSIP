@@ -44,31 +44,24 @@ class TblDataAnalis extends Component
 
     public function render()
     {
-        $permintaan = permintaanAnalisa::paginate(10);
+        $permintaan = permintaanAnalisa::where('tanggal','Like','%'.$this->tanggal.'%')
+                    ->orWhere('no_spk','Like','%'.$this->cari.'%')
+                    ->whereHas('dataUser',function($user){
+                        $user->where('name','LIKE','%'.$this->cari.'%');
+                    })
+                    ->whereHas('itemAnalisa',function($itemAnalis){
+                        $itemAnalis->where('jenisAnalisaSampel_id','LIKE','%'.$this->jenis_analisa.'%');
+                    })
+                    ->paginate(10);
+
         $jenisAnalisa = analisaSampel::all();
 
-        $query = itemAnalisa::where('jenisAnalisaSampel_id','like','%'.$this->jenis_analisa.'%')
-                    ->whereHas('tblpermintaan', function($dat){
-                            $dat->whereHas('dataUser',function($das){
-                                $das->where('name','LIKE','%'.$this->cari.'%');
-                            });
-                            $dat->orWhere('no_spk',$this->cari);
-                        })
-                    ->whereHas('tblpermintaan', function($dat){
-                        $dat->whereHas('dataUser',function($das){
-                            $das->where('tanggal','Like','%'.$this->tanggal.'%');
-                        });
-                    })
-                ->orderBy('created_at','desc')
-                ->paginate(10);
         return view('livewire.data-analis.tbl-data-analis',[ 'detailModal' => $this->detailModal,'query' => $permintaan, 'detailItem' => $this->detail, 'itemAnalisaSampel'=>$this->itemAnalisa,'itemjenisAnalisa'=>$jenisAnalisa]);
-
-
     }
 
     public function itemAnalisaModal($id)
     {
-        $query = itemAnalisa::where('id',$id)->get();
+        $query = permintaanAnalisa::where('id',$id)->get();
         $this->detailModal = $query;
 
     }

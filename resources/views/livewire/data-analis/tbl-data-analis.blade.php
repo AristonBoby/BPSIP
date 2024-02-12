@@ -52,7 +52,7 @@
                         <th>No HP</th>
                         <th>Alamat</th>
                         <th>Jenis Pengujian Sampel</th>
-                        <th>Harga</th>
+                        <th>Total</th>
                         <th>Tanggal</th>
                         <th>Pendaftaran</th>
                         <th>Status</th>
@@ -102,8 +102,7 @@
                             @endif
                         </td>
                         <td>
-                            <a data-toggle="modal" wire:click="itemAnalisaModal('{{$data->id}}')" class="btn btn-sm btn-info" data-target="#modalDetail" ><i class="fa fa-eye"></i></a>
-                            <a data-toggle="modal" data-target="#modalDelete" class="btn btn-danger btn-sm" wire:click="deleteId('{{ $data->id }}')"><i class="fa fa-trash"></i></a>
+                            <a data-toggle="modal" wire:click="itemAnalisaModal('{{$data->id}}')" class="btn btn-sm btn-primary" data-target="#modalDetail" ><i class="fa fa-eye"></i></a>
                         </td>
                     </tr>
                     @empty
