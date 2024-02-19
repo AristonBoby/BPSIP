@@ -166,6 +166,8 @@
             @endforelse
         </div>
         <div class="modal-footer">
+            <button type="button" class="btn btn-info btn-sm text-sm"><i class="fa fa-info"></i> Status Pemeriksaan</button>
+            <button type="button" class="btn btn-warning btn-sm text-sm"><i class="fa fa-edit"></i> Edit</button>
             <button type="button" class="btn btn-danger btn-sm text-sm"><i class="fa fa-trash"></i> Hapus Permintaan</button>
             <a type="button" href="dd" target="_blank"class="btn btn-sm btn-primary"><span class="text-xs fa fa-print"></span> Print Permohonan</a>
             <button type="button" wire:click='close' class="btn btn-default btn-sm text-sm" data-dismiss="modal"><span class="text-xs fa fa-times"></span> Tutup</button>
