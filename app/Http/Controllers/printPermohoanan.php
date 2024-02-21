@@ -9,6 +9,6 @@ class printPermohoanan extends Controller
 {
     public function index()
     {
-
+        return view('print-Permohonan');
     }
 }
