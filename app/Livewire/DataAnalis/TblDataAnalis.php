@@ -20,8 +20,8 @@ class TblDataAnalis extends Component
     protected $lilisteners = ['datevalue'];
     public $detail = [];
     public $itemAnalisa = [];
-    public $tanggal='';
-    public $jenis_analisa = '';
+    public $tgl='';
+    public $jenisanalisaSampel = '';
     public $cari='';
     public $idHapus;
     public $detailModal=[];
@@ -29,33 +29,33 @@ class TblDataAnalis extends Component
 
     public function pencarian()
     {
+     //   dd($this->cari);
         $this->resetPage();
         $this->render();
+
     }
 
     public function resetPencarian()
     {
         $this->resetPage();
-        $this->jenis_analisa = '';
-        $this->tanggal = '';
+        $this->jenisanalisaSampel = '';
+        $this->tgl = '';
         $this->cari = '';
         $this->render();
     }
 
     public function render()
     {
-        $permintaan = permintaanAnalisa::where('tanggal','Like','%'.$this->tanggal.'%')
-                    ->orWhere('no_spk','Like','%'.$this->cari.'%')
-                    ->whereHas('dataUser',function($user){
-                        $user->where('name','LIKE','%'.$this->cari.'%');
-                    })
-                    ->whereHas('itemAnalisa',function($itemAnalis){
-                        $itemAnalis->where('jenisAnalisaSampel_id','LIKE','%'.$this->jenis_analisa.'%');
-                    })
-                    ->paginate(10);
+        $permintaan = permintaanAnalisa::
+        where('tanggal','LIKE','%'.$this->tgl.'%')
+        ->whereHas('dataUser',function ($user){
+            $user->where('name','LIKE',"%".$this->cari."%");
+        })
 
+        ->paginate(10);
+
+   // dd($permintaan);
         $jenisAnalisa = analisaSampel::all();
-
         return view('livewire.data-analis.tbl-data-analis',[ 'detailModal' => $this->detailModal,'query' => $permintaan, 'detailItem' => $this->detail, 'itemAnalisaSampel'=>$this->itemAnalisa,'itemjenisAnalisa'=>$jenisAnalisa]);
     }
 

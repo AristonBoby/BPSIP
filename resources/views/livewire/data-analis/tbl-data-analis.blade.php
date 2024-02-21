@@ -6,33 +6,21 @@
                     <div class="form-group row">
                         <label class="text-uppercase col-md-4 col-lg-4 col-sm-4 text-sm ">Tanggal</label>
                         <div class="input-group col-md-8">
-                            <input type="date" wire:model='tanggal' class=" form-control " placeholder="dd-mm-yyyy" >
+                            <input type="date" wire:model='tgl' class=" form-control " placeholder="dd-mm-yyyy" >
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 ">
-                    <div class="form-group row">
-                        <label class=" col-md-4 col-form-label text-sm">Jenis Pengujian</label>
-                        <div class="col-md-8">
-                            <select type="text" wire:model='jenis_analisa' class="form-control float-right form-control-sm">
-                                <option value="" selected>--Pilih Salah Satu --</option>
-                                @foreach ($itemjenisAnalisa as $value)
-                                    <option value="{{ $value->id }}">{{ $value->jenis_analisa }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="col-md-3">
                     <div class="form-group row">
-                        <label class=" col-md-4 col-form-label text-sm">Pencarian</label>
+                        <label class=" col-md-3 col-form-label text-sm">Pencarian</label>
                         <div class="col-md-8">
                             <input type="text" wire:model='cari' class="form-control float-right form-control-sm" placeholder="Pencarian">
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="form-group col-md-12 row">
+                <div class="col-md-6">
+                    <div class="form-group col-md-12 row float-right">
                         <button type="submit"class="btn btn-sm  btn-primary"><i class="fa fa-search"></i> Cari</button>
                         <a type="button" style="margin-left:10px;" wire:click='resetPencarian()' class="btn btn-sm  btn-danger"><i class="fa fa-times"></i> Reset</a>
                     </div>
