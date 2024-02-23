@@ -45,13 +45,10 @@
         width: 100%;
         border-collapse: collapse;
     }
-table, td, tr {
-  border: 1px solid;
-}
 
 </style>
 <body>
-    <table >
+    <table border=1>
         <thead>
             <tr>
                 <td  style=" border-collapse:collapse;" width=25%><img style="  display: block;
@@ -63,9 +60,20 @@ table, td, tr {
         </thead>
     </table>
 
+    <table border=0>
+        <tbody>
+            <tr>
+                <td colspan=2 height="40" style="text-align: center;">
+                    <b style="padding:10px;"> NOMOR : </b>
+                </td>
+            </tr>
+            <tr>
+                <td>
+</td>
+            </tr>
+        </tbody>
+    </table>
 
-
-                Masukan properti datanya disini
 </body>
 </html>
 <script type="text/javascript">window.print();</script>
