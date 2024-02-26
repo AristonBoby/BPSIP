@@ -5,7 +5,7 @@
 <title>Halaman Print A4</title>
 </head>
 <style type="text/css">
-/* Kode CSS Untuk PAGE ini dibuat oleh http://jsfiddle.net/2wk6Q/1/ */
+
     body {
         width: 100%;
         height: 100%;
@@ -68,9 +68,25 @@
                 </td>
             </tr>
             <tr>
-                <td>
-</td>
+                <td style="margin-top:30px">Kepada Yth.<br>
+                    Kepala Balai BPSIP Kaltim
+                </td>
             </tr>
+            <tr>
+                <td style="margin-top=40px;" colspan="3">Dengan hormat,<br>
+                    Untuk memperoleh Laporan Hasil Pengujian (Test Report) maka bersama ini kami mengajukan permohonan pengujian sampel / contoh, sebagai berikut :
+                </td>
+            </tr>
+            <tr>
+                <td>Nomor SPK</td>
+                <td>:</td>
+                <td>:</td>
+            </tr>
+            <tr>
+                <td>Contoh</td>
+                <td>:</td>
+                <td>:</td>
+            </tr>a
         </tbody>
     </table>
 
