@@ -78,15 +78,96 @@
                 </td>
             </tr>
             <tr>
-                <td>Nomor SPK</td>
-                <td>:</td>
-                <td>:</td>
+                <td width=30%>Nomor SPK</td>
+                <td width=1%>:</td>
+                <td >:</td>
             </tr>
             <tr>
                 <td>Contoh</td>
                 <td>:</td>
                 <td>:</td>
-            </tr>a
+            </tr>
+            <tr>
+                <td>Nama Pemohon</td>
+                <td>:</td>
+                <td>:</td>
+            </tr>
+            <tr>
+                <td>Alamat Pemohon</td>
+                <td>:</td>
+                <td>:</td>
+            </tr>
+            <tr>
+                <td>Identitas Contoh</td>
+                <td>:</td>
+                <td>
+                    <table width="100%" style="margin-top:40px;">
+                        <thead>
+                            <tr>
+                                <td width="25%">Jumlah Contoh</td>
+                                <td width="1%">:</td>
+                                <td>:</td>
+                            </tr>
+                            <tr>
+                                <td>Jenis Contoh</td>
+                                <td>:</td>
+                                <td>:</td>
+                            </tr>
+                            <tr>
+                                <td>Berat Contoh</td>
+                                <td>:</td>
+                                <td>:</td>
+                            </tr>
+                            <tr>
+                                <td>Kondisi Contoh</td>
+                                <td>:</td>
+                                <td>:</td>
+                            </tr>
+                            <tr>
+                                <td>Bentuk Contoh</td>
+                                <td>:</td>
+                                <td>:</td>
+                            </tr>
+                            <tr>
+                                <td>Konsidi Kemasan</td>
+                                <td>:</td>
+                                <td>:</td>
+                            </tr>
+                            <tr>
+                                <td>Jenis Kemasan</td>
+                                <td>:</td>
+                                <td>:</td>
+                            </tr>
+                        </thead>
+
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>Tanggal Pengujian</td>
+                <td>:</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <table border=1 width="100%" style="border:1px solid black; margin-top:30px;">
+        <thead style="border:1px solid black; margin-top:30px;">
+            <tr>
+                <th>No.</th>
+                <th>Kode Contoh/Sampel<br>(Customer)</th>
+                <th>Kode Lab</th>
+                <th>Parameter Uji</th>
+                <th>Keterangan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>01</td>
+                <td>01</td>
+                <td>01</td>
+                <td>01</td>
+                <td>01</td>
+            </tr>
         </tbody>
     </table>
 
