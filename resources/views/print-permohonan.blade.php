@@ -63,90 +63,97 @@
     <table border=0>
         <tbody>
             <tr>
-                <td colspan=2 height="40" style="text-align: center;">
-                    <b style="padding:10px;"> NOMOR : </b>
+                <td colspan=6 height="40" style="text-align: center;">
+                    <b style="padding:10px;"> NOMOR : {{ $data->no_spk }}</b>
                 </td>
             </tr>
             <tr>
-                <td style="margin-top:30px">Kepada Yth.<br>
+                <td colspan=6 style="margin-top:30px">Kepada Yth.<br>
                     Kepala Balai BPSIP Kaltim
                 </td>
             </tr>
             <tr>
-                <td style="margin-top=40px;" colspan="3">Dengan hormat,<br>
+                <td colspan=6 style="margin-top=40px;" colspan="3">Dengan hormat,<br>
                     Untuk memperoleh Laporan Hasil Pengujian (Test Report) maka bersama ini kami mengajukan permohonan pengujian sampel / contoh, sebagai berikut :
                 </td>
             </tr>
             <tr>
                 <td width=30%>Nomor SPK</td>
-                <td width=1%>:</td>
-                <td >:</td>
+                <td width=1>:</td>
+                <td colspan=6>{{ $data->no_spk }}</td>
             </tr>
             <tr>
                 <td>Contoh</td>
                 <td>:</td>
-                <td>:</td>
+                <td colspan=6></td>
             </tr>
             <tr>
                 <td>Nama Pemohon</td>
                 <td>:</td>
-                <td>:</td>
+                <td colspan=6>{{ $data->dataUser->name }}</td>
             </tr>
             <tr>
                 <td>Alamat Pemohon</td>
                 <td>:</td>
-                <td>:</td>
+                <td colspan=6>{{  $data->dataUser->userPemohons->alamat}},
+                        Kel/Desa {{ $data->dataUser->userPemohons->kelurahan->namaKelurahan }},
+                        Kec. {{ $data->dataUser->userPemohons->kelurahan->kecamatan->namaKecamatan }}
+                        Kab/Kota. {{ $data->dataUser->userPemohons->kelurahan->kecamatan->kota->namaKota }}
+                        Provinsi. {{ $data->dataUser->userPemohons->kelurahan->kecamatan->kota->provinsi->namaProvinsi }}
+
+                </td>
             </tr>
             <tr>
-                <td>Identitas Contoh</td>
-                <td>:</td>
-                <td>
-                    <table width="100%" style="margin-top:40px;">
-                        <thead>
-                            <tr>
-                                <td width="25%">Jumlah Contoh</td>
-                                <td width="1%">:</td>
-                                <td>:</td>
-                            </tr>
-                            <tr>
-                                <td>Jenis Contoh</td>
-                                <td>:</td>
-                                <td>:</td>
-                            </tr>
-                            <tr>
-                                <td>Berat Contoh</td>
-                                <td>:</td>
-                                <td>:</td>
-                            </tr>
-                            <tr>
-                                <td>Kondisi Contoh</td>
-                                <td>:</td>
-                                <td>:</td>
-                            </tr>
-                            <tr>
-                                <td>Bentuk Contoh</td>
-                                <td>:</td>
-                                <td>:</td>
-                            </tr>
-                            <tr>
-                                <td>Konsidi Kemasan</td>
-                                <td>:</td>
-                                <td>:</td>
-                            </tr>
-                            <tr>
-                                <td>Jenis Kemasan</td>
-                                <td>:</td>
-                                <td>:</td>
-                            </tr>
-                        </thead>
+                <td style="padding-top:-200px;">Identitas Contoh</td>
+                <td >:</td>
+                <td width="110">Jumlah Contoh</td>
+                <td width=5% style="text-align:center">:</td>
+                <td>{{ $data->jumContoh }}</td>
+            </tr>
 
-                    </table>
-                </td>
+            <tr>
+                <td style="padding-top:-200px;"></td>
+                <td></td>
+                <td width="110">Jenis Contoh</td>
+                <td>:</td>
+                <td>{{ $data->jenisContoh }}</td>
+            </tr>
+
+            <tr>
+                <td style="padding-top:-200px;"></td>
+                <td></td>
+                <td width="110">Berat Contoh</td>
+                <td>:</td>
+                <td>{{ $data->beratContoh }}</td>
+            </tr>
+
+            <tr>
+                <td style="padding-top:-200px;"></td>
+                <td></td>
+                <td width="110">Kondisi Contoh</td>
+                <td>:</td>
+                <td>{{ $data->kondisiContoh }}</td>
+            </tr>
+
+            <tr>
+                <td style="padding-top:-200px;"></td>
+                <td></td>
+                <td width="110">Bentuk Contoh</td>
+                <td>:</td>
+                <td>{{ $data->bentukContoh }}</td>
+            </tr>
+
+            <tr>
+                <td style="padding-top:-200px;"></td>
+                <td></td>
+                <td width="110">Jenis Kemasan</td>
+                <td>:</td>
+                <td>{{ $data->jenisKemasan }}</td>
             </tr>
             <tr>
                 <td>Tanggal Pengujian</td>
                 <td>:</td>
-                <td></td>
+                <td colspan="3">{{Carbon\Carbon::parse($data->tanggal)->isoFormat('D MMMM Y')}}</td>
             </tr>
         </tbody>
     </table>
@@ -169,6 +176,25 @@
                 <td>01</td>
             </tr>
         </tbody>
+    </table>
+
+    <table width=100% style="margin-top:30px;">
+        <tr>
+            <td colspan=2>Demikian surat permohonan ini kami buat, atas perhatian dan kerjasamanya diucapkan terima kasih.</td>
+        </tr>
+        <tr>
+            <td width=50% style="text-align: center"> Penanggung Jawab Administrasi</td>
+            <td colspan=2 height=100px style="margin-top:100px; text-align:center;">Samarinda, {{Carbon\Carbon::parse($data->tanggal)->isoFormat('D MMMM Y')}}<br>
+            Pemohon
+            </td>
+        </tr>
+        <tr>
+            <td height=50></td>
+        </tr>
+        <tr style="margin-top:100px; text-align:center;" >
+            <td width=50%>(Nur Rizqi Bariroh, S.Pt., M.Sc., Ph.D)<br>NIP.197104041998032001</td>
+            <td>( {{ $data->dataUser->name  }} )</td>
+        </tr>
     </table>
 
 </body>
