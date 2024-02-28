@@ -137,6 +137,7 @@ class FormPermintaanAnalisis extends Component
             'no_spk'        =>  $this->nomorSpk,
             'beratContoh'   =>  $this->beratContoh,
             'bentukContoh'  =>  $this->bentukContoh,
+            'jenisContoh'   =>  $this->jenisContoh,
             'kondisiContoh' =>  $this->kondisiContoh,
             'jenisKemasan'  =>  $this->jenisKemasan,
             'tanggal'       =>  Carbon::parse($this->tanggal)->format('Y/m/d'),
