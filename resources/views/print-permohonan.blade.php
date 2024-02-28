@@ -83,11 +83,6 @@
                 <td colspan=6>{{ $data->no_spk }}</td>
             </tr>
             <tr>
-                <td>Contoh</td>
-                <td>:</td>
-                <td colspan=6></td>
-            </tr>
-            <tr>
                 <td>Nama Pemohon</td>
                 <td>:</td>
                 <td colspan=6>{{ $data->dataUser->name }}</td>
@@ -161,20 +156,34 @@
         <thead style="border:1px solid black; margin-top:30px;">
             <tr>
                 <th>No.</th>
-                <th>Kode Contoh/Sampel<br>(Customer)</th>
-                <th>Kode Lab</th>
-                <th>Parameter Uji</th>
+                <th width=15>Kode Contoh/Sampel<br>(Customer)</th>
+                <th width=15>Kode Lab</th>
+                <th width=15>Jenis Pengujian</th>
+                <th width=20>Parameter Uji</th>
+                <th>Item Pemriksaan</th>
                 <th>Keterangan</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>01</td>
-                <td>01</td>
-                <td>01</td>
-                <td>01</td>
-                <td>01</td>
-            </tr>
+            @foreach ( $data->itemAnalisa as $no=>$value)
+                <tr>
+                    <td>{{ $no+1 }}.</td>
+                    <td style="text-align:center">{{ $value->kodeSampel }}</td>
+                    <td style="text-align:center">{{ $value->kodeLab }}</td>
+                    <td style="text-align:center">{{ $value->analisaSampel->jenisPengujianSampel->jenis_pengujian}}</td>
+                    <td style="text-align:center">{{ $value->analisaSampel->jenis_analisa}}</td>
+                    <td>
+                        <ul>
+                            @foreach($value->transaksiAnalisa as $item)
+
+                            <li>{{$item->tblJenisPemeriksaan->itemPemeriksaan}}</li>
+
+                            @endforeach
+                        </ul>
+                    </td>
+                    <td>{{ $value->keterangan }}</td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
 

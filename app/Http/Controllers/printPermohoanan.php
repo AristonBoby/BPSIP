@@ -10,7 +10,8 @@ class printPermohoanan extends Controller
 {
     public function index($id)
     {
-        $data = permintaanAnalisa::find($id)->first();
+
+        $data = permintaanAnalisa::where('id',$id)->first();
         return view('print-Permohonan',compact('data'));
     }
 }
