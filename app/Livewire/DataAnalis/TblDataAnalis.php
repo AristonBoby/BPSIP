@@ -73,13 +73,14 @@ class TblDataAnalis extends Component
     }
 
     public function deleteId($id)
-    {
+    {   
         $this->idHapus = $id;
     }
 
     public function hapus()
     {
         $this->delete($this->idHapus);
+        dd($this->idHapus);
     }
 
     public function delete($id)
