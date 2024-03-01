@@ -20,6 +20,7 @@ class permintaanAnalisa extends Model
         'beratContoh',
         'bentukContoh',
         'kondisiContoh',
+        'jenisContoh',
         'jenisKemasan',
         'tanggal',
         'user_id',
