@@ -168,7 +168,11 @@
         <div class="modal-footer">
             <button type="button" class="btn btn-info btn-sm text-sm" wire:click='status({{ $data->id }})'><i class="fa fa-info"></i> Status Pemeriksaan</button>
             <button type="button" class="btn btn-warning btn-sm text-sm"><i class="fa fa-edit"></i> Edit</button>
+<<<<<<< HEAD
             <button type="button" data-toggel="modal" class="btn btn-danger btn-sm text-sm" data-target="#modalDelete" wire:click='hapus({{ $data->id }})'><i class="fa fa-trash"></i> Hapus Permintaan</button>
+=======
+            <a data-toggle="modal" data-target="#modalDelete" wire:click="deleteId('{{$data->id}}')" class="btn btn-danger btn-sm text-sm"><i class="fa fa-trash"></i> Hapus Permintaan</a>
+>>>>>>> fc005ebf1475efd4ebf4fbd47f6b8c07c9941061
             <a type="button" href="print/permohonan/{{ $data->id }}" target="_blank"class="btn btn-sm btn-primary"><span class="text-xs fa fa-print"></span> Print Permohonan</a>
             <button type="button" wire:click='close' class="btn btn-default btn-sm text-sm" data-dismiss="modal"><span class="text-xs fa fa-times"></span> Tutup</button>
         </div>
