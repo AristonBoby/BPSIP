@@ -73,34 +73,20 @@ class TblDataAnalis extends Component
     }
 
     public function deleteId($id)
-    {   
+    {
         $this->idHapus = $id;
     }
 
     public function hapus()
     {
         $this->delete($this->idHapus);
-        dd($this->idHapus);
     }
 
     public function delete($id)
     {
-        $delete = transaksiAnalisa::where('item_analisa_id',$id)->delete();
 
-        if($delete)
-        {   $permintaan = itemAnalisa::find($id)->first();
-            $delItemAnalisa = itemAnalisa::where('id',$id)->forceDelete();
-
-            if($delItemAnalisa )
-            {
-                $sum = itemAnalisa::where('permintaan_analisas_id',$permintaan->permintaan_analisas_id)->get();
-                if($sum->count() === 0)
-                {
-                    $delete = permintaanAnalisa::find($permintaan->permintaan_analisas_id)->forceDelete();
-                    $this->dispatch('alert',text:'Data Berhasil Dihapus !!!',icon:'success',title:'Berhasil',timer:2000);
-                }
-            }
-        }
+        $delete = transaksiAnalisa::where('item_analisa_id',$id)->get();
+        dd($delete);
         $this->render();
     }
 }
