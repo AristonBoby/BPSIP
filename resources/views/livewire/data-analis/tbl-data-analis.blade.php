@@ -114,6 +114,7 @@
     @include('livewire.data-analis.modalDetail')
 </div>
     @include('livewire.data-analis.modalDelete')
+    @include('livewire.data-analis.modalStatus')
 </div>
 </div>
 

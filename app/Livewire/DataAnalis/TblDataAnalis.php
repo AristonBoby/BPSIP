@@ -104,6 +104,10 @@ class TblDataAnalis extends Component
             $this->render();
             $this->dispatch('alert',text:'Data Berhasil Dihapus !!!',icon:'success',title:'Berhasil',timer:2000);
         }
+    }
+
+    public function updatePemerikasaan()
+    {
 
     }
 }

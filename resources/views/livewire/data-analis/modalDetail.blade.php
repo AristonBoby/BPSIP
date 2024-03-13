@@ -166,7 +166,7 @@
             @endforelse
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-info btn-sm text-sm" wire:click='status({{ $data->id }})'><i class="fa fa-info"></i> Status Pemeriksaan</button>
+            <a  data-target="#modalStatus" data-toggle="modal" class="btn btn-info btn-sm text-sm"><i class="fa fa-info"></i> Status Pemeriksaan</a>
             <button type="button" class="btn btn-warning btn-sm text-sm"><i class="fa fa-edit"></i> Edit</button>
             <a data-toggle="modal" data-target="#modalDelete" wire:click="deleteId('{{$data->id}}')" class="btn btn-danger btn-sm text-sm"><i class="fa fa-trash"></i> Hapus Permintaan</a>
             <a type="button" href="print/permohonan/{{ $data->id }}" target="_blank"class="btn btn-sm btn-primary"><span class="text-xs fa fa-print"></span> Print Permohonan</a>
