@@ -192,8 +192,25 @@ class FormPermintaanAnalisis extends Component
 
     }
 
-    public function batal()
+    public function resetForm()
     {
+        $this->jumContoh        = '';
+        $this->nomorSpk         = '';
+        $this->beratContoh      = '';
+        $this->bentukContoh     = '';
+        $this->jenisContoh      = '';
+        $this->kondisiContoh    = '';
+        $this->jenisKemasan     = '';
+        $this->namaPemohon      = '';
+        $this->jenisPengujian   = '';
+        $this->alamatPemohon    = '';
+        $this->noTlpn           = '';
+        $this->form             = true;
+        $this->harga[]          = '';
+        $this->kodeLab[]        = '';
+        $this->getharga[]       = '';
+        $this->itemPemeriksaan[]= '';
+
         $this->cari = '';
     }
 

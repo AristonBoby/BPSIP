@@ -138,6 +138,8 @@
     window.addEventListener('alert', event => {
         $('#modalEdit').modal('hide');
         $('#modalHapus').modal('hide');
+        $('#modalDetail').modal('hide');
+
 
         Swal.fire({
             text: event.detail.text,

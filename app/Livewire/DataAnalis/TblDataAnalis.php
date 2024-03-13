@@ -36,6 +36,11 @@ class TblDataAnalis extends Component
 
     }
 
+    public function resetForm()
+    {
+
+    }
+
     public function resetPencarian()
     {
         $this->resetPage();
@@ -52,10 +57,7 @@ class TblDataAnalis extends Component
         ->whereHas('dataUser',function ($user){
             $user->where('name','LIKE',"%".$this->cari."%");
         })
-
         ->paginate(10);
-
-   // dd($permintaan);
         $jenisAnalisa = analisaSampel::all();
         return view('livewire.data-analis.tbl-data-analis',[ 'detailModal' => $this->detailModal,'query' => $permintaan, 'detailItem' => $this->detail, 'itemAnalisaSampel'=>$this->itemAnalisa,'itemjenisAnalisa'=>$jenisAnalisa]);
     }
@@ -90,7 +92,18 @@ class TblDataAnalis extends Component
         if($delete)
         {
             $data = permintaanAnalisa::find($id)->delete();
+        }else{
+            $data = permintaanAnalisa::find($id)->delete();
         }
-        $this->render();
+
+        if ($delete && $data)
+        {
+            $this->render();
+            $this->dispatch('alert',text:'Data Berhasil Dihapus !!!',icon:'success',title:'Berhasil',timer:2000);
+        }elseif($data){
+            $this->render();
+            $this->dispatch('alert',text:'Data Berhasil Dihapus !!!',icon:'success',title:'Berhasil',timer:2000);
+        }
+
     }
 }

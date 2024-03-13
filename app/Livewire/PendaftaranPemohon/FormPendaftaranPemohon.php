@@ -26,6 +26,7 @@ class FormPendaftaranPemohon extends Component
     public $kec;
     public $alamat;
 
+
     protected $rules = [
         'nama'                      =>  'required',
         'varEmail'                  =>  'required|unique:users,email|email',
@@ -37,6 +38,7 @@ class FormPendaftaranPemohon extends Component
         'kec'                       =>  'required',
         'kel'                       =>  'required',
     ];
+
     public function render()
     {
         $data= itemAnalisa::all();
@@ -47,6 +49,7 @@ class FormPendaftaranPemohon extends Component
 
         return view('livewire.pendaftaran-pemohon.form-pendaftaran-pemohon',['provinsi'=>$prov,'kota'=>$kota,'kecamatan'=>$kec,'kelurahan'=>$kel]);
     }
+
     public function messages()
     {
         return [
@@ -61,6 +64,8 @@ class FormPendaftaranPemohon extends Component
             'noHp.unique'           => 'No Telepon / Whatsaap Anda Telah Terdaftar',
         ];
     }
+
+
     public function store()
     {
         $this->validate();

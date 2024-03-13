@@ -168,7 +168,7 @@
                 </div>
                 <div class="card-footer">
                     <div class="col-md-12 col-lg-12 col-sm-12">
-                        <button type="button" class=" btn-md btn btn-danger  float-right" style="margin-right:15px;" @disabled($form)><i class="fa fa-times" aria-hidden="true"></i> Batal</button>
+                        <button type="button" class=" btn-md btn btn-danger float-right" wire:click='resetForm()' style="margin-right:15px;" @disabled($form)><i class="fa fa-times" aria-hidden="true"></i> Batal</button>
                         <button class=" btn-md btn btn-primary  float-right" style="margin-right:15px;" @disabled($form)><i class="fa fa-save" aria-hidden="true" ></i> Simpan</button>
                     </div>
                 </div>
