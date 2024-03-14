@@ -2,12 +2,14 @@
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header bg-dark">
-            <h6 class="modal-title" id="staticBackdropLabel"><b><i class="fa fa-address-card" aria-hidden="true"></i> Detail </b></h6>
-            <div wire:loading>
-                <span class="badge bg-success text-xs" style="margin-left:5px;"> <i class="text-xs fas fa-3x fa-sync-alt fa-spin"></i> Loading...</span>
+                <h6 class="modal-title" id="staticBackdropLabel"><b><i class="fa fa-address-card" aria-hidden="true"></i> Detail </b></h6>
+                    <div wire:loading>
+                        <span class="badge bg-success text-xs" style="margin-left:5px;"> <i class="text-xs fas fa-3x fa-sync-alt fa-spin"></i> Loading...</span>
+                    </div>
+                    <button type="button btn-default text-white" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
             </div>
-
-        </div>
         <div class="modal-body row" wire:loading.hide>
             @forelse ( $detailModal as $data )
                 <div class="col-lg-12 mb-2">
@@ -21,6 +23,8 @@
                             <span class="text-center badge bg-primary">Sampel sedang dalam Proses Pemeriksaan</span>
                         @elseif($data->status == 4)
                             <span class="text-center badge bg-success">Sampel selesai diperiksa</span>
+                        @elseif($data->status == 5)
+                            <span class="text-center badge bg-danger">Sampel ditolak</span>
                         @endif
                         </b>
                         <h5  class="float-right"> <b>TOTAL {{ formatRupiah($data->itemAnalisa->sum('harga')) }}</b></h5>

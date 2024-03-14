@@ -26,6 +26,8 @@ class TblDataAnalis extends Component
     public $cari='';
     public $idHapus;
     public $detailModal=[];
+    public $idstatus;
+    public $updateStatus;
 
 
     public function pencarian()
@@ -33,11 +35,6 @@ class TblDataAnalis extends Component
      //   dd($this->cari);
         $this->resetPage();
         $this->render();
-
-    }
-
-    public function resetForm()
-    {
 
     }
 
@@ -65,6 +62,7 @@ class TblDataAnalis extends Component
     public function itemAnalisaModal($id)
     {
         $query = permintaanAnalisa::where('id',$id)->get();
+        $this->idstatus = $id;
         $this->detailModal = $query;
 
     }
@@ -108,6 +106,15 @@ class TblDataAnalis extends Component
 
     public function updatePemerikasaan()
     {
+        $data = permintaanAnalisa::find($this->idstatus)->first();
+        $data->update([
+            'status' => $this->updateStatus,
+        ]);
+
+        if($data)
+        {
+            $this->dispatch('alert',text:'Data Berhasil di Update !!!',icon:'success',title:'Berhasil',timer:2000);
+        }
 
     }
 }

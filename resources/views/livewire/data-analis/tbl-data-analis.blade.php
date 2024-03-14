@@ -87,6 +87,8 @@
                                 <span class="text-center badge bg-primary">Sampel sedang dalam Proses Pemeriksaan</span>
                             @elseif($data->status == 4)
                                 <span class="text-center badge bg-success">Sampel selesai diperiksa</span>
+                            @elseif($data->status == 5)
+                            <span class="text-center badge bg-danger">Sampel ditolak</span>
                             @endif
                         </td>
                         <td>
