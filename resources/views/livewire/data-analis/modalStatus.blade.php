@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="float-right">
-                    <button wire:click='updatePemerikasaan' class="btn btn-primary btn-sm float-left mr-1">Update</button>
+                    <button data-dismiss="modal" wire:click='updatePemerikasaan' class="btn btn-primary btn-sm float-left mr-1">Update</button>
                     <a data-dismiss="modal" class="btn btn-default btn-sm float-left"><i class="fa fa-times"></i> Batal</a>
                 </div>
             </form>
