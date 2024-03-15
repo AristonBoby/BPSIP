@@ -13,6 +13,12 @@
             </a>
         </li>
         <li class="nav-item">
+            <a href="{{ route('masterUsers') }}" class="nav-link">
+              <i class="nav-icon fa fa-database" aria-hidden="true"></i>
+              <p>Master Data User</p>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link">
                 <i class="nav-icon fas fa-edit" aria-hidden="true"></i>
                 <p>

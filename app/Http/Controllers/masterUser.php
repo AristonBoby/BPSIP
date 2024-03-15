@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class masterUser extends Controller
 {
-    //
+    public function index()
+    {
+        return view('masterUser');
+    }
 }

@@ -26,6 +26,7 @@ Route::get('/jenisPemeriksaan', [App\Http\Controllers\jenisPemeriksaan::class, '
 Route::get('/PermohonanAnalis', [App\Http\Controllers\permohonanAnalis::class, 'index'])->middleware('auth')->name('permohonanAnalis');
 Route::get('/pendaftaran', [App\Http\Controllers\pendaftaranUserPemohon::class, 'index'])->name('pendaftaranPemohon');
 Route::get('/dataAnalis', [App\Http\Controllers\dataAnalis::class, 'index'])->name('dataAnalis');
+Route::get('/master-user', [App\Http\Controllers\masterUser::class, 'index'])->name('masterUsers');
 Route::get('/print/permohonan/{id}', [App\Http\Controllers\printPermohoanan::class, 'index'])->name('printPermohonan');
 
 

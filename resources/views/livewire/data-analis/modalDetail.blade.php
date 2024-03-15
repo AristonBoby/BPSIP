@@ -15,7 +15,7 @@
                 <div class="col-lg-12 mb-2">
                     <div class="col-md-12 mb-1">
                         <b>Status :
-                            @if($data->status == 1 )
+                        @if($data->status == 1 )
                             <span class="text-center badge bg-info">   Sampel telah di terima</span>
                         @elseif($data->status == 2)
                             <span class="text-center badge bg-warning">Sampel belum di terima</span>
