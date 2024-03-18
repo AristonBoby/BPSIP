@@ -9,7 +9,10 @@ Data User
 @endsection
 
 @section('content')
-    <livewire:master-user.masteruser-table>
+    <div class="col-md-12 row">
+        <livewire:master-user.masteruser-table>
+        <livewire:master-user.tabledata-master>
+    </div>
 @endsection
 <script>
     window.addEventListener('alert', event => {
