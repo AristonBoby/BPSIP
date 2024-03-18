@@ -41,7 +41,7 @@ class FormPendaftaranPemohon extends Component
 
     public function render()
     {
-        $data= itemAnalisa::all();
+        $data = itemAnalisa::all();
         $prov = provinsi::all();
         $kota = kota::where('provinsi_id',$this->prov)->get();
         $kec  = kecamatan::where('kota_id',$this->city)->get();
@@ -71,7 +71,7 @@ class FormPendaftaranPemohon extends Component
         $this->validate();
         $query = User::create([
             'name'          => $this->nama,
-            'email'      => $this->varEmail,
+            'email'         => $this->varEmail,
             'password'      => Hash::make($this->password),
             'role'          => '2',
         ]);
