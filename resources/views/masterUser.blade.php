@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
-@section('header')
-Master Data User
-@endsection
 
-@section('navigator')
-    <livewire:layouts.navigator>
-@endsection
 
 @section('content')
-        <livewire:master-user.masteruser-table>
-        <livewire:master-user.tabledata-master>
+    <div class="col-md-12 row">
+        <div class=" col-md-4">
+            <livewire:master-user.masteruser-table>
+        </div>
+        <div class="col-md-8">
+            <livewire:master-user.tabledata-master>
+        </div>
+    </div>
 @endsection
 <script>
     window.addEventListener('alert', event => {

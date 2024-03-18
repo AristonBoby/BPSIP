@@ -160,7 +160,6 @@
                                     </td>
                                 @else
                                 @endif
-
                             </tr>
                             @endforeach
                         </tbody>
@@ -187,6 +186,5 @@
             timer: event.detail.timer,
             buttons: false,
         });
-
     });
     </script>

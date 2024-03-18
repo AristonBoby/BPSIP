@@ -1,5 +1,4 @@
-
-<div class="col-md-4">
+<div>
     <div class="card card-primary card-outline">
         <div class="card-header">
             <h5 class="col-label">Form Pendaftaran User</h5>
@@ -110,8 +109,7 @@
                         <button type="submit" class="btn btn-primary btn-flat btn-sm float-right"><i class="fa fa-save text-xs"></i> Simpan</button>
                     </div>
                 </div>
-                </div>
             </form>
         </div>
     </div>
- </div>
+</div>
