@@ -8,11 +8,14 @@ class ModalEdit extends Component
 {
     protected $listeners = ['getDataUser'];
 
-    public $queryUser ='';
+    public $nama;
+    public $email;
+    public $no_Hp;
+    public $alamat;
 
     public function render()
     {   
-        return view('livewire.master-user.modal-edit',['user'=>$this->queryUser]);
+        return view('livewire.master-user.modal-edit');
     }
 
     public function getDataUser($id)
@@ -20,7 +23,10 @@ class ModalEdit extends Component
         $query = user::where('id',$id)->first();
         if($query)
         {
-            $this->queryUser = $query;
+            $this->nama     =   $query->name;
+            $this->email    =   $query->email; 
+            $this->no_Hp    =   $query->userPemohons->no_tlpn;
+            $this->alamat   =   $query->userPemohons->alamat;
         } 
     }
 }

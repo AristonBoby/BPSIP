@@ -12,33 +12,32 @@
             </div>
             <div class="modal-body">
                 <div class="col-md-12">
-                    @foreach
-                    @foreach($user in $query)
-                        <div class="form-group row">
-                            <label class="form-label col-md-2"> Nama </label>
-                            <div class="col-md-10">
-                                <input type="text" value="{{$query->name}}" class="form-control" wire:model="nama" placeholder="Masukan Nama Anda">
-                            </div>
+                    
+
+                    <div class="form-group row">
+                        <label class="form-label col-md-2"> Nama </label>
+                        <div class="col-md-10">
+                            <input type="text" wire:model="nama" class="form-control" placeholder="Masukan Nama Anda">
                         </div>
-                        <div class="form-group row">
-                            <label class="form-label col-md-2"> Email </label>
-                            <div class="col-md-10">
-                                <input type="email" class="form-control" wire:model="nama" placeholder="Masukan Email Anda">
-                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="form-label col-md-2"> Email </label>
+                        <div class="col-md-10">
+                            <input type="email" class="form-control" wire:model="email" placeholder="Masukan Email Anda">
                         </div>
-                        <div class="form-group row">
-                            <label class="form-label col-md-2"> No.Hp </label>
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" wire:model="nama" placeholder="Masukan Nomor Hp Anda">
-                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="form-label col-md-2"> No.Hp </label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" wire:model="no_Hp" placeholder="Masukan Nomor Hp Anda">
                         </div>
-                        <div class="form-group row">
-                            <label class="form-label col-md-2"> Alamat </label>
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" wire:model="nama" placeholder="Masukan Nomor Hp Anda">
-                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="form-label col-md-2"> Alamat </label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" wire:model="alamat" placeholder="Masukan Nomor Hp Anda">
                         </div>
-                    @endforeach
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
