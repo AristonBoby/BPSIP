@@ -16,7 +16,7 @@
     window.addEventListener('alert', event => {
         $('#modalView').modal('hide');
         $('#modalDelete').modal('hide');
-
+        $('#modaledit').modal('hide');
         Swal.fire({
             text: event.detail.text,
             title: event.detail.title,

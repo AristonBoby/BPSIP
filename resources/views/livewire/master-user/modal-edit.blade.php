@@ -12,35 +12,40 @@
             </div>
             <div class="modal-body">
                 <div class="col-md-12">
-                    
-                    <div class="form-group row">
-                        <label class="form-label col-md-2"> Nama </label>
-                        <div class="col-md-10">
-                            <input type="text" wire:model="nama" class="form-control" placeholder="Masukan Nama Anda">
-                        </div>
+                    <div class="col-md-12">
+                        <h4 class="text-center mb-5">Update Data User</h4>
                     </div>
-                    <div class="form-group row">
-                        <label class="form-label col-md-2"> Email </label>
-                        <div class="col-md-10">
-                            <input type="email" class="form-control" wire:model="email" placeholder="Masukan Email Anda">
+                    <form wire:submit="update">
+                        <div class="form-group row">
+                            <label class="form-label col-md-2"> Nama </label>
+                            <div class="col-md-10">
+                                <input type="text" wire:model="nama" class="form-control" placeholder="Masukan Nama Anda">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="form-label col-md-2"> No.Hp </label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" wire:model="no_Hp" placeholder="Masukan Nomor Hp Anda">
+                        <div class="form-group row">
+                            <label class="form-label col-md-2"> Email </label>
+                            <div class="col-md-10">
+                                <input type="email" class="form-control" wire:model="email" placeholder="Masukan Email Anda">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="form-label col-md-2"> Alamat </label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" wire:model="alamat" placeholder="Masukan Nomor Hp Anda">
+                        <div class="form-group row">
+                            <label class="form-label col-md-2"> No.Hp </label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" wire:model="no_Hp" placeholder="Masukan Nomor Hp Anda">
+                            </div>
                         </div>
-                    </div>
+                        <div class="form-group row">
+                            <label class="form-label col-md-2"> Alamat </label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" wire:model="alamat" placeholder="Masukan Nomor Hp Anda">
+                            </div>
+                        </div>
+                        <div class="form-group"> 
+                            <button type="button" class="btn btn-default float-right" data-dismiss="modal"><i class="fa fa-times"></i>Batal</button>
+                            <button type="submit"class="btn btn-success float-right mr-2" >Simpan</button>
+                        </div>
+                    </form>
                 </div>
-            </div>
-            <div class="modal-footer">
-
             </div>
         </div>
     </div>
