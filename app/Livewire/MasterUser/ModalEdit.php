@@ -32,8 +32,13 @@ class ModalEdit extends Component
         } 
     }
 
+    protected $rules = [
+        'nama'  =>  'required',
+        'email' =>  'required',
+    ];
+
     public function update()
-    {
+    {   $this->validate();
         $query = user::where('id',$this->id)->update([
             'name'  =>  $this->nama,
             'email' =>  $this->email,

@@ -16,7 +16,9 @@ class TabledataMaster extends Component
         $query = User::whereNot('role',1)->paginate(10);
         return view('livewire.master-user.tabledata-master',['query'=>$query]);
     }
-
+    protected $rules=[
+        'nama' => 'required',   
+    ];
     public function getData($id)
     {
         $this->dispatch('getDataUser',$id);

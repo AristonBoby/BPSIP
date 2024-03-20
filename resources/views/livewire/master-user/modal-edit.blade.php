@@ -19,19 +19,53 @@
                         <div class="form-group row">
                             <label class="form-label col-md-2"> Nama </label>
                             <div class="col-md-10">
-                                <input type="text" wire:model="nama" class="form-control" placeholder="Masukan Nama Anda">
+                                <input type="text" wire:model="nama" class="form-control @error('nama') is-invalid @enderror" placeholder="Masukan Nama Anda">
+                                @error('nama') <a class="text-red text-sm">{{ $message }}</a> @enderror
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="form-label col-md-2"> Email </label>
                             <div class="col-md-10">
-                                <input type="email" class="form-control" wire:model="email" placeholder="Masukan Email Anda">
+                                <input type="email" class="@error('email') is-invalid @enderror form-control" wire:model="email" placeholder="Masukan Email Anda">
+                                @error('email') <a class="text-red text-sm">{{ $message }}</a> @enderror
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="form-label col-md-2"> No.Hp </label>
                             <div class="col-md-10">
                                 <input type="text" class="form-control" wire:model="no_Hp" placeholder="Masukan Nomor Hp Anda">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="form-label col-md-2"> Provinsi </label>
+                            <div class="col-md-10">
+                                <select class="form-control">
+                                    <option>--- Pilih Salah Satu ---</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="form-label col-md-2"> Kab/Kota </label>
+                            <div class="col-md-10">
+                                <select class="form-control">
+                                    <option>--- Pilih Salah Satu ---</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="form-label col-md-2"> Kecamatan </label>
+                            <div class="col-md-10">
+                                <select class="form-control">
+                                    <option>--- Pilih Salah Satu ---</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="form-label col-md-2"> Kelurahan </label>
+                            <div class="col-md-10">
+                                <select class="form-control">
+                                    <option>--- Pilih Salah Satu ---</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -42,7 +76,7 @@
                         </div>
                         <div class="form-group"> 
                             <button type="button" class="btn btn-default float-right" data-dismiss="modal"><i class="fa fa-times"></i>Batal</button>
-                            <button type="submit"class="btn btn-success float-right mr-2" >Simpan</button>
+                            <button type="submit"class="btn btn-success float-right mr-2" ><i class="fas fa-save"></i> Simpan</button>
                         </div>
                     </form>
                 </div>

@@ -6,7 +6,7 @@
         <div class="card-body">
             <table class="table table-sm hover stripped text-sm">
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th>No.</th>
                         <th>Nama</th>
                         <th>Email</th>
@@ -20,7 +20,7 @@
                     @foreach ( $query as $no=> $data)
                         <tr>
                             <td>{{ $query->firstitem()+$no }}.</td>
-                            <td>{{ $data->name }}</td>
+                            <td width="200">{{ $data->name }}</td>
                             <td>{{ $data->email }}</td>
                             <td>@if(!empty($data->userPemohons->no_tlpn)){{ $data->userPemohons->no_tlpn }}@endif</td>
                             <td>
@@ -31,7 +31,7 @@
                                 @if(!empty($data->userPemohons->alamat)){{ $data->userPemohons->alamat }}
                                 @endif
                             </td>
-                            <td>
+                            <td class="text-center">
                                 @if($data->role == 2)
                                     <span class="badge bg-danger">Admin</span>
                                 @elseif($data->role == 3)
@@ -42,9 +42,10 @@
                                     <span class="badge bg-success">Petugas Lab</span>
                                 @endif
                             </td>
-                            <td width="50">
-                                <button wire:click="getData('{{$data->id}}')" data-toggle="modal" data-target="#modaledit" type="button" class="btn btn-sm btn-warning"><i class=" fa fa-edit"></i></button>
-                                <button type="button" class="btn btn-sm btn-primary"><i class=" fa fa-key"></i></button>
+                            <td width="100" class="text-center">
+                                <a wire:click="getData('{{$data->id}}')" data-toggle="modal" data-target="#modaledit" type="button" class="text-md text-dark"><i class="fas fa-edit"></i></a>
+                                <a type="button" class="ml-2 text-md text-dark"><i class=" fas fa-key"></i></a>
+                                <a type="button" class="ml-2 text-md text-dark"><i class=" fa fa-trash"></i></a>
                             </td>
                         </tr>
                     @endforeach
