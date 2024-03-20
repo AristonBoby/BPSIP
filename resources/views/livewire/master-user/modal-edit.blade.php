@@ -13,7 +13,6 @@
             <div class="modal-body">
                 <div class="col-md-12">
                     
-
                     <div class="form-group row">
                         <label class="form-label col-md-2"> Nama </label>
                         <div class="col-md-10">
