@@ -10,9 +10,15 @@ use Livewire\WithPagination;
 class TabledataMaster extends Component
 {
     use WithPagination;
+
     public function render()
     {
         $query = User::whereNot('role',1)->paginate(10);
         return view('livewire.master-user.tabledata-master',['query'=>$query]);
+    }
+
+    public function getData($id)
+    {
+        $this->dispatch('getDataUser',$id);
     }
 }

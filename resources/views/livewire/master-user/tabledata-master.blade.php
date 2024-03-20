@@ -43,7 +43,7 @@
                                 @endif
                             </td>
                             <td width="50">
-                                <button type="button" class="btn btn-sm btn-danger"><i class=" fa fa-trash"></i></button>
+                                <button wire:click="getData('{{$data->id}}')" data-toggle="modal" data-target="#modaledit" type="button" class="btn btn-sm btn-warning"><i class=" fa fa-edit"></i></button>
                                 <button type="button" class="btn btn-sm btn-primary"><i class=" fa fa-key"></i></button>
                             </td>
                         </tr>
@@ -51,4 +51,5 @@
                 </tbody>
             </table>
         </div>
+        <livewire:master-user.modal-edit>
     </div>
