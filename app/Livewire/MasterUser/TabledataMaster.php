@@ -27,4 +27,9 @@ class TabledataMaster extends Component
     {
         $this->dispatch('getDataUser',$id);
     }
+
+    public function idGet($id)
+    {
+        $this->dispatch('idPassword',$id);
+    }
 }

@@ -81,4 +81,9 @@ class ModalEdit extends Component
 
         }
     }
+
+    public function idGet($id)
+    {
+      //  dd($id);
+    }
 }
