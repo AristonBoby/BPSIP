@@ -44,7 +44,7 @@
                             </td>
                             <td width="100" class="text-center">
                                 <a wire:click="getData('{{$data->id}}')" data-toggle="modal" data-target="#modaledit" type="button" class="text-md text-dark"><i class="fas fa-edit"></i></a>
-                                <a type="button" class="ml-2 text-md text-dark"><i class=" fas fa-key"></i></a>
+                                <a type="button" data-toggle="modal" data-target="#modalPassword" class="ml-2 text-md text-dark"><i class=" fas fa-key"></i></a>
                                 <a type="button" class="ml-2 text-md text-dark"><i class=" fa fa-trash"></i></a>
                             </td>
                         </tr>
@@ -54,5 +54,5 @@
         </div>
         <livewire:master-user.modal-edit>
         <livewire:master-user.modalupdate-alamat>
-
+        <livewire:master-user.modal-password>
     </div>
