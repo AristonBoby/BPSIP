@@ -39,32 +39,32 @@
                         <div class="form-group row">
                             <label class="form-label col-md-2"> Provinsi </label>
                             <div class="col-md-10">
-                                <select class="form-control">
-                                    <option>--- Pilih Salah Satu ---</option>
+                                <select class="form-control" disabled>
+                                    <option value="">{{$prov_id}}</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="form-label col-md-2"> Kab/Kota </label>
                             <div class="col-md-10">
-                                <select class="form-control">
-                                    <option>--- Pilih Salah Satu ---</option>
+                                <select class="form-control" disabled>
+                                    <option value="{{$kota_id}}">{{$kota_id}}</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="form-label col-md-2"> Kecamatan </label>
                             <div class="col-md-10">
-                                <select class="form-control">
-                                    <option>--- Pilih Salah Satu ---</option>
+                                <select class="form-control" disabled >
+                                    <option value="">{{$kec_id}}</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="form-label col-md-2"> Kelurahan </label>
+                            <label class="form-label col-md-2"> Desa/Kelurahan </label>
                             <div class="col-md-10">
-                                <select class="form-control">
-                                    <option>--- Pilih Salah Satu ---</option>
+                                <select class="form-control"disabled>
+                                    <option>{{$kelurahan}}</option>
                                 </select>
                             </div>
                         </div>
@@ -76,7 +76,8 @@
                         </div>
                         <div class="form-group"> 
                             <button type="button" class="btn btn-default float-right" data-dismiss="modal"><i class="fa fa-times"></i>Batal</button>
-                            <button type="submit"class="btn btn-success float-right mr-2" ><i class="fas fa-save"></i> Simpan</button>
+                            <button type="submit" class="btn btn-success float-right mr-2" ><i class="fas fa-save"></i> Simpan</button>
+                            <button type="button" wire:click="iduserAlamat('{{$no_Hp}}')" data-toggle="modal" data-target="#modalupdateAlamat" class="btn btn-warning btn-sm btn-flat float-left mr-2" ><i class="fas fa-save"></i> Update Data Alamat</button>
                         </div>
                     </form>
                 </div>

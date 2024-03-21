@@ -53,4 +53,6 @@
             </table>
         </div>
         <livewire:master-user.modal-edit>
+        <livewire:master-user.modalupdate-alamat>
+
     </div>

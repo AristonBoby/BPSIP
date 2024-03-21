@@ -17,6 +17,7 @@
         $('#modalView').modal('hide');
         $('#modalDelete').modal('hide');
         $('#modaledit').modal('hide');
+        $('#modalupdateAlamat').modal('hide');
         Swal.fire({
             text: event.detail.text,
             title: event.detail.title,
