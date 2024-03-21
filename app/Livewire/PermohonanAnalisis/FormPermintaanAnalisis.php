@@ -246,6 +246,11 @@ class FormPermintaanAnalisis extends Component
        }
     }
 
+    public function batal()
+    {
+
+    }
+
     public function updatedIdpemeriksaan($value,$key)
     {
        $query = jenisPemeriksaanSampel::join('analisa_sampels','analisa_sampels.id','=','jenis_pemeriksaan_sampels.analisa_sampel_id')

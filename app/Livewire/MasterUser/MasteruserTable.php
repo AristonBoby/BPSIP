@@ -96,18 +96,18 @@ class MasteruserTable extends Component
     }
 
     public function resetForm()
-    {
+    {   $this->resetValidation();
         $this->name          =   '';
         $this->email         =   '';
         $this->no_hp         =   '';
         $this->alamat        =   '';
-        $this->kel_id        =   '';
+        //$this->kel_id        =   '';
         $this->pass          =   '';
         $this->re_pass       =   '';
         $this->provinsi_id   =   '';
-        $this->kota_id       =   '';
-        $this->kec_id        =   '';
-        $this->kel_id        =   '';
+        // $this->kota_id       =   '';
+        // $this->kec_id        =   '';
+        // $this->kel_id        =   '';
         $this->alamat        =   '';
         $this->render();
     }

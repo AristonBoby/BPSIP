@@ -74,9 +74,9 @@
                                 <input type="text" class="form-control" wire:model="alamat" placeholder="Masukan Nomor Hp Anda">
                             </div>
                         </div>
-                        <div class="form-group"> 
-                            <button type="button" class="btn btn-default float-right" data-dismiss="modal"><i class="fa fa-times"></i>Batal</button>
-                            <button type="submit" class="btn btn-success float-right mr-2" ><i class="fas fa-save"></i> Simpan</button>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-flat btn-sm btn-default float-right" data-dismiss="modal"><i class="fa fa-times"></i> Batal</button>
+                            <button type="submit" class="btn btn=flat btn-sm btn-success float-right mr-2" ><i class="fas fa-save"></i> Simpan</button>
                             <button type="button" wire:click="iduserAlamat('{{$no_Hp}}')" data-toggle="modal" data-target="#modalupdateAlamat" class="btn btn-warning btn-sm btn-flat float-left mr-2" ><i class="fas fa-save"></i> Update Data Alamat</button>
                         </div>
                     </form>

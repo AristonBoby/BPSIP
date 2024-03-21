@@ -22,10 +22,10 @@ class ModalEdit extends Component
     public $kelurahan;
     public $alamat;
     public $idUpdateAlamat;
-    
+
 
     public function render()
-    {  
+    {
         return view('livewire.master-user.modal-edit');
     }
 
@@ -41,15 +41,15 @@ class ModalEdit extends Component
         {
             $this->id               =   $query->id;
             $this->nama             =   $query->name;
-            $this->email            =   $query->email; 
+            $this->email            =   $query->email;
             $this->no_Hp            =   $query->userPemohons->no_tlpn;
-            $this->prov_id          =   $query->userPemohons->kelurahan->kecamatan->kota->provinsi->namaProvinsi; 
-            $this->kota_id          =   $query->userPemohons->kelurahan->kecamatan->kota->namaKota; 
-            $this->kec_id           =   $query->userPemohons->kelurahan->kecamatan->namaKecamatan; 
-            $this->kelurahan        =   $query->userPemohons->kelurahan->namaKelurahan;         
+            $this->prov_id          =   $query->userPemohons->kelurahan->kecamatan->kota->provinsi->namaProvinsi;
+            $this->kota_id          =   $query->userPemohons->kelurahan->kecamatan->kota->namaKota;
+            $this->kec_id           =   $query->userPemohons->kelurahan->kecamatan->namaKecamatan;
+            $this->kelurahan        =   $query->userPemohons->kelurahan->namaKelurahan;
             $this->alamat           =   $query->userPemohons->alamat;
-          
-        } 
+
+        }
     }
 
     protected $rules = [
@@ -69,9 +69,16 @@ class ModalEdit extends Component
             'alamat'    =>  $this->alamat,
         ]);
 
-        if($query && $query_pemohon)
+        if($query)
         {
-            $this->dispatch('alert',text:'Data Behasil Diperbaharui',icon:'success',title:'Berhasil ',timer:2000);
+            if($query_pemohon)
+            {
+                $this->dispatch('alert',text:'Data Behasil Diperbaharui',icon:'success',title:'Berhasil ',timer:2000);
+            }
+            else{
+                $this->dispatch('alert',text:'Data Gagal Diperbaharui',icon:'danger',title:'Gagal Memperbarui ',timer:2000);
+            }
+
         }
     }
 }

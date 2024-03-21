@@ -1,5 +1,10 @@
 @extends('layouts.app')
-
+@section('header')
+MASTER DATA <b>USER</b>
+@endsection
+@section('navigator')
+    <livewire:layouts.navigator>
+@endsection
 
 
 @section('content')

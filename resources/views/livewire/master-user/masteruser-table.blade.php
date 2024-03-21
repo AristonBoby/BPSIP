@@ -105,8 +105,8 @@
                 </div>
                 <div class="form-group row mt-4">
                     <div class="col-md-12">
-                        <a class="btn btn-danger btn-sm btn-flat float-right ml-2" wire:click='resetForm()'><i class="fa fa-times text-xs"></i> Batal</a>
-                        <button type="submit" class="btn btn-primary btn-flat btn-sm float-right"><i class="fa fa-save text-xs"></i> Simpan</button>
+                        <a class="btn btn-default btn-sm float-right ml-2" wire:click='resetForm()'><i class="fa fa-times text-xs"></i> Batal</a>
+                        <button type="submit" class="btn btn-primary btn-sm float-right"><i class="fa fa-save text-xs"></i> Simpan</button>
                     </div>
                 </div>
             </form>
