@@ -23,13 +23,16 @@ class TableJenisPemeriksaan extends Component
          ->groupBy('jenis_pengujian_sampels.jenis_pengujian')
          ->groupBy('jenis_pemeriksaan_sampels.analisa_sampel_id')
          ->paginate(10);
+        
         return view('livewire.jenis-pemeriksaan.table-jenis-pemeriksaan',['query'=>$query]);
+
     }
 
     public function perbarui()
     {
         $this->render();
     }
+    
     public function detailItem($id)
     {
         $query = jenisPemeriksaanSampel::where('analisa_sampel_id',$id)
@@ -39,11 +42,11 @@ class TableJenisPemeriksaan extends Component
         {
             $this->modalItem = $query;
         }
-
     }
 
     public function detailId($id)
-    {   $this->varDetaiId = $id;
+    {   
+        $this->varDetaiId = $id;
         $this->detailItem($this->varDetaiId);
     }
 
@@ -57,6 +60,11 @@ class TableJenisPemeriksaan extends Component
             $this->detailItem($this->varDetaiId);
             $this->dispatch('alert',text:'Data Berhasil Dihapus !!!',icon:'success',title:'Berhasil',timer:2000);
         }
+    }
+
+    public function idHapus($id)
+    {
+
     }
 
 }
