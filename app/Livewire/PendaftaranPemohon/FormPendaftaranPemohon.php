@@ -65,7 +65,6 @@ class FormPendaftaranPemohon extends Component
         ];
     }
 
-
     public function store()
     {
         $this->validate();

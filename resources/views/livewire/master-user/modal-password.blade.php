@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header bg-success">
-                <h6 class="modal-title" id="staticBackdropLabel"><b><i class="fa fa-address-card" aria-hidden="true"></i> Update Alamat User </b></h6>
+                <h6 class="modal-title" id="staticBackdropLabel"><b><i class="fa fa-address-card" aria-hidden="true"></i> Perbarui Password User </b></h6>
                     <button type="button btn-default" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true"><i class="fa fa-times text-white"></i></span>
                     </button>
@@ -17,19 +17,21 @@
                             <div class="form-group row">
                                 <label class="col-md-3 text-sm form-label">Password </label>
                                 <div class="col-md-9">
-                                    <input type="password" class="form-control" placeholder="Password">
+                                    <input type="password" wire:model='password' class="form-control @error('password') is-invalid @enderror" placeholder="Password">
+                                    @error('password') <span class="text-red text-sm">{{ $message}}</span> @enderror
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-3 text-sm form-label">Re Password</label>
                                 <div class="col-md-9">
-                                    <input type="password" wire:model='rePassword' class="form-control" placeholder="Password">
+                                    <input type="password" wire:model='rePassword' class="form-control @error('password') is-invalid @enderror" placeholder="Re-Password">
+                                    @error('rePassword') <span class="text-red text-sm">{{ $message}}</span> @enderror
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-12">
-                                    <button class="form-control btn-sm btn-primary"><i class="fas fa-save"></i> Simpan</button>
-                                    <button class="form-control btn-sm btn-default mt-2"><i class="fas fa-times"></i> Batal</button>
+                                    <button type="submit" class="form-control btn-sm btn-primary"><i class="fas fa-save"></i> Simpan</button>
+                                    <button type="button" class="form-control btn-sm btn-default mt-2"><i class="fas fa-times"></i> Batal</button>
                                 </div>
                             </div>
                         </div>
