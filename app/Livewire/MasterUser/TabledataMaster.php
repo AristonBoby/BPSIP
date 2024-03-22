@@ -11,7 +11,7 @@ use Livewire\WithPagination;
 class TabledataMaster extends Component
 {
     use WithPagination;
-
+    protected $listeners = ['resetTable'];
     public function render()
     {
         $query      =   User::whereNot('role',9)->paginate(10);
@@ -23,6 +23,11 @@ class TabledataMaster extends Component
         'email'     =>  'required',
     ];
 
+    public function resetTable()
+    {
+        $this->render();
+    }
+
     public function getData($id)
     {
         $this->dispatch('getDataUser',$id);
@@ -31,5 +36,11 @@ class TabledataMaster extends Component
     public function idGet($id)
     {
         $this->dispatch('idPassword',$id);
+    }
+
+    public function idHapus($id)
+    {
+        
+        $this->dispatch('hapusmasterUser',$id);
     }
 }

@@ -32,12 +32,13 @@
                 @foreach ($query as $no=>$data)
                     <tr>
                         <td>{{ $query->firstItem() + $no }}. </td>
+                        <td>{{$data->analisa_sampel_id}}</td>
                         <td>{{ $data->jenis_pengujian }}</td>
                         <td>{{ $data->jenis_analisa }}</td>
                         <td>{{ $data->jenis }}</td>
                         <td ><b><span id="amount">{{ formatRupiah($data->harga) }}</span></b> </td>
                         <td>
-                            <a data-toggle="modal" wire:click='' data-target="#modalView" class="btn btn-primary btn-sm"><span class="fa fa-eye"></span></a>
+                            <a data-toggle="modal" wire:click="detailId('{{$data->analisa_sampel_id}}')" data-target="#modalView" class="btn btn-primary btn-sm"><span class="fa fa-eye"></span></a>
                         </td>
                     </tr>
                 @endforeach
