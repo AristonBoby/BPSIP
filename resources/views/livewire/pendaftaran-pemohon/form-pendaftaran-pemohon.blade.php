@@ -1,6 +1,6 @@
 <div class="register-page" style="margin-top:-50px;">
     <div class="register-box">
-        <div class="card card-outline card-primary">
+        <div class="card shadow-lg card-outline card-primary">
             <div class="card-header text-center">
                 <a href="../../index2.html" class="h3"><b>PENDAFTARAN</b> LABORATORIUM</a>
             </div>

@@ -9,14 +9,10 @@ Dashboard
 @endsection
 
 @section('content')
-    <div class="col-md-12">
-        <div class="card card-outline card-info col-lg-12">
-            <div class="card-header border-0">
-
-            </div>
-            <div class="card-body">
-
-            </div>
-        </div>
+<div class="col-lg-12 row">
+    <div class="card card-primary col-md-3">
+        <div class="card-header"></div>
+        <div class="card-body"></div>
     </div>
+</div>
 @endsection
