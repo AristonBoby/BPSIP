@@ -14,7 +14,7 @@ class TabledataMaster extends Component
     protected $listeners = ['resetTable'];
     public function render()
     {
-        $query      =   User::whereNot('role',9)->paginate(10);
+        $query      =   User::whereNot('role',9)->whereNot('role',0)->paginate(10);
 
         return view('livewire.master-user.tabledata-master',['query'=>$query]);
     }

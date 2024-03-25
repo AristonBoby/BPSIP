@@ -4,7 +4,24 @@
             <h5 class="card-title">Data Master User</h5>
         </div>
         <div class="card-body">
-            <table class="table table-sm hover stripped text-sm">
+            <div class="col-md-12 row mb-2">
+                <div class="form-group col-md-4 row">
+                    <label class="col-md-4">Status</label>
+                        <div class="col-md-8">
+                            <select type="text" class="form-control form-control-sm">
+                                <option>User Aktif</option>
+                                <option>User Terhapus</option>
+                            </select>
+                        </div>
+                </div>
+                <div class="form-group col-md-4 row">
+                    <label class="col-md-4">Pencarian : </label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control form-control-sm" placeholder="Pencarian">
+                        </div>
+                </div>
+            </div>
+            <table class="table table-bordered table-sm table-hover table-striped text-sm">
                 <thead>
                     <tr class="text-center">
                         <th>No.</th>
