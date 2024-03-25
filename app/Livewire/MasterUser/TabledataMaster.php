@@ -15,6 +15,10 @@ class TabledataMaster extends Component
     public $pencarian = "";
     public $status = "";
 
+    public function updatetingPencarian()
+    {
+        
+    }
     public function render()
     {
         if($this->status == 0)
@@ -38,7 +42,7 @@ class TabledataMaster extends Component
 
     public function filterPencarian()
     {
-      
+        $this->resetPage();
     }
 
     protected $rules=[
@@ -65,5 +69,10 @@ class TabledataMaster extends Component
     {
         
         $this->dispatch('hapusmasterUser',$id);
+    }
+
+    public function btlHapus($id)
+    {
+        $this->dispatch('btlHapus',$id);
     }
 }
