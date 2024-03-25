@@ -28,10 +28,12 @@
                                     @error('rePassword') <span class="text-red text-sm">{{ $message}}</span> @enderror
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            <div class="form-group mt-4">
                                 <div class="col-md-12">
-                                    <button type="submit" class="form-control btn-sm btn-primary"><i class="fas fa-save"></i> Simpan</button>
-                                    <button type="button" class="form-control btn-sm btn-default mt-2"><i class="fas fa-times"></i> Batal</button>
+                                    <div class="col-md-12 float-left">
+                                    <button type="button" class=" float-right btn btn-sm btn-default" class="close" data-dismiss="modal"><i class="fas fa-times"></i> Batal</button>
+                                        <button type="submit" class=" float-right btn btn-sm btn-success mr-1"><i class="fas fa-save"></i> Simpan</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

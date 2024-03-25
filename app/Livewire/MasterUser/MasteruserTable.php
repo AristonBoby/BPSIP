@@ -23,9 +23,11 @@ class MasteruserTable extends Component
     public $kel_id;
     public $pass;
     public $re_pass;
+    public $rule;
 
     public function render()
     {
+        
         $provinsi   =   provinsi::all();
         $kota       =   kota::where('provinsi_id', $this->provinsi_id)->get();
         $kec        =   kecamatan::where('kota_id',$this->kota_id)->get();
@@ -41,6 +43,7 @@ class MasteruserTable extends Component
         'pass'          =>  'required|same:re_pass',
         're_pass'       =>  'required|same:pass',
         'provinsi_id'   =>  'required',
+        'rule'          =>  'required',
         'kota_id'       =>  'required',
         'kec_id'        =>  'required',
         'kel_id'        =>  'required',
@@ -52,6 +55,7 @@ class MasteruserTable extends Component
             'name.required'     =>  'Nama Wajib diisi !!!',
             'name.max'          =>  'Nama Maksimal 50 Karakter !!!',
             'email.required'    =>  'Email Wajib diisi !!!',
+            'rule.required'     =>  'Rule Wajib diisi !!!',
             'email.unique'      =>  'Email Telah Terdaftar !!!',
             'no_hp.required'    =>  'No. HP Wajib diisi !!!',
             'no_hp.max'         =>  'No Hp Maksimal 13 Angka !!!',
@@ -76,7 +80,7 @@ class MasteruserTable extends Component
             'name'      => $this->name,
             'email'     => $this->email,
             'password'  => $this->pass,
-            'role'      => 9,
+            'role'      => $this->rule,
         ]);
 
         $detail = userPemohon::create([

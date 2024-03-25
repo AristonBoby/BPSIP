@@ -12,12 +12,35 @@ class TabledataMaster extends Component
 {
     use WithPagination;
     protected $listeners = ['resetTable'];
+    public $pencarian = "";
+    public $status = "";
+
     public function render()
     {
-        $query      =   User::whereNot('role',9)->whereNot('role',0)->paginate(10);
+        if($this->status == 0)
+        {
+            $query      =   User::whereNot('role',9)
+                            ->where('name','LIKE','%'.$this->pencarian.'%')
+                            ->where('role','LIKE','%'.$this->status.'%')
+                            ->paginate(10);
+        }
+        else{
+            $query      =   User::whereNot('role',9)
+                            ->whereNot('role',0)
+                            ->where('name','LIKE','%'.$this->pencarian.'%')
+                            ->paginate(10);
+           
+        }
+            
 
         return view('livewire.master-user.tabledata-master',['query'=>$query]);
     }
+
+    public function filterPencarian()
+    {
+      
+    }
+
     protected $rules=[
         'nama'      =>  'required',
         'email'     =>  'required',

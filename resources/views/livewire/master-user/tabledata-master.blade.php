@@ -4,23 +4,32 @@
             <h5 class="card-title">Data Master User</h5>
         </div>
         <div class="card-body">
-            <div class="col-md-12 row mb-2">
-                <div class="form-group col-md-4 row">
-                    <label class="col-md-4">Status</label>
-                        <div class="col-md-8">
-                            <select type="text" class="form-control form-control-sm">
-                                <option>User Aktif</option>
-                                <option>User Terhapus</option>
-                            </select>
+            <form wire:submit="filterPencarian" >
+                <div class="float-right col-md-12 row mb-2">
+                    <div class="form-group col-md-3 row">
+                    </div>
+                    <div class="form-group col-md-4 row">
+                        <label class="col-md-4">Status</label>
+                            <div class="col-md-8">
+                                <select type="text" wire:model="status" class="form-control form-control-sm">
+                                    <option value="" >User Aktif</option>
+                                    <option value="0">User Terhapus</option>
+                                </select>
+                            </div>
+                    </div>
+                    <div class="col-md-5 row">
+                        <label class="col-md-3">Pencarian </label>
+                        <div class="col-md-9">
+                            <div class="input-group input-group-sm ">
+                                <input type="text" class="form-control" wire:model="pencarian" placeholder="Pencarian">
+                                <span class="input-group-append">
+                                    <button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i> Cari</button>
+                                </span>                        
+                            </div>
                         </div>
+                    </div>
                 </div>
-                <div class="form-group col-md-4 row">
-                    <label class="col-md-4">Pencarian : </label>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control form-control-sm" placeholder="Pencarian">
-                        </div>
-                </div>
-            </div>
+            </form>
             <table class="table table-bordered table-sm table-hover table-striped text-sm">
                 <thead>
                     <tr class="text-center">
@@ -34,7 +43,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ( $query as $no=> $data)
+                    @forelse( $query as $no=> $data)
                         <tr>
                             <td>{{ $query->firstitem()+$no }}.</td>
                             <td width="200">{{ $data->name }}</td>
@@ -65,7 +74,9 @@
                                 <a type="button" data-toggle="modal" data-target="#modalHapus"  wire:click="idHapus('{{$data->id}}')" class="ml-2 text-md text-dark"><i class=" fa fa-trash"></i></a>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <td colspan='7' class="text-center">Data Tidak Ditemukan</td>
+                    @endforelse
                 </tbody>
             </table>
         </div>

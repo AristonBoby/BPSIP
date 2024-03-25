@@ -24,7 +24,7 @@ MASTER DATA <b>USER</b>
         $('#modaledit').modal('hide');
         $('#modalupdateAlamat').modal('hide');
         $('#modalHapus').modal('hide');
-
+        $('#modalPassword').modal('hide');
         
         Swal.fire({
             text: event.detail.text,

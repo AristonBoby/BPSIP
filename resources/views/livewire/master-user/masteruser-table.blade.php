@@ -27,6 +27,19 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label class="control-label col-lg-3  text-sm">Role User</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-control-sm @error('rule') is-invalid @enderror" wire:model="rule">
+                            <option value="">-- Pilih Salah Satu --</option>
+                            <option value='2'> Admin </option>
+                            <option value='3'> Pendaftaran </option>
+                            <option value='4'> Verifikasi Hasil </option>
+                            <option value='5'> Petugas LAB </option>
+                        </select>
+                        @error('rule') <span class=" text-red text-sm">{{ $message }}</span> @enderror
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label class="control-label col-lg-3  text-sm">Password</label>
                     <div class="col-md-9">
                         <input wire:model='pass' type="password" class="form-control  form-control-sm @error('pass') is-invalid @enderror" placeholder="Masukan Password" wire:model="password">
