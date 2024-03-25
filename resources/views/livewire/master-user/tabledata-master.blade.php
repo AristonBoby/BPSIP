@@ -12,7 +12,7 @@
                         <label class="col-md-4">Status</label>
                             <div class="col-md-8">
                                 <select type="text" wire:model="status" class="form-control form-control-sm">
-                                    <option value="" >User Aktif</option>
+                                    <option value="1" >User Aktif</option>
                                     <option value="0">User Terhapus</option>
                                 </select>
                             </div>

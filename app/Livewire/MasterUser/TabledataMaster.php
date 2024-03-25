@@ -42,7 +42,7 @@ class TabledataMaster extends Component
 
     public function filterPencarian()
     {
-        $this->resetPage();
+       
     }
 
     protected $rules=[
