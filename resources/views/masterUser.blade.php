@@ -26,6 +26,8 @@ MASTER DATA <b>USER</b>
         $('#modalHapus').modal('hide');
         $('#modalPassword').modal('hide');
         
+        $('#modalBtlHapus').modal('hide');
+        
         Swal.fire({
             text: event.detail.text,
             title: event.detail.title,

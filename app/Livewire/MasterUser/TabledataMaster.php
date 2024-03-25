@@ -19,6 +19,7 @@ class TabledataMaster extends Component
     {
         
     }
+
     public function render()
     {
         if($this->status == 0)
@@ -29,6 +30,7 @@ class TabledataMaster extends Component
                             ->paginate(10);
         }
         else{
+            $this->resetPage();
             $query      =   User::whereNot('role',9)
                             ->whereNot('role',0)
                             ->where('name','LIKE','%'.$this->pencarian.'%')
