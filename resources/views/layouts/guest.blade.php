@@ -28,54 +28,101 @@
 
 <body class="sidebar-collapse layout-top-nav" style="height: auto;">
   <div class="wrapper">
+    <div class="card">
+      <div class="card-body">
     <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
       <div class="container">
         <a href="#" class="navbar-brand">
           <img src="images/R.png" alt="AdminLTE Logo"  class="brand-image img-circle elevation-2" style="opacity: .9">
         </a>
         <label class="brand-text text-sm font-weight-light"><b>Badan Standarisasi Instrumen Pertanian<br>Kalimantan Timur</b></label>
+        <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse order-3 ml-5" id="navbarCollapse">
           <ul class="navbar-nav">
             <li class="nav-item"></li>
-            <li class="nav-item"><a href="index3.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="index3.html" class="nav-link">Beranda</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Jenis Pelayanan</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Pendaftaran</a></li>
-            <li class="nav-item"><a href="#" class="nav-link"></a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Pendaftaraan Pemeriksaan</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Tentang</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Ganti Password</a></li>
           </ul>
         </div>    
       </div> 
     </nav>  
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-<ol class="carousel-indicators">
-<li data-target="#carouselExampleIndicators" data-slide-to="0" class=""></li>
-<li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>
-<li data-target="#carouselExampleIndicators" data-slide-to="2" class="active"></li>
-</ol>
-<div class="carousel-inner">
-<div class="carousel-item">
-<img class="d-block w-100" src="https://placehold.it/900x500/39CCCC/ffffff&amp;text=I+Love+Bootstrap" alt="First slide">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class=""></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2" class="active"></li>
+      </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item">
+        <img class="d-block w-100" src="https://placehold.it/900x500/39CCCC/ffffff&amp;text=I+Love+Bootstrap" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="https://placehold.it/900x500/3c8dbc/ffffff&amp;text=I+Love+Bootstrap" alt="Second slide">
+      </div>
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="https://placehold.it/900x500/f39c12/ffffff&amp;text=I+Love+Bootstrap" alt="Third slide">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-custom-icon" aria-hidden="true">
+        <i class="fas fa-chevron-left"></i>
+      </span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-custom-icon" aria-hidden="true">
+        <i class="fas fa-chevron-right"></i>
+      </span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div> 
 </div>
-<div class="carousel-item">
-<img class="d-block w-100" src="https://placehold.it/900x500/3c8dbc/ffffff&amp;text=I+Love+Bootstrap" alt="Second slide">
-</div>
-<div class="carousel-item active">
-<img class="d-block w-100" src="https://placehold.it/900x500/f39c12/ffffff&amp;text=I+Love+Bootstrap" alt="Third slide">
-</div>
-</div>
-<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-<span class="carousel-control-custom-icon" aria-hidden="true">
-<i class="fas fa-chevron-left"></i>
-</span>
-<span class="sr-only">Previous</span>
-</a>
-<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-<span class="carousel-control-custom-icon" aria-hidden="true">
-<i class="fas fa-chevron-right"></i>
-</span>
-<span class="sr-only">Next</span>
-</a>
-</div> 
+<div class="card">
+  <div class="card-body row">
+    <div class="col-lg-4 col-6">
+      <div class="small-box bg-success">
+        <div class="inner">
+          <h3>53<sup style="font-size: 20px">%</sup></h3>
+          <p>Bounce Rate</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-stats-bars"></i>
+        </div>
+          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>  
+      </div>
+    </div>
+    <div class="col-lg-4 col-6">
+      <div class="small-box bg-success">
+        <div class="inner">
+          <h3>53<sup style="font-size: 20px">%</sup></h3>
+          <p>Bounce Rate</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-stats-bars"></i>
+        </div>
+          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>  
+      </div>
+    </div>
+    <div class="col-lg-4 col-6">
+      <div class="small-box bg-success">
+        <div class="inner">
+          <h3>53<sup style="font-size: 20px">%</sup></h3>
+          <p>Bounce Rate</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-stats-bars"></i>
+        </div>
+          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>  
+      </div>
+    </div>
   </div>
+</div>
+</div>
 </body>
 @livewireScripts
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
