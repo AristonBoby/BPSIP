@@ -34,32 +34,47 @@
           <img src="images/R.png" alt="AdminLTE Logo"  class="brand-image img-circle elevation-2" style="opacity: .9">
         </a>
         <label class="brand-text text-sm font-weight-light"><b>Badan Standarisasi Instrumen Pertanian<br>Kalimantan Timur</b></label>
-        <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+        <div class="collapse navbar-collapse order-3 ml-5" id="navbarCollapse">
           <ul class="navbar-nav">
             <li class="nav-item"></li>
             <li class="nav-item"><a href="index3.html" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-            <li class="nav-item dropdown">
-              <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Dropdown</a>
-              <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                <li><a href="#" class="dropdown-item">Some action </a></li>
-                <li><a href="#" class="dropdown-item">Some other action</a></li>
-                <li class="dropdown-divider"></li>
-                <li class="dropdown-submenu dropdown-hover"><a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Hover for action</a>
-                  <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow"><li>
-                  <a tabindex="-1" href="#" class="dropdown-item">level 2</a>
-                </li>
-                <li class="dropdown-submenu"><a id="dropdownSubMenu3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">level 2</a>
-                  <ul aria-labelledby="dropdownSubMenu3" class="dropdown-menu border-0 shadow">
-                    <li><a href="#" class="dropdown-item">3rd level</a></li>
-                    <li><a href="#" class="dropdown-item">3rd level</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
+            <li class="nav-item"><a href="#" class="nav-link">Jenis Pelayanan</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Pendaftaran</a></li>
+            <li class="nav-item"><a href="#" class="nav-link"></a></li>
           </ul>
         </div>    
-      </div>    
+      </div> 
+    </nav>  
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<ol class="carousel-indicators">
+<li data-target="#carouselExampleIndicators" data-slide-to="0" class=""></li>
+<li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>
+<li data-target="#carouselExampleIndicators" data-slide-to="2" class="active"></li>
+</ol>
+<div class="carousel-inner">
+<div class="carousel-item">
+<img class="d-block w-100" src="https://placehold.it/900x500/39CCCC/ffffff&amp;text=I+Love+Bootstrap" alt="First slide">
+</div>
+<div class="carousel-item">
+<img class="d-block w-100" src="https://placehold.it/900x500/3c8dbc/ffffff&amp;text=I+Love+Bootstrap" alt="Second slide">
+</div>
+<div class="carousel-item active">
+<img class="d-block w-100" src="https://placehold.it/900x500/f39c12/ffffff&amp;text=I+Love+Bootstrap" alt="Third slide">
+</div>
+</div>
+<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+<span class="carousel-control-custom-icon" aria-hidden="true">
+<i class="fas fa-chevron-left"></i>
+</span>
+<span class="sr-only">Previous</span>
+</a>
+<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+<span class="carousel-control-custom-icon" aria-hidden="true">
+<i class="fas fa-chevron-right"></i>
+</span>
+<span class="sr-only">Next</span>
+</a>
+</div> 
   </div>
 </body>
 @livewireScripts
