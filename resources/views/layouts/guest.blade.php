@@ -169,11 +169,15 @@ Nora Silvester
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class=""></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2" class="="></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2" class=""></li>
       </ol>
     <div class="carousel-inner">
       <div class="carousel-item">
-        <img class="d-block w-100" src="https://placehold.it/900x500/39CCCC/ffffff&amp;text=I+Love+Bootstrap" alt="First slide">
+        <img class="d-block w-100" src="https://placehold.it/900x500/39CCCC/ffffgf&amp;text=LABORATORIUM-BSIP-KALTIM" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="https://placehold.it/900x500/39CCCC/ffffff&amp;text=BSIP-KALTIM" alt="First slide">
       </div>
       <div class="carousel-item">
         <img class="d-block w-100" src="https://placehold.it/900x500/3c8dbc/ffffff&amp;text=I+Love+Bootstrap" alt="Second slide">
