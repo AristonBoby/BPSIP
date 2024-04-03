@@ -27,178 +27,96 @@
 </head>
 
 <body class="sidebar-collapse layout-top-nav" style="height: auto;">
-  <div class="wrapper">
-    <div class="card">
-      <div class="card-body">
-    <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
-      <div class="container">
-        <a href="#" class="navbar-brand">
-          <img src="images/R.png" alt="AdminLTE Logo"  class="brand-image img-circle elevation-2" style="opacity: .9">
-        </a>
-        <label class="brand-text text-sm font-weight-light"><b>Badan Standarisasi Instrumen Pertanian<br>Kalimantan Timur</b></label>
-        <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse order-3 ml-5" id="navbarCollapse">
-          <ul class="navbar-nav">
-            <li class="nav-item"></li>
-            <li class="nav-item"><a href="{{ route('branda') }}" class="nav-link">Beranda</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Jenis Pelayanan</a></li>
-            <li class="nav-item dropdown show">
-              <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Pemeriksaan</a>
-            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-              <li><a href="#" class="dropdown-item">Pendaftaraan </a></li>
-              <li><a href="#" class="dropdown-item">Hasil Pemeriksaan</a></li>
-              <li class="dropdown-divider"></li>
-              <li class="dropdown-submenu dropdown-hover">
-                <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Hover for action</a>
-                <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow"><li>
-                <a tabindex="-1" href="#" class="dropdown-item">level 2</a>
-              </li>
-              <li class="dropdown-submenu">
-                <a id="dropdownSubMenu3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">level 2</a>
-            <ul aria-labelledby="dropdownSubMenu3" class="dropdown-menu border-0 shadow">
-              <li><a href="#" class="dropdown-item">3rd level</a></li>
-              <li><a href="#" class="dropdown-item">3rd level</a></li>
-            </ul>
-        </li>
-        <li><a href="#" class="dropdown-item">level 2</a></li>
-        <li><a href="#" class="dropdown-item">level 2</a></li>
-      </ul>
-    </li>
-  </ul>
-</li>
-  <li class="nav-item"><a href="#" class="nav-link">Tentang</a></li>
-  <li class="nav-item"><a href="#" class="nav-link">Ganti Password</a></li>
-</ul>
-</div> <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-
-<li class="nav-item dropdown">
-<a class="nav-link" data-toggle="dropdown" href="#">
-<i class="fas fa-comments"></i>
-<span class="badge badge-danger navbar-badge">3</span>
-</a>
-<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-<a href="#" class="dropdown-item">
-
-<div class="media">
-<img src="../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-<div class="media-body">
-<h3 class="dropdown-item-title">
-Brad Diesel
-<span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-</h3>
-<p class="text-sm">Call me whenever you can...</p>
-<p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-</div>
-</div>
-
-</a>
-<div class="dropdown-divider"></div>
-<a href="#" class="dropdown-item">
-
-<div class="media">
-<img src="../../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-<div class="media-body">
-<h3 class="dropdown-item-title">
-John Pierce
-<span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-</h3>
-<p class="text-sm">I got your message bro</p>
-<p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-</div>
-</div>
-
-</a>
-<div class="dropdown-divider"></div>
-<a href="#" class="dropdown-item">
-
-<div class="media">
-<img src="../../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-<div class="media-body">
-<h3 class="dropdown-item-title">
-Nora Silvester
-<span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-</h3>
-<p class="text-sm">The subject goes here</p>
-<p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-</div>
-</div>
-
-</a>
-<div class="dropdown-divider"></div>
-<a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-</div>
-</li>
-
-<li class="nav-item dropdown">
-<a class="nav-link" data-toggle="dropdown" href="#">
-<i class="far fa-bell"></i>
-<span class="badge badge-warning navbar-badge">15</span>
-</a>
-<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-<span class="dropdown-header">15 Notifications</span>
-<div class="dropdown-divider"></div>
-<a href="#" class="dropdown-item">
-<i class="fas fa-envelope mr-2"></i> 4 new messages
-<span class="float-right text-muted text-sm">3 mins</span>
-</a>
-<div class="dropdown-divider"></div>
-<a href="#" class="dropdown-item">
-<i class="fas fa-users mr-2"></i> 8 friend requests
-<span class="float-right text-muted text-sm">12 hours</span>
-</a>
-<div class="dropdown-divider"></div>
-<a href="#" class="dropdown-item">
-<i class="fas fa-file mr-2"></i> 3 new reports
-<span class="float-right text-muted text-sm">2 days</span>
-</a>
-<div class="dropdown-divider"></div>
-<a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-</div>
-</li>
-<li class="nav-item">
-<a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-<i class="fas fa-th-large"></i>
-</a>
-</li>
-</ul>   
-      </div> 
-    </nav>  
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class=""></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2" class="="></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2" class=""></li>
-      </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item">
-        <img class="d-block w-100" src="https://placehold.it/900x500/39CCCC/ffffgf&amp;text=LABORATORIUM-BSIP-KALTIM" alt="First slide">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="https://placehold.it/900x500/39CCCC/ffffff&amp;text=BSIP-KALTIM" alt="First slide">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="https://placehold.it/900x500/3c8dbc/ffffff&amp;text=I+Love+Bootstrap" alt="Second slide">
-      </div>
-      <div class="carousel-item active">
-        <img class="d-block w-100" src="https://placehold.it/900x500/f39c12/ffffff&amp;text=I+Love+Bootstrap" alt="Third slide">
-      </div>
+    <div class="wrapper">
+        <div class="card">
+            <div class="card-title">
+                <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+                    <div class="container">
+                        <a href="#" class="navbar-brand">
+                            <img src="images/R.png" alt="AdminLTE Logo"  class="brand-image img-circle elevation-2" style="opacity: .9">
+                        </a>
+                        <label class="brand-text text-sm font-weight-light"><b>Badan Standarisasi Instrumen Pertanian<br>Kalimantan Timur</b></label>
+                        <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse order-3 ml-5" id="navbarCollapse">
+                            <ul class="navbar-nav">
+                                <li class="nav-item"></li>
+                                <li class="nav-item"><a href="{{ route('branda') }}" class="nav-link">Beranda</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">Jenis Pelayanan</a></li>
+                                <li class="nav-item dropdown show">
+                                <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Pemeriksaan</a>
+                                <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                                    <li><a href="#" class="dropdown-item">Pendaftaraan </a></li>
+                                    <li><a href="#" class="dropdown-item">Hasil Pemeriksaan</a></li>
+                                    <li class="dropdown-divider"></li>
+                                    <li class="dropdown-submenu dropdown-hover">
+                                        <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Hover for action</a>
+                                            <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
+                                                <li>
+                                                    <a tabindex="-1" href="#" class="dropdown-item">level 2</a>
+                                                </li>
+                                                <li class="dropdown-submenu">
+                                                    <a id="dropdownSubMenu3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">level 2</a>
+                                                    <ul aria-labelledby="dropdownSubMenu3" class="dropdown-menu border-0 shadow">
+                                                        <li><a href="#" class="dropdown-item">3rd level</a></li>
+                                                        <li><a href="#" class="dropdown-item">3rd level</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#" class="dropdown-item">level 2</a></li>
+                                                <li><a href="#" class="dropdown-item">level 2</a></li>
+                                            </ul>
+                                    </li>
+                                </ul>
+                                <li class="nav-item"><a href="#" class="nav-link">Tentang</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link">Ganti Password</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    </nav>
+            </div>
+        </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-custom-icon" aria-hidden="true">
-        <i class="fas fa-chevron-left"></i>
-      </span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-custom-icon" aria-hidden="true">
-        <i class="fas fa-chevron-right"></i>
-      </span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div> 
+    <div class="card card-primary col-lg-12 col-lg-12 col-sm-12 heigh">
+        <div class="card-body">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class=""></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2" class="="></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="images/Heading.jpg"  height="500"  alt="First slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>BADAN STANDARISASI INSTRUMEN PERTANIAN</h1>
+                            <p>KALIMANTAN TIMUR</p>
+                            <a href="#" class="btn btn-primary">Pendaftaran</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100"  height="700" src="https://placehold.it/900x500/3c8dbc/ffffff&amp;text=I+Love+Bootstrap" alt="Second slide">
+                    </div>
+                    <div class="carousel-item active">
+                        <img class="d-block w-100"  height="700" src="https://placehold.it/900x500/f39c12/ffffff&amp;text=I+Love+" alt="Third slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-custom-icon" aria-hidden="true">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-custom-icon" aria-hidden="true">
+                        <i class="fas fa-chevron-right"></i>
+                    </span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
 </div>
 <div class="card">
   <div class="card-body row">
@@ -211,7 +129,7 @@ Nora Silvester
         <div class="icon">
           <i class="ion ion-stats-bars"></i>
         </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>  
+          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <div class="col-lg-4 col-6">
@@ -223,7 +141,7 @@ Nora Silvester
         <div class="icon">
           <i class="ion ion-stats-bars"></i>
         </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>  
+          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <div class="col-lg-4 col-6">
@@ -235,10 +153,11 @@ Nora Silvester
         <div class="icon">
           <i class="ion ion-stats-bars"></i>
         </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>  
+          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
       </div>
     </div>
   </div>
+</div>
 </div>
 </div>
 </body>
