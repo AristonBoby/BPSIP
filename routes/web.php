@@ -19,6 +19,8 @@ Auth::routes([  'register' => false,
                 ]);
 
 Route::get('/', [App\Http\Controllers\home::class,'index'])->name('branda');
+Route::get('/jenisLayanan', [App\Http\Controllers\jenisLayanan::class,'index'])->name('jenisLayanan');
+
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class,'showLoginForm'])->name('login');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/FormJenisPengujian', [App\Http\Controllers\jenisPengujian::class, 'index'])->middleware('auth')->name('formJenisPengujian');

@@ -27,6 +27,7 @@
 </head>
 
 <body class="sidebar-collapse layout-top-nav" style="height: auto;">
+    <div class="container">
     <div class="wrapper">
         <div class="card">
             <div class="card-title">
@@ -39,45 +40,13 @@
                         <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <div class="collapse navbar-collapse order-3 ml-5" id="navbarCollapse">
-                            <ul class="navbar-nav">
-                                <li class="nav-item"></li>
-                                <li class="nav-item"><a href="{{ route('branda') }}" class="nav-link">Beranda</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link">Jenis Pelayanan</a></li>
-                                <li class="nav-item dropdown show">
-                                <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Pemeriksaan</a>
-                                <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                                    <li><a href="#" class="dropdown-item">Pendaftaraan </a></li>
-                                    <li><a href="#" class="dropdown-item">Hasil Pemeriksaan</a></li>
-                                    <li class="dropdown-divider"></li>
-                                    <li class="dropdown-submenu dropdown-hover">
-                                        <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Hover for action</a>
-                                            <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
-                                                <li>
-                                                    <a tabindex="-1" href="#" class="dropdown-item">level 2</a>
-                                                </li>
-                                                <li class="dropdown-submenu">
-                                                    <a id="dropdownSubMenu3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">level 2</a>
-                                                    <ul aria-labelledby="dropdownSubMenu3" class="dropdown-menu border-0 shadow">
-                                                        <li><a href="#" class="dropdown-item">3rd level</a></li>
-                                                        <li><a href="#" class="dropdown-item">3rd level</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#" class="dropdown-item">level 2</a></li>
-                                                <li><a href="#" class="dropdown-item">level 2</a></li>
-                                            </ul>
-                                    </li>
-                                </ul>
-                                <li class="nav-item"><a href="#" class="nav-link">Tentang</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link">Ganti Password</a></li>
-                            </ul>
-                        </div>
+                        @yield('navigator')
                     </div>
                     </nav>
             </div>
         </div>
     </div>
-    <div class="card card-primary col-lg-12 col-lg-12 col-sm-12 heigh">
+    <div class="card card-primary col-lg-12 col-lg-12 col-sm-12 ">
         <div class="card-body">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -87,7 +56,7 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="images/Heading.jpg"  height="500"  alt="First slide">
+                        <img class="d-block w-100" src="images/Heading.jpg"    height="500"alt="First slide">
                         <div class="carousel-caption d-none d-md-block">
                             <h1>BADAN STANDARISASI INSTRUMEN PERTANIAN</h1>
                             <p>KALIMANTAN TIMUR</p>
@@ -95,10 +64,10 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100"  height="700" src="https://placehold.it/900x500/3c8dbc/ffffff&amp;text=I+Love+Bootstrap" alt="Second slide">
+                        <img class="d-block w-100"  height="500" src="https://placehold.it/900x500/3c8dbc/ffffff&amp;text=I+Love+Bootstrap" alt="Second slide">
                     </div>
                     <div class="carousel-item active">
-                        <img class="d-block w-100"  height="700" src="https://placehold.it/900x500/f39c12/ffffff&amp;text=I+Love+" alt="Third slide">
+                        <img class="d-block w-100"  height="500" src="https://placehold.it/900x500/f39c12/ffffff&amp;text=I+Love+" alt="Third slide">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -116,50 +85,55 @@
             </div>
         </div>
     </div>
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title"><i class="fa fa-newspaper"></i> Status Pemeriksaan Sampel</h5>
+        </div>
+        <div class="card-body row">
+            <div class="col-lg-4 col-6">
+                <div class="small-box bg-success">
+                    <div class="inner">
+                    <h3>53<sup style="font-size: 20px">%</sup></h3>
+                    <p>Antrian Sampel</p>
+                    </div>
+                    <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-6">
+                <div class="small-box bg-success">
+                    <div class="inner">
+                    <h3>53<sup style="font-size: 20px">%</sup></h3>
+                    <p>Sedang di Periksa</p>
+                    </div>
+                    <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-6">
+                <div class="small-box bg-success">
+                    <div class="inner">
+                    <h3>53<sup style="font-size: 20px">%</sup></h3>
+                    <p>Selesai</p>
+                    </div>
+                    <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-<div class="card">
-  <div class="card-body row">
-    <div class="col-lg-4 col-6">
-      <div class="small-box bg-success">
-        <div class="inner">
-          <h3>53<sup style="font-size: 20px">%</sup></h3>
-          <p>Bounce Rate</p>
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title"><i class="fa fa-newspaper"></i> Pengumuman</h5>
         </div>
-        <div class="icon">
-          <i class="ion ion-stats-bars"></i>
+        <div class="card-body row">
+
         </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-      </div>
     </div>
-    <div class="col-lg-4 col-6">
-      <div class="small-box bg-success">
-        <div class="inner">
-          <h3>53<sup style="font-size: 20px">%</sup></h3>
-          <p>Bounce Rate</p>
-        </div>
-        <div class="icon">
-          <i class="ion ion-stats-bars"></i>
-        </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-      </div>
-    </div>
-    <div class="col-lg-4 col-6">
-      <div class="small-box bg-success">
-        <div class="inner">
-          <h3>53<sup style="font-size: 20px">%</sup></h3>
-          <p>Bounce Rate</p>
-        </div>
-        <div class="icon">
-          <i class="ion ion-stats-bars"></i>
-        </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-</div>
+    <div class="container">
 </body>
 @livewireScripts
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
