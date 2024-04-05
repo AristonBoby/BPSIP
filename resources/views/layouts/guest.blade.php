@@ -92,10 +92,14 @@
             <h5 class="card-title"><i class="fa fa-newspaper"></i> Pengumuman</h5>
         </div>
         <div class="card-body row">
-
+            <strong>Alur Pemeriksaan Lab BSIP Kaltim</strong>
+            <p class="text-muted">dddd</p>
+            <hr>
+            <strong>Alur Pemeriksaan Lab BSIP Kaltim</strong>
+            <p>dddd</p>
+            <hr>
         </div>
     </div>
-    <div class="container">
 </body>
 @livewireScripts
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
