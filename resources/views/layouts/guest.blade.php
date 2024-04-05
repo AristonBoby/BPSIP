@@ -47,13 +47,13 @@
         </div>
     </div>
     @yield('slide')
-    <div class="card">
+    <div class="card shadow rounded-0" >
         <div class="card-header">
             <h5 class="card-title"><i class="fa fa-newspaper"></i> Status Pemeriksaan Sampel</h5>
         </div>
         <div class="card-body row">
-            <div class="col-lg-4 col-6">
-                <div class="small-box bg-success">
+            <div class="col-lg-4 col-6 ">
+                <div class="small-box bg-success shadow rounded-0">
                     <div class="inner">
                     <h3>53<sup style="font-size: 20px">%</sup></h3>
                     <p>Antrian Sampel</p>
@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-6">
-                <div class="small-box bg-success">
+                <div class="small-box bg-success shadow rounded-0">
                     <div class="inner">
                     <h3>53<sup style="font-size: 20px">%</sup></h3>
                     <p>Sedang di Periksa</p>
@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-6">
-                <div class="small-box bg-success">
+                <div class="small-box bg-success shadow rounded-0">
                     <div class="inner">
                     <h3>53<sup style="font-size: 20px">%</sup></h3>
                     <p>Selesai</p>
