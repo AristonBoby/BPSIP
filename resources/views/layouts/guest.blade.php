@@ -47,7 +47,7 @@
         </div>
     </div>
     @yield('slide')
-    <div class="card shadow rounded-0" >
+    <div class="card " >
         <div class="card-header">
             <h5 class="card-title"><i class="fa fa-newspaper"></i> Status Pemeriksaan Sampel</h5>
         </div>
