@@ -11,9 +11,16 @@ class jenis_pengujian_sampel extends Model
     use uuid;
     use SoftDeletes;
     use HasFactory;
+
     protected $fillable = [
        'id',
        'jenis_pengujian',
        'status',
     ];
+
+
+    public function analisaSampel()
+    {
+        return $this->hasMany('App\Models\analisaSampel','jenisPengujian_id','id');
+    }
 }

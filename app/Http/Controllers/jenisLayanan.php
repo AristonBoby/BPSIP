@@ -15,7 +15,7 @@ class jenisLayanan extends Controller
     public function index()
     {
         $query = jenis_pengujian_sampel::all(); 
-        return view('jenisLayanan');
+        return view('jenisLayanan',compact('query'));
 
     }
 
