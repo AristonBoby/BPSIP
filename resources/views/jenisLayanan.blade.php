@@ -5,6 +5,9 @@
 @endsection
 
 @section('slide')
+<div class="card card-defaulr">
+    <div class="card-body"><h5 >Jenis Layanan</h5></div>
+</div>
 <div class="card">
     <div class="card-body">
         <div class="row">

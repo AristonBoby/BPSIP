@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\jenis_pengujian_sampel;
 
 class jenisLayanan extends Controller
 {
@@ -12,7 +14,9 @@ class jenisLayanan extends Controller
      */
     public function index()
     {
+        $query = jenis_pengujian_sampel::all(); 
         return view('jenisLayanan');
+
     }
 
     /**
