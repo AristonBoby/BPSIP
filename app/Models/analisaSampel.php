@@ -22,7 +22,7 @@ class analisaSampel extends Model
 
     public function jenisPemeriksaanSampel()
     {
-        return $this->hasMany('App\Models\jenisPemeriksaanSampel','item_analisa_id','id');
+        return $this->hasMany('App\Models\jenisPemeriksaanSampel','analisa_sampel_id','id');
     }
 
     public function jenisPengujianSampel()
