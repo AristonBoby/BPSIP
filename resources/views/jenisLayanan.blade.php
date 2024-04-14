@@ -27,7 +27,7 @@
                                     <span class="card-title"><b>{{$da->jenis_analisa}}</b></span>
                                 </div>
                                 <div class="card-body">
-                                <h5 class="pb-3 text-center"><b>ITEM PEMERIKSAAN</b></h5>
+                                <h5 class="pb-3 text-center" style="font-size:12pt"><b>ITEM PEMERIKSAAN</b></h5>
                                 <ul class="list-group list-group-unbordered mb-3">
                                     @foreach($da->jenisPemeriksaanSampel as $no=>$value) 
                                     <li style="margin:-9px;" class="list-group-item">
@@ -43,7 +43,7 @@
                                 </ul>
                                 <div class="ribbon-wrapper ribbon-xl">
                                     <div class="ribbon bg-success text-lg">
-                                        PROMOSI dddd
+                                        <span style="font-size:12pt">PROMOSI dddd</span>
                                     </div>
                                 </div>
                                 </div>
