@@ -33,6 +33,9 @@ Route::get('/master-user', [App\Http\Controllers\masterUser::class, 'index'])->n
 Route::get('/pendaftaran', [App\Http\Controllers\pendaftaraanGuest::class, 'index'])->name('pendaftaran');
 Route::get('/print/permohonan/{id}', [App\Http\Controllers\printPermohoanan::class, 'index'])->name('printPermohonan');
 
+// User Guest //
+Route::post('/insert-pendaftaran',[App\Http\Controllers\pendaftaraanGuest::class],'store')->name('guest.daftar');
+
 
 
 

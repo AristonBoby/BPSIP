@@ -15,7 +15,8 @@
             <span class="card-title">Pendaftaran User</span>
         </div>
         <div class="card-body">
-            <form>
+            <form action="{{route('guest.daftar')}}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="form-group">
                     <label class="label-control">Nama</label>
                     <input type="text" class="form-control" placeholder="Masukan nama anda"> 
