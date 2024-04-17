@@ -41,11 +41,13 @@
                                         <b class=" text-lg text-dark float-right">{{formatRupiah($da->jenisPemeriksaanSampel->sum('harga'))}}</b>
                                     </li>
                                 </ul>
+                                <!--
                                 <div class="ribbon-wrapper ribbon-xl">
                                     <div class="ribbon bg-success text-lg">
                                         <span style="font-size:12pt">PROMOSI dddd</span>
                                     </div>
                                 </div>
+                                -->
                                 </div>
                             </div>    
                         </div>
