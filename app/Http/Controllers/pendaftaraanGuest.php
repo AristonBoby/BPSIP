@@ -11,8 +11,8 @@ class pendaftaraanGuest extends Controller
         return view('pendaftaran');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        
+        return redirect('/pendaftaran');
     }
 }
