@@ -8,7 +8,7 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="images/Heading.jpg"    height="500"alt="First slide">
+                    <img class="d-block w-100 h-100" src="images/Heading.jpg" height="500"alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h1>BADAN STANDARISASI INSTRUMEN PERTANIAN</h1>
                         <p>KALIMANTAN TIMUR</p>
@@ -16,10 +16,10 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100"  height="500" src="https://placehold.it/900x500/3c8dbc/ffffff&amp;text=I+Love+Bootstrap" alt="Second slide">
+                    <img class="d-block w-100 h-100"  src="https://placehold.it/900x500/3c8dbc/ffffff&amp;text=I+Love+Bootstrap" alt="Second slide">
                 </div>
                 <div class="carousel-item active">
-                    <img class="d-block w-100"  height="500" src="https://placehold.it/900x500/f39c12/ffffff&amp;text=I+Love+" alt="Third slide">
+                    <img class="d-block w-100 h-100"  height="500" src="https://placehold.it/900x500/f39c12/ffffff&amp;text=I+Love+" alt="Third slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
