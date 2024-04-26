@@ -35,10 +35,7 @@
                 <div class="form-group">
                     <label class="label-control">*Provinsi</label>
                     <select class="form-control select2-hidden-accessible rounded-0" id="provinsi" style="width:100%;  font-size:1.2em;"  tabindex="-1" aria-hidden="true">
-                        <option value="" selected></option>
-                            @foreach($prov as $data)
-                                <option value="{{$data->id}}" >Provinsi {{$data->kecamatan->kota->provinsi->namaProvinsi}} || Kab/Kota {{$data->kecamatan->kota->namaKota}} || Kecamatan {{$data->kecamatan->namaKecamatan}} || Desa/ Keluarahan {{$data->namaKelurahan}}</option>
-                            @endforeach
+                      
                     </select>
                 </div>
                 <div class="form-group">
@@ -70,10 +67,25 @@
         $(document).ready(function(){
             $('#provinsi').select2({
                 theme: "classic",
-                minimumInputLength:0,
+                 minimumInputLength:2,
                 placeholder: "--- Pilih Kelurahan ---",
-                maximumSelectionLength: 2,
-                allowClear: true,
+              //x  maximumSelectionLength: 2,
+              //  allowClear: true,
+                ajax: {
+                        url:"{{route('guest.provinsi')}}",
+                        processResults : function(data)
+                        {
+                            return {
+                                results: $.map(data, function(item){
+                                    return {
+                                        id: item.id,
+                                        text: item.namaKelurahan
+                                    }
+                                
+                                })
+                            }
+                        }
+                }
 
             });
         });

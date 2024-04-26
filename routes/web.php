@@ -37,6 +37,9 @@ Route::get('/print/permohonan/{id}', [App\Http\Controllers\printPermohoanan::cla
 Route::get('/pendaftaran', [App\Http\Controllers\pendaftaraanGuest::class, 'index'])->name('pendaftaran');
 Route::post('/insert/Pendaftaran',[App\Http\Controllers\pendaftaraanGuest::class,'store'])->name('guest.daftar');
 
+Route::get('/get/provinsi',[App\Http\Controllers\pendaftaraanGuest::class,'provinsi'])->name('guest.provinsi');
+
+
 
 
 

@@ -23,4 +23,10 @@ class pendaftaraanGuest extends Controller
     {
         return redirect('/pendaftaran');
     }
+
+    public function provinsi()
+    {
+       $query = provinsi::where('namaProvinsi','LIKE','%'.request('q').'%')->get();
+       return response()->json($query);
+    }
 }

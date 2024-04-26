@@ -9,10 +9,9 @@
         <div class="card-body">
             <table class="table text-sm">
                 <thead>
-                    <th>
                     <td>NO.</td>
                     <th>NOMOR DOKUMEN</th>
-                    <th>JUDUL DOKUMEN</th>
+                    <th>JUDUL DOKUMEN</th>m
                     <th>JENIS DOKUMEN</th>
                     <th>TANGGAL DOKUMEN</th>
                     <th>KERERANGAN</th>
