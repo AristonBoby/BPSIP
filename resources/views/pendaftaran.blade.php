@@ -39,6 +39,12 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label class="label-control">*kota</label>
+                    <select class="form-control  rounded-0" id="kota" style="width:100%;  font-size:1.2em;"  tabindex="-1" aria-hidden="true">
+                      
+                    </select>
+                </div>
+                <div class="form-group">
                     <label class="label-control"><i class="text-danger">*</i> Alamat</label>
                     <input type="text" class="form-control" placeholder="Masukan nama anda">
                 </div>
@@ -68,7 +74,7 @@
             $('#provinsi').select2({
                 theme: "classic",
                  minimumInputLength:2,
-                placeholder: "--- Pilih Kelurahan ---",
+                placeholder: "--- Pilih Provinsi ---",
               //x  maximumSelectionLength: 2,
               //  allowClear: true,
                 ajax: {
@@ -79,7 +85,7 @@
                                 results: $.map(data, function(item){
                                     return {
                                         id: item.id,
-                                        text: item.namaKelurahan
+                                        text: item.namaProvinsi
                                     }
                                 
                                 })
@@ -87,6 +93,29 @@
                         }
                 }
 
+            });
+            $('#provinsi').change(function(){
+                let id = $('#provinsi').val();
+                $('#kota').select2({
+
+                    placeholder: "--- Pilih Kab/Kota ---",
+                    theme: "classic",
+                    ajax: {
+                            url:"{{url('get/kota')}}/"+id,
+                            processResults : function(data)
+                            {
+                                return {
+                                    results: $.map(data, function(item){
+                                        return {
+                                            id: item.id,
+                                            text: item.namaKota
+                                        }
+                                    
+                                    })
+                                }
+                            }
+                    }
+                });
             });
         });
     </script>

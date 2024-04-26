@@ -38,6 +38,8 @@ Route::get('/pendaftaran', [App\Http\Controllers\pendaftaraanGuest::class, 'inde
 Route::post('/insert/Pendaftaran',[App\Http\Controllers\pendaftaraanGuest::class,'store'])->name('guest.daftar');
 
 Route::get('/get/provinsi',[App\Http\Controllers\pendaftaraanGuest::class,'provinsi'])->name('guest.provinsi');
+Route::get('/get/kota/{id}',[App\Http\Controllers\pendaftaraanGuest::class,'kota'])->name('guest.kota');
+
 
 
 

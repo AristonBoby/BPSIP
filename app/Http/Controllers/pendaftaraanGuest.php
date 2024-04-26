@@ -6,6 +6,7 @@ use App\Models\provinsi;
 use App\Models\kelurahan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\kota;
 
 class pendaftaraanGuest extends Controller
 {
@@ -14,10 +15,7 @@ class pendaftaraanGuest extends Controller
         $prov = kelurahan::paginate(10);
         return view('pendaftaran',compact('prov'));
     }
-    public function kota()
-    {
-
-    }
+    
 
     public function store(Request $request)
     {
@@ -29,4 +27,11 @@ class pendaftaraanGuest extends Controller
        $query = provinsi::where('namaProvinsi','LIKE','%'.request('q').'%')->get();
        return response()->json($query);
     }
+
+    public function kota($id)
+    {
+        $query = kota::where('provinsi_id',$id)->where('namaKota','LIKE','%'.request('q').'%')->get();
+        return response()->json($query);
+    }
+
 }
