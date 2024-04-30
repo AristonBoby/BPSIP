@@ -20,27 +20,39 @@
             <form action="{{route('guest.daftar')}}" method="POST" >
                 @csrf
                 <div class="form-group">
-                    <label class="label-control"><i class="text-danger">*</i>Nama</label>
+                    <label class="label-control"><i class="text-danger">*</i> Nama</label>
                     <input type="text" class="form-control" name="nama" placeholder="Masukan nama anda">
                 </div>
                 <div class="form-group">
-                    <label class="label-control"><i class="text-danger">*</i>Email</label>
+                    <label class="label-control"><i class="text-danger">*</i> Email</label>
                     <input type="email" class="form-control" name="email" placeholder="Masukan email anda">
                 </div>
                 <div class="form-group">
-                    <label class="label-control"><i class="text-danger">*</i>No HP</label>
+                    <label class="label-control"><i class="text-danger">*</i> No HP</label>
                     <input type="text" class="form-control" name="no_hp" placeholder="Masukan HP anda">
                 </div>
 
                 <div class="form-group">
-                    <label class="label-control">*Provinsi</label>
-                    <select class="form-control select2-hidden-accessible rounded-0" id="provinsi" style="width:100%;  font-size:1.2em;"  tabindex="-1" aria-hidden="true">
+                    <label class="label-control"><i class="text-danger">*</i> Provinsi</label>
+                    <select class="form-control rounded-0" id="provinsi" style="width:100%;  font-size:1.2em;"  tabindex="-1" aria-hidden="true">
                       
                     </select>
                 </div>
-                <div class="form-group">
-                    <label class="label-control">*kota</label>
+                <div class="form-group ">
+                    <label class="label-control"><i class="text-danger">*</i> Kota</label>
                     <select class="form-control  rounded-0" id="kota" style="width:100%;  font-size:1.2em;"  tabindex="-1" aria-hidden="true">
+                      
+                    </select>
+                </div>
+                <div class="form-group ">
+                    <label class="label-control"><i class="text-danger">*</i> Kecamatan</label>
+                    <select class="form-control  rounded-0" id="kecamatan" style="width:100%;  font-size:1.2em;"  tabindex="-1" aria-hidden="true">
+                      
+                    </select>
+                </div>
+                <div class="form-group ">
+                    <label class="label-control"><i class="text-danger">*</i> Kelurahan</label>
+                    <select name="kelurahan" class="form-control  rounded-0" id="kelurahan" style="width:100%;  font-size:1.2em;"  tabindex="-1" aria-hidden="true">
                       
                     </select>
                 </div>
@@ -65,15 +77,12 @@
     </div>
 
     <script type="text/javascript">
-        $('#daftar').click(function(e){
-            alert('ddd');
-        });
 
 
         $(document).ready(function(){
             $('#provinsi').select2({
                 theme: "classic",
-                 minimumInputLength:2,
+                //minimumInputLength:2,
                 placeholder: "--- Pilih Provinsi ---",
               //x  maximumSelectionLength: 2,
               //  allowClear: true,
@@ -97,7 +106,6 @@
             $('#provinsi').change(function(){
                 let id = $('#provinsi').val();
                 $('#kota').select2({
-
                     placeholder: "--- Pilih Kab/Kota ---",
                     theme: "classic",
                     ajax: {
@@ -109,6 +117,50 @@
                                         return {
                                             id: item.id,
                                             text: item.namaKota
+                                        }
+                                    
+                                    })
+                                }
+                            }
+                    }
+                });
+            });
+            $('#kota').change(function(){
+                let idKota = $('#kota').val();
+                $('#kecamatan').select2({
+                    placeholder: "--- Pilih Kecamatan ---",
+                    theme: "classic",
+                    ajax: {
+                            url:"{{url('get/kec')}}/"+idKota,
+                            processResults : function(data)
+                            {
+                                return {
+                                    results: $.map(data, function(item){
+                                        return {
+                                            id: item.id,
+                                            text: item.namaKecamatan
+                                        }
+                                    
+                                    })
+                                }
+                            }
+                    }
+                });
+            });
+            $('#kecamatan').change(function(){
+                let id= $('#kecamatan').val();
+                $('#kelurahan').select2({
+                    placeholder: "--- Pilih Kecamatan ---",
+                    theme: "classic",
+                    ajax: {
+                            url:"{{url('get/kel')}}/"+id,
+                            processResults : function(data)
+                            {
+                                return {
+                                    results: $.map(data, function(item){
+                                        return {
+                                            id: item.id,
+                                            text: item.namaKelurahan
                                         }
                                     
                                     })

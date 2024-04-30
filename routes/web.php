@@ -39,6 +39,10 @@ Route::post('/insert/Pendaftaran',[App\Http\Controllers\pendaftaraanGuest::class
 
 Route::get('/get/provinsi',[App\Http\Controllers\pendaftaraanGuest::class,'provinsi'])->name('guest.provinsi');
 Route::get('/get/kota/{id}',[App\Http\Controllers\pendaftaraanGuest::class,'kota'])->name('guest.kota');
+Route::get('/get/kec/{id}',[App\Http\Controllers\pendaftaraanGuest::class,'kecamatan'])->name('guest.kecamatan');
+Route::get('/get/kel/{id}',[App\Http\Controllers\pendaftaraanGuest::class,'kelurahan'])->name('guest.kelurahan');
+
+
 
 
 
