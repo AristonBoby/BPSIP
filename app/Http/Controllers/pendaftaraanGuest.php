@@ -20,7 +20,7 @@ class pendaftaraanGuest extends Controller
 
     public function store(Request $request)
     {
-        dd($request->keluarahan);
+       
     }
 
     public function provinsi()
