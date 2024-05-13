@@ -8,6 +8,12 @@
 
 
 <div>
+    @if ($message = Session::get('sukses'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button> 
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
     <div class="card card-default ">
         <div class="card-body"><h5 >Pendaftaran</h5></div>
     </div>
@@ -21,52 +27,62 @@
                 @csrf
                 <div class="form-group">
                     <label class="label-control"><i class="text-danger">*</i> Nama</label>
-                    <input type="text" class="form-control" name="name" placeholder="Masukan nama anda">
+                    <input type="text"  name="name" class="form-control @error('name') is-invalid @enderror " placeholder="Masukan nama anda" value="{{ old('name') }}">
+                    @error('name') <span class=" text-red text-sm">{{ $message }}</span> @enderror
                 </div>
                 <div class="form-group">
-                    <label class="label-control"><i class="text-danger">*</i> Email</label>
-                    <input type="email" class="form-control" name="email" placeholder="Masukan email anda">
+                    <label class="label-control @error('name') is-invalid @enderror"><i class="text-danger">*</i> Email</label>
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Masukan email anda" value="{{ old('email') }}">
+                    @error('email') <span class=" text-red text-sm">{{ $message }}</span> @enderror
                 </div>
                 <div class="form-group">
                     <label class="label-control"><i class="text-danger">*</i> No HP</label>
-                    <input type="text" class="form-control" name="no_hp" placeholder="Masukan HP anda">
+                    <input type="text" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp" placeholder="Masukan HP anda"value="{{ old('no_hp') }}">
+                    @error('no_hp') <span class=" text-red text-sm">{{ $message }}</span> @enderror
                 </div>
 
                 <div class="form-group">
-                    <label class="label-control"><i class="text-danger">*</i> Provinsi</label>
-                    <select class="form-control rounded-0" id="provinsi" style="width:100%;  font-size:1.2em;"  tabindex="-1" aria-hidden="true">
+                    <label class="label-control "><i class="text-danger">*</i> Provinsi</label>
+                    <select class="form-control rounded-0 @error('prov') is-invalid @enderror" id="provinsi" style="width:100%;  font-size:1.2em;"  name="prov" tabindex="-1" aria-hidden="true" value="{{ old('prov') }}">
                       
                     </select>
+                    @error('prov') <span class=" text-red text-sm">{{ $message }}</span> @enderror
                 </div>
                 <div class="form-group ">
                     <label class="label-control"><i class="text-danger">*</i> Kota</label>
-                    <select class="form-control  rounded-0" id="kota" style="width:100%;  font-size:1.2em;"  tabindex="-1" aria-hidden="true">
+                    <select class="form-control  rounded-0 @error('no_hp') is-invalid @enderror" id="kota" style="width:100%;  font-size:1.2em;"  name="kota" tabindex="-1" aria-hidden="true" value="{{ old('kota') }}">
                       
                     </select>
+                    @error('kota') <span class=" text-red text-sm">{{ $message }}</span> @enderror
                 </div>
                 <div class="form-group ">
                     <label class="label-control"><i class="text-danger">*</i> Kecamatan</label>
-                    <select class="form-control  rounded-0" id="kecamatan" style="width:100%;  font-size:1.2em;"  tabindex="-1" aria-hidden="true">
+                    <select class="form-control  rounded-0 @error('no_hp') is-invalid @enderror" name=""id="kecamatan" style="width:100%;  font-size:1.2em;"  tabindex="-1" aria-hidden="true">
                       
                     </select>
+                    @error('kec') <span class=" text-red text-sm">{{ $message }}</span> @enderror
                 </div>
                 <div class="form-group ">
                     <label class="label-control"><i class="text-danger">*</i> Kelurahan</label>
-                    <select name="kelurahan" class="form-control  rounded-0" id="kelurahan" style="width:100%;  font-size:1.2em;"  tabindex="-1" aria-hidden="true">
+                    <select name="kelurahan" class="form-control  rounded-0 @error('kelurahan') is-invalid @enderror" name="kel" id="kelurahan" style="width:100%;  font-size:1.2em;"  tabindex="-1" aria-hidden="true">
                       
                     </select>
+                    @error('kelurahan') <span class=" text-red text-sm">{{ $message }}</span> @enderror
                 </div>
                 <div class="form-group">
                     <label class="label-control"><i class="text-danger">*</i> Alamat</label>
-                    <input type="text" class="form-control" placeholder="Masukan nama anda">
+                    <input type="text" class="form-control @error('alamat') is-invalid @enderror" placeholder="Masukan Alamat anda">
+                    @error('alamat') <span class=" text-red text-sm">{{ $message }}</span> @enderror
                 </div>
                 <div class="form-group">
                     <label class="label-control"><i class="text-danger">*</i> Password</label>
-                    <input type="password" class="form-control" name="password" placeholder="Password">
+                    <input type="password" name="pass" class="form-control @error('alamat') is-invalid @enderror " name="pass" placeholder="Password" value="{{ old('pass') }}">
+                    @error('pass') <span class=" text-red text-sm">{{ $message }}</span> @enderror
                 </div>
                 <div class="form-group">
                     <label class="label-control"> <i class="text-danger">*</i> Ulangi Password</label>
-                    <input type="password" class="form-control" name="rePassword" placeholder="Ulangi Password">
+                    <input type="password" name="re-pass" class="form-control @error('re-pass') is-invalid @enderror " name="rePassword" placeholder="Ulangi Password" value="{{ old('re-pass') }}">
+                    @error('re-pass') <span class=" text-red text-sm">{{ $message }}</span> @enderror
                 </div>
                 <div class="form-group mt-5">
                     <button type="submit" id="daftar" class="form-control btn-primary"> Daftar </button>
@@ -77,8 +93,6 @@
     </div>
 
     <script type="text/javascript">
-
-
         $(document).ready(function(){
             $('#provinsi').select2({
                 theme: "classic",
@@ -168,6 +182,21 @@
                             }
                     }
                 });
+            });
+        });
+    </script>
+    <script>
+        window.addEventListener('alert', event => {
+            $('#modalEdit').modal('hide');
+            $('#modalHapus').modal('hide');
+    
+            Swal.fire({
+                text: event.detail.text,
+                title: event.detail.title,
+                icon: event.detail.icon,
+                showConfirmButton: false,
+                timer: event.detail.timer,
+                buttons: false,
             });
         });
     </script>

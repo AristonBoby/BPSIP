@@ -47,8 +47,6 @@
                                 @if(!empty($data->userPemohons->kelurahan->namaKelurahan)){{ $data->userPemohons->kelurahan->namaKelurahan }},@endif
                                 @if(!empty($data->userPemohons->alamat)){{ $data->userPemohons->alamat }}
                                 @endif
-
-                                <@else
                             </td>
                             <td class="text-center">
                                 @if($data->role == 2)

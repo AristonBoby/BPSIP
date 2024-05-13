@@ -6,12 +6,7 @@
             <p>Dashboard</p>
           </a>
         </li>
-        <li class="nav-item">
-            <a href="{{ route('pendaftaranPemohon') }}" class="nav-link">
-              <i class="nav-icon fa fa-envelope" aria-hidden="true"></i>
-              <p>Form Pendaftaran Pemohon</p>
-            </a>
-        </li>
+        
         <li class="nav-item">
             <a href="{{ route('masterUsers') }}" class="nav-link">
               <i class="nav-icon fa fa-database" aria-hidden="true"></i>
