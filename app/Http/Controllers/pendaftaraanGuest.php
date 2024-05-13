@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\provinsi;
 use App\Models\kelurahan;
 use App\Models\kecamatan;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\kota;
@@ -20,7 +21,17 @@ class pendaftaraanGuest extends Controller
 
     public function store(Request $request)
     {
-       
+      $query = user::create([
+            'name'      => $request->name,
+            'email'     => $request->email,
+            'password'  =>  $request->password,
+            'role'      =>  '6',
+      ]);
+
+      if ($query)
+      {
+        dd('berhasil');
+      }
     }
 
     public function provinsi()

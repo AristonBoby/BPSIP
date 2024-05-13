@@ -21,7 +21,7 @@
                 @csrf
                 <div class="form-group">
                     <label class="label-control"><i class="text-danger">*</i> Nama</label>
-                    <input type="text" class="form-control" name="nama" placeholder="Masukan nama anda">
+                    <input type="text" class="form-control" name="name" placeholder="Masukan nama anda">
                 </div>
                 <div class="form-group">
                     <label class="label-control"><i class="text-danger">*</i> Email</label>
