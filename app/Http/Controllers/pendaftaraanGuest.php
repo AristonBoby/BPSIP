@@ -8,7 +8,9 @@ use App\Models\kecamatan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use App\Models\kota;
+use App\Models\userPemohon;
 use Session;
 class pendaftaraanGuest extends Controller
 {
@@ -17,25 +19,13 @@ class pendaftaraanGuest extends Controller
         $prov = kelurahan::paginate(10);
         return view('pendaftaran',compact('prov'));
     }
-    public function messages()
-    {
-        return [
-            'name.required'     =>  'Nama Wajib diisi !!!',
-        ];
-    }
-    public function rules()
-    {
-        return [
-            'name' => ['required'],
-        ];
-    }
-
+    
     public function validasi($request)
     {
         $validated = $request->validate([
             'name'      =>  'required',
             'email'     =>  'required|unique:users,email',
-            'no_hp'     =>  'required|numeric|max:14',
+            'no_hp'     =>  'required|numeric',
             'prov'      =>  'required',
             'kota'      =>  'required',
             'kec'       =>  'required',
@@ -68,20 +58,30 @@ class pendaftaraanGuest extends Controller
 
     public function store(Request $request)
     {  
-       $this->validasi($request);
+        $this->validasi($request);
         $query = user::create([
-             'name'      => $request->name,
-             'email'     => $request->email,
-             'password'  =>  $request->password,
+             'name'      =>  $request->name,
+             'email'     =>  $request->email,
+             'password'  =>  $request->pass,
              'role'      =>  '6',
 
-     ]);
-
-      if ($query)
-      {
-            Session::flash('sukses','Ini notifikasi SUKSES');
-            return view('pendaftaran');
-       }
+         ]);
+         $user = user::where('email',$request->email)->first();
+         if($query)
+         {
+             $data = userPemohon::create([
+                 'id'            =>  Str::uuid(),
+                 'user_id'       =>  $user->id,
+                 'alamat'        =>  $request->alamat,
+                 'kelurahan_id'  =>  $request->kel_id,
+                 'no_tlpn'       =>  $request->no_hp,
+             ]);
+                if($data)
+                {
+                    Session::flash('sukses','Ini notifikasi SUKSES');
+                    return view('pendaftaran');
+                }
+        }
     }
 
     public function provinsi()

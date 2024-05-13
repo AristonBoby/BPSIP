@@ -88,7 +88,6 @@ class MasteruserTable extends Component
             'user_id'       =>  $query->id,
             'alamat'        =>  $this->alamat,
             'kelurahan_id'  =>  $this->kel_id,
-            'alamat'        =>  $this->alamat,
             'no_tlpn'       =>  $this->no_hp,
         ]);
 

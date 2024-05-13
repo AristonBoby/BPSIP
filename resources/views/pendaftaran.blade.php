@@ -57,31 +57,31 @@
                 </div>
                 <div class="form-group ">
                     <label class="label-control"><i class="text-danger">*</i> Kecamatan</label>
-                    <select class="form-control  rounded-0 @error('no_hp') is-invalid @enderror" name=""id="kecamatan" style="width:100%;  font-size:1.2em;"  tabindex="-1" aria-hidden="true">
+                    <select name="kec" class="form-control  rounded-0 @error('kec') is-invalid @enderror" id="kecamatan" style="width:100%;  font-size:1.2em;"  tabindex="-1" aria-hidden="true">
                       
                     </select>
                     @error('kec') <span class=" text-red text-sm">{{ $message }}</span> @enderror
                 </div>
                 <div class="form-group ">
                     <label class="label-control"><i class="text-danger">*</i> Kelurahan</label>
-                    <select name="kelurahan" class="form-control  rounded-0 @error('kelurahan') is-invalid @enderror" name="kel" id="kelurahan" style="width:100%;  font-size:1.2em;"  tabindex="-1" aria-hidden="true">
+                    <select name="kel_id" class="form-control  rounded-0 @error('kel_id') is-invalid @enderror"  id="kelurahan" style="width:100%;  font-size:1.2em;"  tabindex="-1" aria-hidden="true">
                       
                     </select>
-                    @error('kelurahan') <span class=" text-red text-sm">{{ $message }}</span> @enderror
+                    @error('kel_id') <span class=" text-red text-sm">{{ $message }}</span> @enderror
                 </div>
                 <div class="form-group">
                     <label class="label-control"><i class="text-danger">*</i> Alamat</label>
-                    <input type="text" class="form-control @error('alamat') is-invalid @enderror" placeholder="Masukan Alamat anda">
+                    <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" placeholder="Masukan Alamat anda" value="{{ old('alamat') }}">
                     @error('alamat') <span class=" text-red text-sm">{{ $message }}</span> @enderror
                 </div>
                 <div class="form-group">
                     <label class="label-control"><i class="text-danger">*</i> Password</label>
-                    <input type="password" name="pass" class="form-control @error('alamat') is-invalid @enderror " name="pass" placeholder="Password" value="{{ old('pass') }}">
+                    <input type="password" class="form-control @error('pass') is-invalid @enderror " name="pass" placeholder="Password" value="{{ old('pass') }}">
                     @error('pass') <span class=" text-red text-sm">{{ $message }}</span> @enderror
                 </div>
                 <div class="form-group">
                     <label class="label-control"> <i class="text-danger">*</i> Ulangi Password</label>
-                    <input type="password" name="re-pass" class="form-control @error('re-pass') is-invalid @enderror " name="rePassword" placeholder="Ulangi Password" value="{{ old('re-pass') }}">
+                    <input type="password" name="re-pass" class="form-control @error('re-pass') is-invalid @enderror " name="re-pass" placeholder="Ulangi Password" value="{{ old('re-pass') }}">
                     @error('re-pass') <span class=" text-red text-sm">{{ $message }}</span> @enderror
                 </div>
                 <div class="form-group mt-5">
