@@ -29,7 +29,7 @@ class pendaftaraanGuest extends Controller
             'prov'      =>  'required',
             'kota'      =>  'required',
             'kec'       =>  'required',
-            'kelurahan' =>  'required',
+            'kel_id' =>  'required',
             'alamat'    =>  'required|max:100',
             'pass'      =>  'required|same:re-pass',
             're-pass'   =>  'required|same:pass',
@@ -43,7 +43,7 @@ class pendaftaraanGuest extends Controller
             'prov.required'         =>  'Provinsi Wajib dipilih',
             'kec.required'          =>  'Kecamatan Wajib dipilih',
             'kota.required'         =>  'Kota Wajib dipilih',
-            'kelurahan.required'    =>  'Kelurahan Wajib dipilih',
+            'kel_id.required'       =>  'Kelurahan Wajib dipilih',
             'alamat.required'       =>  'Alamat Wajib diisi',
             'pass.required'         =>  'Password Wajib diisi',
             'pass.same'             =>  'Password Tidak Sesuai',
@@ -58,7 +58,7 @@ class pendaftaraanGuest extends Controller
 
     public function store(Request $request)
     {  
-        $this->validasi($request);
+      $this->validasi($request);
         $query = user::create([
              'name'      =>  $request->name,
              'email'     =>  $request->email,
@@ -67,8 +67,9 @@ class pendaftaraanGuest extends Controller
 
          ]);
          $user = user::where('email',$request->email)->first();
-         if($query)
+         if($user)
          {
+           
              $data = userPemohon::create([
                  'id'            =>  Str::uuid(),
                  'user_id'       =>  $user->id,
@@ -79,7 +80,7 @@ class pendaftaraanGuest extends Controller
                 if($data)
                 {
                     Session::flash('sukses','Ini notifikasi SUKSES');
-                    return view('pendaftaran');
+                    return redirect('pendaftaran');
                 }
         }
     }
