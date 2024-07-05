@@ -29,5 +29,6 @@
         </ul>
         <li class="nav-item"><a href="#" class="nav-link">Tentang</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Ganti Password</a></li>
+        <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
     </ul>
 </div>

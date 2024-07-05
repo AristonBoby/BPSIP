@@ -19,7 +19,7 @@
           <!-- /.login-logo -->
           <div class="card card-outline card-primary">
             <div class="card-header text-center">
-              <a href="../../index2.html" class="h1"><b>Surat</b>Masuk</a>
+              <a href="../../index2.html" class="h1"><b>BSIP</b> KALTIM</a>
             </div>
             <div class="card-body">
               <p class="login-box-msg">Login</p>
